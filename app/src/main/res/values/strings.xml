@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">VietTravel</string>
+    <string name="activity_main_dang_ky">Đăng ký</string>
+    <string name="quay_lai">Quay lại</string>
+
+    <!-- Activity Registration   -->
+    <string name="activity_registration_dang_ky">Đăng ký</string>
+    <string name="activity_registration_ten_day_du">Tên đầy đủ</string>
+    <string name="activity_registration_sdt">Số điện thoại</string>
+    <string name="activity_registration_mat_khau">Mật khẩu</string>
+    <string name="activity_registration_nhap_lai_mat_khau">Nhập lại mật khẩu</string>
+    <string name="activity_registration_dieu_khoan">Bằng việc nhấn nút Đăng ký, Quý khách đã đồng ý với các điều kiện và điều khoản của VietNam Travel</string>
+    <string name="activity_registration_hoac_la">Hoặc là</string>
+    <string name="activity_registration_facebook">Đăng ký bằng Facebook</string>
+    <string name="activity_registration_gooogle">Đăng ký bằng Google</string>
+    <string name="activity_registration_mat_an">Mat an</string>
+    <string name="activity_registration_mat_hien">Mat hien</string>
+
+    <!-- Activity Login-->
+    <string name="activity_login_dang_nhap">Đăng nhập</string>
+    <string name="activity_login_quen_mat_kau">Quên mật khẩu</string>
+    <string name="activity_login_facebook">Đăng nhập bằng Facebook</string>
+    <string name="activity_login_gooogle">Đăng nhập bằng Google</string>
+
+</resources>

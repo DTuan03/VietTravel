@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="tvXam">#666666</color>
+
+    <color name="regis_before">#D9D9D9</color>
+    <color name="regis_after">#138CBC</color>
+    <color name="regis_error">#FF0000</color>
+</resources>
