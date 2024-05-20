@@ -2,14 +2,14 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment_blank"
+    android:id="@+id/activity_registraion"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".RegistrationActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/activity_main_mtDangKy"
+        android:id="@+id/activity_main_mtCaiDat"
         android:layout_width="475dp"
         android:layout_height="65dp"
         android:layout_marginStart="-2dp"
@@ -43,13 +43,13 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/activity_registration_iv_back"
-        app:layout_constraintTop_toTopOf="@+id/activity_main_mtDangKy" />
+        app:layout_constraintTop_toTopOf="@+id/activity_main_mtCaiDat" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="60dp"
-        app:layout_constraintTop_toBottomOf="@+id/activity_main_mtDangKy">
+        app:layout_constraintTop_toBottomOf="@+id/activity_main_mtCaiDat">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -66,7 +66,7 @@
                 android:text="@string/activity_registration_ten_day_du"
                 android:textColor="@color/tvXam"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/activity_main_mtDangKy" />
+                app:layout_constraintTop_toBottomOf="@+id/activity_main_mtCaiDat" />
 
             <EditText
                 android:id="@+id/activity_registration_et_tendaydu"
@@ -150,6 +150,7 @@
                     android:layout_marginEnd="20dp"
                     android:ems="10"
                     android:inputType="textPassword"
+                    android:paddingRight="45dp"
                     android:textColorHint="#A09B9B"
                     app:errorEnabled="true"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -189,6 +190,7 @@
                     android:layout_marginEnd="20dp"
                     android:ems="10"
                     android:inputType="textPassword"
+                    android:paddingRight="45dp"
                     android:textColorHint="#A09B9B"
                     app:errorEnabled="true"
                     app:layout_constraintEnd_toEndOf="parent"
