@@ -15,6 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -42,15 +44,29 @@ public class HomeActivity extends AppCompatActivity {
 
     public boolean handleNavigationItemSelected(MenuItem item) {
         Log.d("HomeActivity", "Item selected: " + item.getTitle());
+        Fragment fragment;
         if (item.getItemId() == R.id.navigation_home) {
+            fragment = new HomeFragment();
+            loadFragment(fragment);
             return true;
         } else if (item.getItemId() == R.id.navigation_favorite) {
             return true;
         } else if (item.getItemId() == R.id.navigation_history) {
+
             return true;
         } else if (item.getItemId() == R.id.navigation_setting) {
+            fragment = new SettingFragment();
+            loadFragment(fragment);
             return true;
         }
         return false;
+    }
+
+    private void loadFragment(Fragment fragment) {
+        // load fragment
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragmentContainerView, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 }
