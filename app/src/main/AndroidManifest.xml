@@ -16,7 +16,7 @@
             android:name=".SettingActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".ReplaceActivity"
             android:exported="false" />
         <activity
             android:name=".ContactActivity"
@@ -28,7 +28,7 @@
             android:name=".LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".ReplaceActivity"
+            android:name=".HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
