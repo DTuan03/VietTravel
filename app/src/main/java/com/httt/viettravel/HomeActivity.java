@@ -41,20 +41,10 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public boolean handleNavigationItemSelected(MenuItem item) {
-        ColorStateList iconTintList = getColorStateList(R.color.regis_after);
         Log.d("HomeActivity", "Item selected: " + item.getTitle());
         if (item.getItemId() == R.id.navigation_home) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                item.setIconTintList(iconTintList);
-                Log.d("a","d");
-                Log.d("HomeActivity", "TintList selected: " + item.getIconTintList());
-            }
             return true;
         } else if (item.getItemId() == R.id.navigation_favorite) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                Log.d("HomeActivity", "TintList selected: " + item.getIconTintList());
-
-            }
             return true;
         } else if (item.getItemId() == R.id.navigation_history) {
             return true;

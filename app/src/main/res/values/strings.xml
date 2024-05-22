@@ -49,9 +49,8 @@
     <string name="activity_replace_new">Mật khẩu mới</string>
     <string name="activity_replace_cf_new">Nhập lại mật khẩu mới</string>
     <string name="activity_replace_xac_nhan">Xác nhận</string>
-
-
-
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
