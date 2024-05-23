@@ -68,9 +68,7 @@ public class LoginActivity extends AppCompatActivity {
     private void setupTextWatchers(){
         TextWatcher textWatcher = new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -79,9 +77,7 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             @Override
-            public void afterTextChanged(Editable s) {
-
-            }
+            public void afterTextChanged(Editable s) {}
         };
 
         sdt.addTextChangedListener(textWatcher);
