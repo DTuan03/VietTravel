@@ -46,7 +46,7 @@ public class HomeActivity extends AppCompatActivity {
         Log.d("HomeActivity", "Item selected: " + item.getTitle());
         Fragment fragment;
         if (item.getItemId() == R.id.navigation_home) {
-            fragment = new HomeFragment();
+            fragment = new VoucherFragment();
             loadFragment(fragment);
             return true;
         } else if (item.getItemId() == R.id.navigation_favorite) {
