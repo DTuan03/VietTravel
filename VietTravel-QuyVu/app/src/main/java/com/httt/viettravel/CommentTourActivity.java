@@ -3,6 +3,7 @@ package com.httt.viettravel;//package com.httt.viettravel;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -26,6 +27,7 @@ public class CommentTourActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comment_tour);
+        LinearLayout layout_comment = findViewById(R.id.layout_comment);
 //
 //        initView();
 //        setVirable();

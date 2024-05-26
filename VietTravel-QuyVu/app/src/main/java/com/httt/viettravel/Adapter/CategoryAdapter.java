@@ -1,31 +1,25 @@
 package com.httt.viettravel.Adapter;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.httt.viettravel.CommentTourActivity;
 import com.httt.viettravel.Model.Category;
-import com.httt.viettravel.Model.Tour;
 import com.httt.viettravel.R;
-
 import java.util.List;
-
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder> {
 
     private Context context;
     private List<Category> listCategory;
-    private Tour selectedTour;
+//    private List<Tour> tours;
 
+    CardView card;
     public CategoryAdapter(Context context) {
         this.context = context;
     }
@@ -45,8 +39,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
-
-
         Category category = listCategory.get(position);
 
         if (category == null) {
@@ -57,21 +49,10 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context, RecyclerView.HORIZONTAL, false);
         holder.rcvTour.setLayoutManager(linearLayoutManager);
 
-
-        TourAdapter tourAdapter = new TourAdapter();
+        TourAdapter tourAdapter = new TourAdapter(context);
         tourAdapter.setData(category.getTours());
         holder.rcvTour.setAdapter(tourAdapter);
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, CommentTourActivity.class);
-                context.startActivity(intent);
-            }
-        });
-
     }
-
 
     @Override
     public int getItemCount() {

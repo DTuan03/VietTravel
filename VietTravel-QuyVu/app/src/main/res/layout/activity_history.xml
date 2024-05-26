@@ -51,7 +51,7 @@
                 android:scaleType="fitXY"
                 android:src="@mipmap/ic_launcher_search_adaptive_fore" />
 
-            <TextView
+            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"

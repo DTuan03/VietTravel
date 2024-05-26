@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -24,6 +25,11 @@ import java.util.List;
 public class TourAdapter extends RecyclerView.Adapter<TourAdapter.TourItemViewHolder> {
 
     private List<Tour> tours;
+    Context context;
+
+    public TourAdapter(Context context) {
+        this.context = context;
+    }
 
     public void setData(List<Tour> tours) {
         this.tours=tours;
@@ -40,6 +46,7 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.TourItemViewHo
     @Override
     public void onBindViewHolder(@NonNull TourAdapter.TourItemViewHolder holder, int position) {
         Tour tourItem = tours.get(position);
+
         if(tourItem == null){
             return;
         }
@@ -49,13 +56,15 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.TourItemViewHo
         holder.price.setText(tourItem.getPrice());
         holder.day.setText(tourItem.getDay());
 
-
-
-
+        holder.card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, CommentTourActivity.class);
+                context.startActivity(intent);
+            }
+        });
 
     }
-
-
 
     @Override
     public int getItemCount() {
@@ -71,6 +80,7 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.TourItemViewHo
         TextView location;
         TextView price;
         TextView day;
+        CardView card;
 
         public TourItemViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -78,6 +88,7 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.TourItemViewHo
             location =itemView.findViewById(R.id.location);
             price =itemView.findViewById(R.id.price);
             day =itemView.findViewById(R.id.day);
+            card =itemView.findViewById(R.id.card);
         }
     }
 }
