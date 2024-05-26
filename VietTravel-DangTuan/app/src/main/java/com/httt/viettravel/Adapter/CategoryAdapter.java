@@ -2,6 +2,7 @@ package com.httt.viettravel.Adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.httt.viettravel.CommentTourActivity;
 import com.httt.viettravel.Model.Category;
+import com.httt.viettravel.Model.Tour;
 import com.httt.viettravel.R;
 
 import java.util.List;
@@ -21,6 +24,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     private Context context;
     private List<Category> listCategory;
+    private Tour selectedTour;
+
     public CategoryAdapter(Context context) {
         this.context = context;
     }
@@ -30,10 +35,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         notifyDataSetChanged();
     }
 
-//    public CategoryAdapter(Context context, List<Category> listCategory) {
-//        this.context = context;
-//        this.listCategory = listCategory;
-//    }
 
     @NonNull
     @Override
@@ -43,7 +44,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CategoryAdapter.CategoryViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
+
 
         Category category = listCategory.get(position);
 
@@ -59,14 +61,22 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         TourAdapter tourAdapter = new TourAdapter();
         tourAdapter.setData(category.getTours());
         holder.rcvTour.setAdapter(tourAdapter);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, CommentTourActivity.class);
+                context.startActivity(intent);
+            }
+        });
+
     }
+
 
     @Override
     public int getItemCount() {
         return listCategory.size();
     }
-
-
 
     public class CategoryViewHolder extends RecyclerView.ViewHolder {
         TextView txtCategory;
@@ -79,4 +89,5 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         }
     }
 }
+
 

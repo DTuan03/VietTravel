@@ -14,6 +14,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.httt.viettravel.CommentTourActivity;
 import com.httt.viettravel.Model.Tour;
 
 import com.httt.viettravel.R;
@@ -28,7 +29,6 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.TourItemViewHo
         this.tours=tours;
         notifyDataSetChanged();
     }
-
 
     @NonNull
     @Override
@@ -48,7 +48,14 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.TourItemViewHo
         holder.location.setText(tourItem.getLocation());
         holder.price.setText(tourItem.getPrice());
         holder.day.setText(tourItem.getDay());
+
+
+
+
+
     }
+
+
 
     @Override
     public int getItemCount() {

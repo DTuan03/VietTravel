@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VietTravel"
         tools:targetApi="31">
-
+        <activity
+            android:name=".CommentTourActivity"
+            android:exported="false" />
         <activity
             android:name=".HomeActivity"
             android:exported="false" />
