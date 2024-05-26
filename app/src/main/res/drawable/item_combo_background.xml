@@ -4,7 +4,7 @@
     <solid android:color="@color/white"/> <!-- Màu nền (transparent) -->
     <stroke
         android:width="0dp"
-        android:color="@color/white" />
+        android:color="#D7D2D2" />
     <corners
-        android:radius="20dp" /> <!-- Bo góc của viền -->
+        android:radius="40dp" /> <!-- Bo góc của viền -->
 </shape>

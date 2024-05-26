@@ -43,11 +43,11 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public boolean handleNavigationItemSelected(MenuItem item) {
-        Log.d("HomeActivity", "Item selected: " + item.getTitle());
-        Fragment fragment;
+        Fragment fragmentHome = new HomeFragment();
+        Fragment fragmentSetting = new SettingFragment();
+
         if (item.getItemId() == R.id.navigation_home) {
-            fragment = new VoucherFragment();
-            loadFragment(fragment);
+            loadFragment(fragmentHome);
             return true;
         } else if (item.getItemId() == R.id.navigation_favorite) {
             return true;
@@ -55,8 +55,7 @@ public class HomeActivity extends AppCompatActivity {
 
             return true;
         } else if (item.getItemId() == R.id.navigation_setting) {
-            fragment = new SettingFragment();
-            loadFragment(fragment);
+            loadFragment(fragmentSetting);
             return true;
         }
         return false;
@@ -67,6 +66,20 @@ public class HomeActivity extends AppCompatActivity {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.fragmentContainerView, fragment);
         transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
+    private void removeFragment(Fragment fragment){
+        // Bắt đầu giao dịch FragmentTransaction
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+        // Xóa Fragment được chỉ định
+        transaction.remove(fragment);
+
+        // Thêm giao dịch vào back stack
+        transaction.addToBackStack(null);
+
+        // Hoàn thành và xác nhận giao dịch
         transaction.commit();
     }
 }

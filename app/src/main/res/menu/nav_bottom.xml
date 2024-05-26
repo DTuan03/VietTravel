@@ -4,17 +4,21 @@
 <item
     android:id="@+id/navigation_home"
     android:icon="@mipmap/ic_launcher_home_adaptive_fore"
-    android:title="Trang chủ" />
+    android:title="Trang chủ"
+    android:enabled="true" />
 <item
     android:id="@+id/navigation_favorite"
     android:icon="@mipmap/ic_launcher_favorite_adaptive_fore"
-    android:title="Yêu thích" />
+    android:title="Yêu thích"
+    android:enabled="true" />
 <item
     android:id="@+id/navigation_history"
     android:icon="@mipmap/ic_launcher_history_adaptive_fore"
-    android:title="Lịch sử" />
+    android:title="Lịch sử"
+    android:enabled="true" />
 <item
     android:id="@+id/navigation_setting"
     android:icon="@mipmap/ic_launcher_setting_adaptive_fore"
-    android:title="Cài đặt"/>
+    android:title="Cài đặt"
+    android:enabled="true" />
 </menu>

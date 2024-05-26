@@ -11,5 +11,7 @@
     <color name="fragment_huy">#E6EDF3F3</color>
     <color name="setting_tv">#999696</color>
 
+    <color name="fragment_home_rcv_combo">#99F3EFEF</color>
+
 
 </resources>

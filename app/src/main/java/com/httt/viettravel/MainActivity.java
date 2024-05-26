@@ -1,6 +1,7 @@
 package com.httt.viettravel;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -9,19 +10,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+
+import com.httt.viettravel.Model.Voucher;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
-    private static final String[] items = {"lorem", "ipsum", "dolor",
-            "sit", "amet", "consectetuer",
-            "adipiscing", "elit", "morbi",
-            "vel", "ligua", "vitae",
-            "arcu", "aliquet", "mollis",
-            "eiam", "vel", "erat",
-            "placerat", "ante", "porttitor",
-            "sodales", "pellentesque", "augue",
-            "purus"};
-
+    private RecyclerView rcvVoucher;
+    private VoucherAdapter voucherAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,12 +32,30 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        ListView myListView = (ListView) findViewById(R.id.myListView);
 
         //Khai bao MyArrayAdapter
-        ArrayAdapter<String> myArrayAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, items);
+        voucherAdapter = new VoucherAdapter();
+        rcvVoucher = findViewById(R.id.activity_main_rcv);
 
+        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL,false);
+        rcvVoucher.setLayoutManager(linearLayoutManager);
+
+        voucherAdapter.setData(getListVoucher());
+
+        rcvVoucher.setAdapter(voucherAdapter);
         //Gan  ArrAdapter vao cho ListView
-        myListView.setAdapter(myArrayAdapter);
+    }
+
+    private List<Voucher> getListVoucher(){
+        List<Voucher> list = new ArrayList<>();
+        list.add(new Voucher(R.mipmap.ic_launcher_logo));
+        Log.d("sss", "ssss");
+        list.add(new Voucher(R.drawable.img));
+        list.add(new Voucher(R.mipmap.ic_launcher_logo));
+        list.add(new Voucher(R.mipmap.ic_launcher_logo));
+        list.add(new Voucher(R.mipmap.ic_launcher_logo));
+
+        return list;
     }
 }

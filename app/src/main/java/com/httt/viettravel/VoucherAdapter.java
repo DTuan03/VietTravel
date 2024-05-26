@@ -1,5 +1,6 @@
 package com.httt.viettravel;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,12 +20,12 @@ public class VoucherAdapter extends RecyclerView.Adapter<VoucherAdapter.VoucherV
 
     public void setData(List<Voucher> list){
         this.mListVocher = list;
-        notifyDataSetChanged();
+//        notifyDataSetChanged();
     }
     @NonNull
     @Override
     public VoucherViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.voucher_item,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_voucher,parent,false);
         return new VoucherViewHolder(view);
     }
 
@@ -32,9 +33,8 @@ public class VoucherAdapter extends RecyclerView.Adapter<VoucherAdapter.VoucherV
     public void onBindViewHolder(@NonNull VoucherViewHolder holder, int position) {
         Voucher voucher = mListVocher.get(position);
         if(voucher != null){
-            return;
+            holder.imgVoucher.setImageResource(voucher.getmResourceId());
         }
-        holder.imgVoucher.setImageResource(voucher.getmResourceId());
     }
 
     @Override
@@ -49,7 +49,7 @@ public class VoucherAdapter extends RecyclerView.Adapter<VoucherAdapter.VoucherV
         private ImageView imgVoucher;
         public VoucherViewHolder(@NonNull View itemView) {
             super(itemView);
-            imgVoucher = itemView.findViewById(R.id.voucher_item_img);
+            imgVoucher = itemView.findViewById(R.id.item_voucher_img);
         }
     }
 }
