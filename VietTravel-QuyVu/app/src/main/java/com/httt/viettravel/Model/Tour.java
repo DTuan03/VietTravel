@@ -4,10 +4,7 @@ import java.util.List;
 
 public class Tour {
     private int pic;
-
-    private String day;
-    private String location;
-    private String price;
+    private String day,location,price;
 
     public Tour(int pic, String day, String location, String price) {
         this.pic = pic;

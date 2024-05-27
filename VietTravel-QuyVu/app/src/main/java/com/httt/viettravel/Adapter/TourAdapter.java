@@ -77,9 +77,7 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.TourItemViewHo
 
     public class TourItemViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
-        TextView location;
-        TextView price;
-        TextView day;
+        TextView location,price,day;
         CardView card;
 
         public TourItemViewHolder(@NonNull View itemView) {

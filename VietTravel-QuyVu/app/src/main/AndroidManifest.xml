@@ -13,7 +13,7 @@
         android:theme="@style/Theme.VietTravel"
         tools:targetApi="31">
         <activity
-            android:name=".CommentTourActivity"
+            android:name=".History"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"
@@ -31,7 +31,7 @@
             android:name=".LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".History"
+            android:name=".TermActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

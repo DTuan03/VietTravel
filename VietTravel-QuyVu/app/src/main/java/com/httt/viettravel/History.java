@@ -28,7 +28,6 @@ public class History extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_history);
 
-
         rcv_category=findViewById(R.id.rcv_category);
 
         categoryAdapter = new CategoryAdapter(this);
