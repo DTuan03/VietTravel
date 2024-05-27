@@ -2,8 +2,6 @@ package com.httt.viettravel;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import com.httt.viettravel.Adapter.VoucherAdapter;
 import com.httt.viettravel.Model.Voucher;
 
 import java.util.ArrayList;

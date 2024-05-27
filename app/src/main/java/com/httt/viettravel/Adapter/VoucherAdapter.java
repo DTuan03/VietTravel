@@ -1,17 +1,15 @@
-package com.httt.viettravel;
+package com.httt.viettravel.Adapter;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.httt.viettravel.Model.Voucher;
+import com.httt.viettravel.R;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.httt.viettravel;
+package com.httt.viettravel.Activity;
 
 import android.annotation.SuppressLint;
 import android.content.res.ColorStateList;
@@ -20,6 +20,9 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.httt.viettravel.HomeFragment;
+import com.httt.viettravel.R;
+import com.httt.viettravel.SettingFragment;
 
 public class HomeActivity extends AppCompatActivity {
 
