@@ -25,9 +25,10 @@
         android:layout_height="wrap_content"
         android:background="@drawable/background_bottom_navigation"
         app:itemIconSize="60dp"
-        app:itemIconTint="@color/regis_after"
+        app:itemIconTint="@color/nav_bottom_color"
+
         app:itemRippleColor="#ECE6E6"
-        app:itemTextColor="@color/regis_after"
+        app:itemTextColor="@color/nav_bottom_color"
         app:labelVisibilityMode="labeled"
         app:itemPaddingTop="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
