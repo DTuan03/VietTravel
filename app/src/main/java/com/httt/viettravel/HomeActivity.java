@@ -1,6 +1,7 @@
-package com.httt.viettravel.Activity;
+package com.httt.viettravel;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Build;
 import android.os.Bundle;
@@ -25,6 +26,8 @@ import com.httt.viettravel.R;
 import com.httt.viettravel.SettingFragment;
 
 public class HomeActivity extends AppCompatActivity {
+    Fragment fragmentHome = new HomeFragment();
+    Fragment fragmentSetting = new SettingFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +48,16 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-    public boolean handleNavigationItemSelected(MenuItem item) {
-        Fragment fragmentHome = new HomeFragment();
-        Fragment fragmentSetting = new SettingFragment();
+    public void onResume() {
+        super.onResume();
+        Intent intent = getIntent();
+        if (intent != null && "FragmentSetting".equals(intent.getStringExtra("ActivityHome"))) {
+            loadFragment(fragmentSetting);
+        }
 
+    }
+
+    public boolean handleNavigationItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.navigation_home) {
             loadFragment(fragmentHome);
             return true;

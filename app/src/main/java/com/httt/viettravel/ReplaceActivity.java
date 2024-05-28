@@ -1,5 +1,6 @@
 package com.httt.viettravel;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -25,6 +26,7 @@ public class ReplaceActivity extends AppCompatActivity {
             return insets;
         });
         init();
+        setImgBack();
     }
 
     private void init(){
@@ -35,7 +37,9 @@ public class ReplaceActivity extends AppCompatActivity {
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(ReplaceActivity.this, HomeActivity.class);
+                intent.putExtra("ActivityHome","FragmentSetting");
+                startActivity(intent);
             }
         });
     }
