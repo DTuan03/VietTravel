@@ -1,5 +1,6 @@
 package com.httt.viettravel;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,10 +8,12 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class SettingFragment extends Fragment {
     private TextView tvReplace;
+    private LinearLayout llMatKhau;
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -43,8 +46,17 @@ public class SettingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_setting, container, false);
-        tvReplace = (TextView) view.findViewById(R.id.fragment_setting_tv_replace_password);
-        
+
+        llMatKhau = (LinearLayout) view.findViewById(R.id.fragment_setting_ll_mat_khau);
+        llMatKhau.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(),ReplaceActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
         return view;
     }
 }
