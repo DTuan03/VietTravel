@@ -4,6 +4,7 @@ package com.httt.viettravel;
 
 import android.os.Bundle;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,6 +13,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.ScrollView;
 
 import com.httt.viettravel.Adapter.ComboAdapter;
 import com.httt.viettravel.Adapter.VoucherAdapter;
@@ -29,6 +32,10 @@ public class HomeFragment extends Fragment {
     private RecyclerView rcvVoucher;
 
     private VoucherAdapter voucherAdapter;
+
+    private ScrollView scrollView;
+
+    private View fragment;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -61,11 +68,10 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+        init(view);
+        setStatusBar();
         comboAdapter = new ComboAdapter();
         voucherAdapter = new VoucherAdapter();
-
-        rcvCombo = view.findViewById(R.id.fragment_home_rcv_combo);
-        rcvVoucher = view.findViewById(R.id.fragment_home_rcv_voucher);
 
         int spacingInPixelsCombo = getResources().getDimensionPixelSize(R.dimen.item_combo);
         int spacingInPicelVoucher = getResources().getDimensionPixelSize(R.dimen.item_combo);
@@ -85,6 +91,13 @@ public class HomeFragment extends Fragment {
         rcvCombo.setAdapter(comboAdapter);
         rcvVoucher.setAdapter(voucherAdapter);
         return view;
+    }
+
+    private void init(View view){
+        rcvCombo = view.findViewById(R.id.fragment_home_rcv_combo);
+        rcvVoucher = view.findViewById(R.id.fragment_home_rcv_voucher);
+        scrollView = view.findViewById(R.id.fragment_home_sv);
+        fragment = view.findViewById(R.id.fragment_home);
     }
 
     private List<Combo> getListCombo(){
@@ -108,5 +121,40 @@ public class HomeFragment extends Fragment {
         list.add(new Voucher(R.drawable.img));
 
         return list;
+    }
+    
+//    private void setStatusBar(){
+//        //Mau cua status bar
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            getWindow().setStatusBarColor(ContextCompat.getColor(getActivity(), R.color.activity_home_status_bar));
+//        }
+//
+//        // Đặt chế độ sáng/tối cho status bar
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//            if (true /* điều kiện của bạn để sử dụng chế độ sáng */) {
+//                getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+//            } else {
+//                getWindow().getDecorView().setSystemUiVisibility(0); // Đặt về chế độ tối mặc định
+//            }
+//        }
+//    }
+//
+//    private Window getWindow() {
+//    }
+
+    // Đảm bảo getActivity() không null trước khi gọi getWindow()
+    private void setStatusBar() {
+        // Đảm bảo getActivity() không null trước khi gọi getWindow()
+        if () {
+            Window window = getActivity().getWindow();
+            // Màu của status bar
+            window.setStatusBarColor(ContextCompat.getColor(getActivity(), R.color.activity_home_status_bar));
+            scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+                @Override
+                public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                    window.getDecorView().setSystemUiVisibility(0);
+                }
+            });
+        }
     }
 }
