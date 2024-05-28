@@ -1,6 +1,7 @@
 package com.httt.viettravel;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -62,5 +63,20 @@ public class ReplaceActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private boolean isEmpty(EditText et){
+        String string = et.getText().toString();
+        return (string.isEmpty());
+    }
+
+    private void setButton(){
+        if(isEmpty(etMatKhauHienTai) || isEmpty(etMatKhauMoi) || isEmpty(etMatKhauNhapLai)){
+            btnCatNhat.setEnabled(false);
+            btnCatNhat.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.regis_before)));
+        }else{
+            btnCatNhat.setEnabled(true);
+            btnCatNhat.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.regis_after)));
+        }
     }
 }
