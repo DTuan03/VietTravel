@@ -79,4 +79,6 @@ public class ReplaceActivity extends AppCompatActivity {
             btnCatNhat.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.regis_after)));
         }
     }
+
+
 }
