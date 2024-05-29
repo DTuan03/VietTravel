@@ -28,7 +28,7 @@ public class CommentTourActivity extends AppCompatActivity {
    private ImageView pic;
    private TextView content,location, routine,time,price,vehicle,place,comment;
    private CommentTour commentTour;
-   private List<CommentTour>  commentTours;
+   private List<CommentTour> commentTours;
     CommentTourApdapter commentTourApdapter;
 
 
@@ -38,30 +38,26 @@ public class CommentTourActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comment_tour);
 
-        commentTours = new ArrayList<>();
-        commentTour = new CommentTour(R.drawable.halong,"Địa trung hải ", "Hà Nội - Quảng Ninh","Đi tham quan các vịnh lớn nhỏ",
-                "2 ngày 1 đêm","VND 2.345.443","Ô tô", "Khách sạn Mường Thanh",null);
-        commentTours.add(commentTour);
-        commentTour = new CommentTour(R.drawable.sapa,"Địa trung hải ", "Hà Nội - Quảng Ninh","Đi tham quan các vịnh lớn nhỏ",
-                "2 ngày 1 đêm","VND 2.345.443","Ô tô", "Khách sạn Mường Thanh",null);
-        commentTours.add(commentTour);
-        commentTour = new CommentTour(R.drawable.sapa,"Địa trung hải ", "Hà Nội - Quảng Ninh","Đi tham quan các vịnh lớn nhỏ",
-                "2 ngày 1 đêm","VND 2.345.443","Ô tô", "Khách sạn Mường Thanh",null);
-        commentTours.add(commentTour);
-        commentTour = new CommentTour(R.drawable.halong,"Địa trung hải ", "Hà Nội - Quảng Ninh","Đi tham quan các vịnh lớn nhỏ",
-                "2 ngày 1 đêm","VND 2.345.443","Ô tô", "Khách sạn Mường Thanh",null);
-        commentTours.add(commentTour);
-
-
-        initView();
-        setVariable();
-
-        commentTourApdapter  =new CommentTourApdapter(CommentTourActivity.this, commentTours);
+//        commentTours = new ArrayList<>();
+//        commentTour = new CommentTour(R.drawable.halong,"Địa trung hải ", "Hà Nội - Quảng Ninh","Đi tham quan các vịnh lớn nhỏ",
+//                "2 ngày 1 đêm","VND 2.345.443","Ô tô", "Khách sạn Mường Thanh",null);
+//        commentTours.add(commentTour);
+//        commentTour = new CommentTour(R.drawable.sapa,"Địa trung hải ", "Hà Nội - Quảng Ninh","Đi tham quan các vịnh lớn nhỏ",
+//                "2 ngày 1 đêm","VND 2.345.443","Ô tô", "Khách sạn Mường Thanh",null);
+//        commentTours.add(commentTour);
+//        commentTour = new CommentTour(R.drawable.sapa,"Địa trung hải ", "Hà Nội - Quảng Ninh","Đi tham quan các vịnh lớn nhỏ",
+//                "2 ngày 1 đêm","VND 2.345.443","Ô tô", "Khách sạn Mường Thanh",null);
+//        commentTours.add(commentTour);
+//        commentTour = new CommentTour(R.drawable.halong,"Địa trung hải ", "Hà Nội - Quảng Ninh","Đi tham quan các vịnh lớn nhỏ",
+//                "2 ngày 1 đêm","VND 2.345.443","Ô tô", "Khách sạn Mường Thanh",null);
+//        commentTours.add(commentTour);
+//
+//
+//        initView();
+//        setVariable();
+//
+//        commentTourApdapter  =new CommentTourApdapter(CommentTourActivity.this, commentTours);
     }
-
-
-
-
 
 
     private void setVariable() {
