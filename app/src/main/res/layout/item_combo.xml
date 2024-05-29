@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/item_combo"
+    android:id="@+id/item_favorite"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@drawable/background_replace">
@@ -42,7 +42,7 @@
             android:layout_gravity="end"
             android:layout_marginTop="-25dp"
             android:layout_marginEnd="-20dp"
-            app:srcCompat="@mipmap/item_favorite_adaptive_fore" />
+            app:srcCompat="@mipmap/ic_launcher_favorite_adaptive_fore" />
 
     </FrameLayout>
 </androidx.cardview.widget.CardView>
