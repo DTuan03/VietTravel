@@ -10,6 +10,7 @@ import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -58,7 +59,7 @@ public class ReplaceActivity extends AppCompatActivity {
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ReplaceActivity.this, HomeActivity.class);
+                Intent intent = new Intent(ReplaceActivity.this, SettingFragment.class);
                 intent.putExtra("ActivityHome","FragmentSetting");
                 startActivity(intent);
             }

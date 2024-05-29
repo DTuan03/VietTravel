@@ -56,6 +56,7 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent = getIntent();
         if (intent != null && "FragmentSetting".equals(intent.getStringExtra("ActivityHome"))) {
             loadFragment(fragmentSetting);
+            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.fragment_setting_status_bar));
         }
 
     }
