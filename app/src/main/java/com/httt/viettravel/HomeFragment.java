@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
@@ -40,6 +41,8 @@ public class HomeFragment extends Fragment {
     private View fragment;
 
     private ConstraintLayout clTimKiem;
+
+    private ImageView imgCart;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -103,6 +106,7 @@ public class HomeFragment extends Fragment {
         scrollView = view.findViewById(R.id.fragment_home_sv);
         fragment = view.findViewById(R.id.fragment_home);
         clTimKiem = view.findViewById(R.id.fragment_home_cl_tim_kiem);
+        imgCart = view.findViewById(R.id.fragmet_home_img_cart);
     }
 
     private List<Combo> getListCombo(){
@@ -159,6 +163,7 @@ public class HomeFragment extends Fragment {
                 public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
                     window.setStatusBarColor(ContextCompat.getColor(getActivity(), R.color.white));
                     clTimKiem.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.white));
+                    imgCart.setImageResource(R.mipmap.fragment_home_cart_black_adaptive_fore);
                 }
             });
         }

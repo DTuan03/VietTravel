@@ -52,10 +52,9 @@
                 app:srcCompat="@mipmap/ic_launcher_search_adaptive_fore" />
 
             <ImageView
-                android:id="@+id/imageView7"
+                android:id="@+id/fragmet_home_img_cart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="-3dp"
                 android:layout_marginEnd="30dp"
                 android:src="@mipmap/fragment_home_cart_adaptive_fore"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -117,7 +116,7 @@
                         android:id="@+id/textView32"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="22dp"
+                        android:layout_marginStart="24dp"
                         android:layout_marginTop="8dp"
                         android:text="Ô tô"
                         android:textColor="@color/black"
@@ -198,7 +197,7 @@
                         android:id="@+id/textView22"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="32dp"
+                        android:layout_marginStart="30dp"
                         android:layout_marginTop="8dp"
                         android:text="Tour giải trí"
                         android:textColor="@color/black"
