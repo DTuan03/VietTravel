@@ -69,7 +69,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         init(view);
-        setStatusBar();
+//        setStatusBar();
         comboAdapter = new ComboAdapter();
         voucherAdapter = new VoucherAdapter();
 
@@ -145,7 +145,7 @@ public class HomeFragment extends Fragment {
     // Đảm bảo getActivity() không null trước khi gọi getWindow()
     private void setStatusBar() {
         // Đảm bảo getActivity() không null trước khi gọi getWindow()
-        if () {
+        if (true) {
             Window window = getActivity().getWindow();
             // Màu của status bar
             window.setStatusBarColor(ContextCompat.getColor(getActivity(), R.color.activity_home_status_bar));
