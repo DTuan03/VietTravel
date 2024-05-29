@@ -59,7 +59,7 @@ public class ReplaceActivity extends AppCompatActivity {
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ReplaceActivity.this, SettingFragment.class);
+                Intent intent = new Intent(ReplaceActivity.this, HomeActivity.class);
                 intent.putExtra("ActivityHome","FragmentSetting");
                 startActivity(intent);
             }
