@@ -4,6 +4,7 @@ package com.httt.viettravel;
 
 import android.os.Bundle;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
 import com.httt.viettravel.Adapter.ComboAdapter;
@@ -36,6 +38,8 @@ public class HomeFragment extends Fragment {
     private ScrollView scrollView;
 
     private View fragment;
+
+    private ConstraintLayout clTimKiem;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -69,7 +73,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         init(view);
-//        setStatusBar();
+        setStatusBar(view);
         comboAdapter = new ComboAdapter();
         voucherAdapter = new VoucherAdapter();
 
@@ -98,6 +102,7 @@ public class HomeFragment extends Fragment {
         rcvVoucher = view.findViewById(R.id.fragment_home_rcv_voucher);
         scrollView = view.findViewById(R.id.fragment_home_sv);
         fragment = view.findViewById(R.id.fragment_home);
+        clTimKiem = view.findViewById(R.id.fragment_home_cl_tim_kiem);
     }
 
     private List<Combo> getListCombo(){
@@ -143,7 +148,7 @@ public class HomeFragment extends Fragment {
 //    }
 
     // Đảm bảo getActivity() không null trước khi gọi getWindow()
-    private void setStatusBar() {
+    private void setStatusBar(View view) {
         // Đảm bảo getActivity() không null trước khi gọi getWindow()
         if (true) {
             Window window = getActivity().getWindow();
@@ -152,7 +157,8 @@ public class HomeFragment extends Fragment {
             scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
                 @Override
                 public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                    window.getDecorView().setSystemUiVisibility(0);
+                    window.setStatusBarColor(ContextCompat.getColor(getActivity(), R.color.white));
+                    clTimKiem.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.white));
                 }
             });
         }

@@ -72,6 +72,7 @@ public class HomeActivity extends AppCompatActivity {
             return true;
         } else if (item.getItemId() == R.id.navigation_setting) {
             loadFragment(fragmentSetting);
+            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.black));
             return true;
         }
         return false;

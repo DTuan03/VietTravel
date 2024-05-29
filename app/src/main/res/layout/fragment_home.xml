@@ -14,9 +14,9 @@
         android:orientation="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout3"
+            android:id="@+id/fragment_home_cl_tim_kiem"
             android:layout_width="match_parent"
-            android:layout_height="62dp"
+            android:layout_height="60dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -24,9 +24,9 @@
 
             <EditText
                 android:id="@+id/editTextText"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="20dp"
+                android:layout_width="320dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/fragment_home_backgroud_search"
@@ -35,6 +35,7 @@
                 android:inputType="text"
                 android:paddingStart="40dp"
                 android:textColorHint="@color/tvXam"
+                android:textSize="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -43,12 +44,26 @@
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="56dp"
-                android:layout_height="84dp"
-                android:layout_marginStart="-10dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="-5dp"
                 app:layout_constraintBottom_toBottomOf="@+id/editTextText"
                 app:layout_constraintStart_toStartOf="@+id/editTextText"
                 app:layout_constraintTop_toTopOf="@+id/editTextText"
                 app:srcCompat="@mipmap/ic_launcher_search_adaptive_fore" />
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-3dp"
+                android:layout_marginEnd="30dp"
+                android:src="@mipmap/fragment_home_cart_adaptive_fore"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.552"
+                app:layout_constraintStart_toEndOf="@+id/editTextText"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ScrollView
@@ -67,76 +82,58 @@
                     android:id="@+id/constraintLayout4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/fragment_home_background_option"
                     android:paddingBottom="16dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_home_cl_tim_kiem">
 
                     <ImageButton
                         android:id="@+id/imageButton"
-                        android:layout_width="44dp"
-                        android:layout_height="41dp"
-                        android:layout_marginStart="40dp"
-                        android:layout_marginTop="2dp"
-                        android:background="@color/regis_after"
-                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/white"
+                        app:layout_constraintStart_toEndOf="@+id/imageButton5"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@mipmap/ic_launcher_car_adaptive_fore" />
+                        app:srcCompat="@mipmap/fragment_home_car_adaptive_fore" />
 
                     <ImageButton
                         android:id="@+id/imageButton2"
-                        android:layout_width="44dp"
-                        android:layout_height="41dp"
-                        android:layout_marginStart="48dp"
-                        android:layout_marginTop="2dp"
-                        android:background="@color/regis_after"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/white"
                         app:layout_constraintStart_toEndOf="@+id/imageButton"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@mipmap/ic_launcher_hotel_adaptive_fore" />
-
-                    <ImageButton
-                        android:id="@+id/imageButton3"
-                        android:layout_width="44dp"
-                        android:layout_height="41dp"
-                        android:layout_marginStart="52dp"
-                        android:layout_marginTop="2dp"
-                        android:background="@color/regis_after"
-                        app:layout_constraintStart_toEndOf="@+id/imageButton2"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@mipmap/ic_launcher_airplane_adaptive_fore" />
-
-                    <ImageButton
-                        android:id="@+id/imageButton4"
-                        android:layout_width="44dp"
-                        android:layout_height="41dp"
-                        android:layout_marginTop="2dp"
-                        android:background="@color/regis_after"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.493"
-                        app:layout_constraintStart_toEndOf="@+id/imageButton3"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@mipmap/ic_launcher_train_adaptive_fore" />
+                        app:srcCompat="@mipmap/fragment_home_hotel_adaptive_fore" />
 
                     <TextView
                         android:id="@+id/textView32"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="50dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="22dp"
+                        android:layout_marginTop="8dp"
                         android:text="Ô tô"
-                        android:textColor="@color/white"
-                        app:layout_constraintStart_toStartOf="parent"
+                        android:textColor="@color/black"
+                        android:textSize="12dp"
+                        app:layout_constraintStart_toEndOf="@+id/textView22"
                         app:layout_constraintTop_toBottomOf="@+id/imageButton" />
 
                     <TextView
                         android:id="@+id/textView33"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="48dp"
+                        android:layout_marginStart="30dp"
                         android:layout_marginTop="8dp"
                         android:text="Khách sạn"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
+                        android:textSize="12dp"
                         app:layout_constraintStart_toEndOf="@+id/textView32"
                         app:layout_constraintTop_toBottomOf="@+id/imageButton2" />
 
@@ -144,10 +141,11 @@
                         android:id="@+id/textView34"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="40dp"
+                        android:layout_marginStart="20dp"
                         android:layout_marginTop="8dp"
                         android:text="Máy bay"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
+                        android:textSize="12dp"
                         app:layout_constraintStart_toEndOf="@+id/textView33"
                         app:layout_constraintTop_toBottomOf="@+id/imageButton3" />
 
@@ -155,13 +153,78 @@
                         android:id="@+id/textView35"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
                         android:layout_marginTop="8dp"
                         android:text="Tàu hoả"
-                        android:textColor="@color/white"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.475"
+                        android:textColor="@color/black"
+                        android:textSize="12dp"
                         app:layout_constraintStart_toEndOf="@+id/textView34"
                         app:layout_constraintTop_toBottomOf="@+id/imageButton4" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton4"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/white"
+                        android:src="@mipmap/fragment_home_train_adaptive_fore"
+                        app:layout_constraintStart_toEndOf="@+id/imageButton3"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton3"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/white"
+                        app:layout_constraintStart_toEndOf="@+id/imageButton2"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@mipmap/fragment_home_air_adaptive_fore" />
+
+                    <ImageButton
+                        android:id="@+id/imageButton5"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="35dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/white"
+                        android:src="@mipmap/fragment_home_tour_adaptive_fore"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView22"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="8dp"
+                        android:text="Tour giải trí"
+                        android:textColor="@color/black"
+                        android:textSize="12dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imageButton5" />
+
+                    <Button
+                        android:id="@+id/button3"
+                        android:layout_width="327dp"
+                        android:layout_height="33dp"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="25dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/shape"
+                        android:enabled="false"
+                        android:text="Tất cả các mục"
+                        android:textColor="@color/black"
+                        android:textSize="13dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView32"
+                        app:layout_constraintVertical_bias="1.0" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
