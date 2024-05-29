@@ -63,7 +63,7 @@ public class HomeActivity extends AppCompatActivity {
     public boolean handleNavigationItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.navigation_home) {
             loadFragment(fragmentHome);
-            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.activity_home_status_bar));
+            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.fragment_home_status_bar));
             return true;
         } else if (item.getItemId() == R.id.navigation_favorite) {
             return true;
@@ -72,7 +72,7 @@ public class HomeActivity extends AppCompatActivity {
             return true;
         } else if (item.getItemId() == R.id.navigation_setting) {
             loadFragment(fragmentSetting);
-            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.black));
+            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.fragment_setting_status_bar));
             return true;
         }
         return false;

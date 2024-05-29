@@ -14,7 +14,9 @@
     <color name="fragment_home_rcv_combo">#99F3EFEF</color>
 
 
-<!--    Mau cua status bar Activity_home-->
-    <color name="activity_home_status_bar">#ff7300</color>
+<!--    Mau cua status bar fragment_home trong activity_home-->
+    <color name="fragment_home_status_bar">#ff7300</color>
+    <!--    Mau cua status bar fragment_setting trong activity_home-->
+    <color name="fragment_setting_status_bar">#67ced9</color>
 
 </resources>

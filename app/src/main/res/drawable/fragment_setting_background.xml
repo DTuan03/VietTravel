@@ -3,8 +3,8 @@
     <!-- res/drawable/border.xml -->
     <solid android:color="@color/white"/> <!-- Màu nền (transparent) -->
     <stroke
-        android:width="0dp"
-        android:color="@color/white" />
+        android:width="1dp"
+        android:color="#F1EBEB" />
     <corners
         android:radius="20dp" /> <!-- Bo góc của viền -->
 </shape>

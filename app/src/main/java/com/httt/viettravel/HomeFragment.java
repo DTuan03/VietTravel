@@ -161,7 +161,7 @@ public class HomeFragment extends Fragment {
         if (true) {
             Window window = getActivity().getWindow();
             // Màu của status bar
-            window.setStatusBarColor(ContextCompat.getColor(getActivity(), R.color.activity_home_status_bar));
+            window.setStatusBarColor(ContextCompat.getColor(getActivity(), R.color.fragment_home_status_bar));
             scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
                 @Override
                 public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
@@ -173,7 +173,7 @@ public class HomeFragment extends Fragment {
                         fragment.setBackgroundResource(R.color.white);
                     }
                     if(scrollY < 5){
-                        window.setStatusBarColor(ContextCompat.getColor(getActivity(),R.color.activity_home_status_bar));
+                        window.setStatusBarColor(ContextCompat.getColor(getActivity(),R.color.fragment_home_status_bar));
                         clTimKiem.setBackgroundResource(R.drawable.fragment_home_background_cl_search_after);
                         scrollView.setBackgroundResource(R.drawable.fragment_home_background_cl_search_after);
                         imgCart.setImageResource(R.mipmap.fragment_home_cart_adaptive_fore);
