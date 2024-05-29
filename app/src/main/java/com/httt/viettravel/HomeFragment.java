@@ -170,14 +170,14 @@ public class HomeFragment extends Fragment {
                         clTimKiem.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.white));
                         imgCart.setImageResource(R.mipmap.fragment_home_cart_black_adaptive_fore);
                         etSearch.setBackgroundResource(R.drawable.fragment_home_bacground_search_after);
-                    }
-                    if(scrollY > 20){
                         fragment.setBackgroundResource(R.color.white);
                     }
                     if(scrollY < 5){
                         window.setStatusBarColor(ContextCompat.getColor(getActivity(),R.color.activity_home_status_bar));
                         clTimKiem.setBackgroundResource(R.drawable.fragment_home_background_cl_search_after);
+                        scrollView.setBackgroundResource(R.drawable.fragment_home_background_cl_search_after);
                         imgCart.setImageResource(R.mipmap.fragment_home_cart_adaptive_fore);
+                        fragment.setBackgroundResource(R.drawable.activity_home_background);
                     }
                 }
             });
