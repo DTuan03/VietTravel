@@ -31,6 +31,8 @@ public class HomeActivity extends AppCompatActivity {
     Fragment fragmentHome = new HomeFragment();
     Fragment fragmentSetting = new SettingFragment();
 
+    Fragment fragmentFavorite = new FavoriteFragment();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +69,8 @@ public class HomeActivity extends AppCompatActivity {
             getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.fragment_home_status_bar));
             return true;
         } else if (item.getItemId() == R.id.navigation_favorite) {
+            loadFragment(fragmentFavorite);
+            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.white));
             return true;
         } else if (item.getItemId() == R.id.navigation_history) {
 
