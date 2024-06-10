@@ -32,7 +32,7 @@
                 android:layout_width="46dp"
                 android:layout_height="36dp"
                 android:layout_gravity="right"
-                app:srcCompat="@mipmap/ic_launcher_favorite_adaptive_fore" />
+                app:srcCompat="@mipmap/activity_home_favorite" />
 
         </FrameLayout>
 
