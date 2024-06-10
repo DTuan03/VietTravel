@@ -1,5 +1,6 @@
 package com.httt.test;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -12,11 +13,10 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.httt.test.databinding.ActivityMainBinding;
+import com.httt.test.ui.favourite.FavouriteFragment;
+import com.httt.test.ui.home.HomeFragment;
 
 public class MainActivity extends AppCompatActivity {
-
-    private RecyclerView rcvTour;
-    private RecyclerView rcvVoucher;
     private ActivityMainBinding binding;
 
     @Override
@@ -27,13 +27,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_home, R.id.navigation_favourite, R.id.navigation_history, R.id.navigation_setting)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupWithNavController(binding.navView, navController);
+
     }
 
 }

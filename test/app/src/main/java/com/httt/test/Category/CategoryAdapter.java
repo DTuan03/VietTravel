@@ -29,7 +29,9 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     {
         this.mListCategory = list;
         notifyDataSetChanged();
-    }    @NonNull
+    }
+
+    @NonNull
     @Override
     public CategoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_view_home, parent, false);
@@ -39,7 +41,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
         Category category = mListCategory.get(position);
-        if(category == null){
+        if (category == null) {
             return;
         }
 
@@ -48,8 +50,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext, RecyclerView.HORIZONTAL, false);
         holder.rcvTourCategory.setLayoutManager(linearLayoutManager);
 
-        TourAdapter tourAdapter = new TourAdapter();
-        tourAdapter.setData(category.getTours());
+        TourAdapter tourAdapter = new TourAdapter(mContext, category.getTours());
         holder.rcvTourCategory.setAdapter(tourAdapter);
     }
 

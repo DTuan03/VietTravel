@@ -1,14 +1,18 @@
 package com.httt.test.Adapter;
 
+import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.httt.test.Model.FavTour;
 import com.httt.test.Model.Tour;
 import com.httt.test.R;
 
@@ -17,10 +21,11 @@ import java.util.List;
 public class TourAdapter extends RecyclerView.Adapter<TourAdapter.TourViewHolder> {
 
     private List<Tour> tourList;
-
-    public void setData(List<Tour> tourList) {
+    private Context context;
+    public FavTour favouriteTour = new FavTour();
+    public TourAdapter(Context context, List<Tour> tourList) {
+        this.context = context;
         this.tourList = tourList;
-        notifyDataSetChanged();
     }
 
     @NonNull
@@ -59,9 +64,12 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.TourViewHolder
         if (tour != null) {
             holder.tvNameTour.setText(tour.getTv_name_tour());
             holder.tvDescription.setText(tour.getTv_description());
-            holder.tvPrice.setText(tour.getPrice());
-            holder.tvFav.setImageResource(tour.getTv_fav());
-            holder.imgTour.setImageResource(tour.getImg_tour());
+            holder.tvPrice.setText(String.format("%.2f", tour.getPrice()));
+            holder.imgTour.setImageURI(Uri.parse(tour.getImg_tour()));
+            holder.tvFav.setOnClickListener(v -> {
+                favouriteTour.addFavTour(tour);
+                Toast.makeText(context,"Add favorite tour: "+ tour.getTv_name_tour(), Toast.LENGTH_LONG).show();
+            });
         }
     }
 }

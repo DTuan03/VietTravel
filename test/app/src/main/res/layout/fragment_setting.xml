@@ -68,7 +68,7 @@
                 android:paddingBottom="80dp">
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rcvFavTour"
+                    android:id="@+id/rcvSetting"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:clipToPadding="false"

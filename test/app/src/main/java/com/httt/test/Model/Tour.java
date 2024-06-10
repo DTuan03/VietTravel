@@ -3,21 +3,29 @@ package com.httt.test.Model;
 import android.net.Uri;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.io.Serializable;
 
+@Entity(tableName = "tour")
 public class Tour implements Serializable {
-
+    @PrimaryKey(autoGenerate = true)
+    public int id_tour;
+    public int type;
     public String tv_name_tour;
     public String tv_description;
-    public String price;
-    public int tv_fav;
-    public int img_tour;
+    public float price;
+    public String img_tour;
 
-    public Tour(String tv_name_tour, String tv_description, String price, int tv_fav, int img_tour) {
+    public Tour() {
+    }
+
+    public Tour(String tv_name_tour, String tv_description, float price, String img_tour) {
         this.tv_name_tour = tv_name_tour;
         this.tv_description = tv_description;
         this.price = price;
-        this.tv_fav = tv_fav;
         this.img_tour = img_tour;
     }
 
@@ -37,27 +45,27 @@ public class Tour implements Serializable {
         this.tv_description = tv_description;
     }
 
-    public String getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 
-    public int getTv_fav() {
-        return tv_fav;
+    public int getId_tour() {
+        return id_tour;
     }
 
-    public void setTv_fav(int tv_fav) {
-        this.tv_fav = tv_fav;
+    public void setId_tour(int id_tour) {
+        this.id_tour = id_tour;
     }
 
-    public int getImg_tour() {
+    public String getImg_tour() {
         return img_tour;
     }
 
-    public void setImg_tour(int img_tour) {
+    public void setImg_tour(String img_tour) {
         this.img_tour = img_tour;
     }
 }

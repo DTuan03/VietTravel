@@ -1,31 +1,39 @@
 package com.httt.test.ui.favourite;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.httt.test.Adapter.FavTourAdapter;
+import com.httt.test.Model.FavTour;
 import com.httt.test.databinding.FragmentFavouriteBinding;
-import com.httt.test.ui.favourite.FavouriteViewModel;
 
 public class FavouriteFragment extends Fragment {
 
+    private FavTour favTour;
+    private RecyclerView rcvFavTour;
     private FragmentFavouriteBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        FavouriteViewModel favouriteViewModel =
-                new ViewModelProvider(this).get(FavouriteViewModel.class);
 
         binding = FragmentFavouriteBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textFavourite;
+        favTour = new FavTour();
+
+        rcvFavTour = binding.rcvFavTour;
+        rcvFavTour.setLayoutManager(new GridLayoutManager(requireContext(), 2));
+        FavTourAdapter adapter = new FavTourAdapter(favTour, requireContext());
+        rcvFavTour.setAdapter(adapter);
+
         return root;
     }
 

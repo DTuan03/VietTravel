@@ -9,7 +9,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-
 import com.httt.test.databinding.FragmentSettingBinding;
 import com.httt.test.ui.setting.SettingViewModel;
 
