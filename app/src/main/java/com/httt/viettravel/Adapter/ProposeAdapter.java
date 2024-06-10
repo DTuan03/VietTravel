@@ -18,6 +18,10 @@ public class ProposeAdapter extends RecyclerView.Adapter <ProposeAdapter.Propose
 
     private List<Propose> mListproposes;
 
+    public void setData(List<Propose> proposes){
+        this.mListproposes = proposes;
+    }
+
     @NonNull
     @Override
     public ProposeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

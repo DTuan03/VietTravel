@@ -10,17 +10,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.httt.viettravel.Adapter.ComboAdapter;
-import com.httt.viettravel.Model.Combo;
+import com.httt.viettravel.Adapter.ProposeAdapter;
+import com.httt.viettravel.Adapter.ProposeAdapter;
+import com.httt.viettravel.Model.Propose;
+import com.httt.viettravel.Model.Propose;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class ProposeFragment extends Fragment {
-
-    private ComboAdapter proposeAdapter;
-
+    private ProposeAdapter proposeAdapter;
     private RecyclerView recyclerView;
 
     private static final String ARG_PARAM1 = "param1";
@@ -56,7 +56,7 @@ public class ProposeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_propose, container, false);
         init(view);
 
-        proposeAdapter = new ComboAdapter();
+        proposeAdapter = new ProposeAdapter();
 
         //tham so bao gom so cot va hướng hiển thị
         StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
@@ -72,20 +72,20 @@ public class ProposeFragment extends Fragment {
         recyclerView = view.findViewById(R.id.fragment_propose_rcv);
     }
 
-    private List<Combo> getList(){
-        List<Combo> list = new ArrayList<>();
-        list.add(new Combo(R.drawable.img,"Test thu la 1","840,000"));
-        list.add(new Combo(R.drawable.img,"Test thu la 2","840,000"));
-        list.add(new Combo(R.drawable.img,"Test thu la 3","840,000"));
-        list.add(new Combo(R.drawable.img,"Test thu la 4","840,000"));
-        list.add(new Combo(R.drawable.img,"Test thu la 5","840,000"));
-        list.add(new Combo(R.drawable.img,"Test thu la 1","840,000"));
-        list.add(new Combo(R.drawable.img,"Test thu la 1","840,000"));
-        list.add(new Combo(R.drawable.img,"Test thu la 2","840,000"));
-        list.add(new Combo(R.drawable.img,"Test thu la 3","840,000"));
-        list.add(new Combo(R.drawable.img,"Test thu la 4","840,000"));
-        list.add(new Combo(R.drawable.img,"Test thu la 5","840,000"));
-        list.add(new Combo(R.drawable.img,"Test thu la 1","840,000"));
+    private List<Propose> getList(){
+        List<Propose> list = new ArrayList<>();
+        list.add(new Propose(R.drawable.img,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
+        list.add(new Propose(R.drawable.img,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
+        list.add(new Propose(R.drawable.img,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
+        list.add(new Propose(R.drawable.img,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
+        list.add(new Propose(R.drawable.img,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
+        list.add(new Propose(R.drawable.img,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
+        list.add(new Propose(R.drawable.img,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
+        list.add(new Propose(R.drawable.img,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
+        list.add(new Propose(R.drawable.img,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
+        list.add(new Propose(R.drawable.img,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
+        list.add(new Propose(R.drawable.img,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
+        list.add(new Propose(R.drawable.img,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
 
         return list;
     }
