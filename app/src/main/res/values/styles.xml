@@ -9,4 +9,9 @@
     <style name="activity_home_theme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:statusBarColor">#FF5722</item>
     </style>
+
+    <style name="BoldTabText" parent="TextAppearance.Design.Tab">
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>

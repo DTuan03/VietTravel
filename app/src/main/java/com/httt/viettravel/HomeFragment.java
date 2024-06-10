@@ -4,11 +4,14 @@ package com.httt.viettravel;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,10 +20,12 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 import com.httt.viettravel.Adapter.ComboAdapter;
+import com.httt.viettravel.Adapter.ViewPager2Adapter;
 import com.httt.viettravel.Adapter.VoucherAdapter;
 import com.httt.viettravel.DistanceItem.SpaceItemDecoration;
 import com.httt.viettravel.Model.Combo;
@@ -39,6 +44,9 @@ public class HomeFragment extends Fragment {
     private ConstraintLayout clTimKiem;
     private ImageView imgCart;
     private EditText etSearch;
+    private TabLayout tabLayout;
+    private ViewPager2 viewPager2;
+    private ViewPager2Adapter viewPager2Adapter;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -93,6 +101,8 @@ public class HomeFragment extends Fragment {
 
         rcvCombo.setAdapter(comboAdapter);
         rcvVoucher.setAdapter(voucherAdapter);
+
+        setViewPager2Adapter();
         return view;
     }
 
@@ -104,6 +114,8 @@ public class HomeFragment extends Fragment {
         clTimKiem = view.findViewById(R.id.fragment_home_cl_tim_kiem);
         imgCart = view.findViewById(R.id.fragmet_home_img_cart);
         etSearch = view.findViewById(R.id.fragment_home_et_search);
+        tabLayout = view.findViewById(R.id.fragment_home_tab_layout);
+        viewPager2 = view.findViewById(R.id.fragment_home_view_page2);
     }
 
     private List<Combo> getListCombo(){
@@ -129,9 +141,7 @@ public class HomeFragment extends Fragment {
         return list;
     }
 
-    // Đảm bảo getActivity() không null trước khi gọi getWindow()
     private void setStatusBar(View view) {
-        // Đảm bảo getActivity() không null trước khi gọi getWindow()
         if (true) {
             Window window = getActivity().getWindow();
             // Màu của status bar
@@ -156,5 +166,28 @@ public class HomeFragment extends Fragment {
                 }
             });
         }
+    }
+
+    private void setViewPager2Adapter(){
+        ViewPager2Adapter viewPager2Adapter = new ViewPager2Adapter(requireActivity());// Lấy hoạt động liên quan đến fragment
+        viewPager2.setAdapter(viewPager2Adapter);
+
+        new TabLayoutMediator(tabLayout, viewPager2, new TabLayoutMediator.TabConfigurationStrategy() {
+            @Override
+            public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
+                switch (position){
+                    case 0:
+                        tab.setText("Đề xuất");
+
+                        break;
+                    case 1:
+                        tab.setText("Không thể bỏ lỡ");
+                        break;
+                    case 2:
+                        tab.setText("Cẩm nang du lịch");
+                        break;
+                }
+            }
+        }).attach();
     }
 }

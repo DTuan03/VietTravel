@@ -248,6 +248,7 @@
                             android:layout_marginStart="10dp"
                             android:layout_marginTop="10dp"
                             android:text="Combo tốt nhất hôm nay"
+                            android:textColor="@color/black"
                             android:textSize="20dp"
                             android:textStyle="bold"
                             app:layout_constraintStart_toStartOf="parent"
@@ -306,6 +307,7 @@
                             android:layout_marginStart="10dp"
                             android:layout_marginTop="10dp"
                             android:text="Ưu đãi cho bạn"
+                            android:textColor="@color/black"
                             android:textSize="20dp"
                             android:textStyle="bold"
                             app:layout_constraintStart_toStartOf="parent"
@@ -338,32 +340,49 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="15dp"
                     android:layout_marginBottom="10dp"
                     android:text="Khám phá thêm"
+                    android:textColor="@color/black"
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
-                <TableLayout
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/fragment_home_tab_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="15dp"
+                    app:tabIndicatorColor="#FF5722"
+                    app:tabIndicatorFullWidth="false"
+                    app:tabMode="scrollable"
+                    app:tabRippleColor="#00FFFFFF"
+                    app:tabSelectedTextColor="#FF5722"
+                    app:tabTextAppearance="@style/TextAppearance.AppCompat.Body1">
 
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                    <com.google.android.material.tabs.TabItem
+                        android:id="@+id/fragment_home_tabItem_propose"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Đề xuất" />
 
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                    <com.google.android.material.tabs.TabItem
+                        android:id="@+id/fragment_home_tabItem_khong_the_bo_lo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Không thể bỏ lỡ" />
 
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                    <com.google.android.material.tabs.TabItem
+                        android:id="@+id/fragment_home_tabItem_cam_nang"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cẩm nang du lịch" />
+                </com.google.android.material.tabs.TabLayout>
 
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
-                </TableLayout>
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/fragment_home_view_page2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
             </LinearLayout>
         </ScrollView>
