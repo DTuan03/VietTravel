@@ -32,19 +32,12 @@ import java.util.List;
 public class HomeFragment extends Fragment {
     private RecyclerView rcvCombo;
     private ComboAdapter comboAdapter;
-    
     private RecyclerView rcvVoucher;
-
     private VoucherAdapter voucherAdapter;
-
     private ScrollView scrollView;
-
     private View fragment;
-
     private ConstraintLayout clTimKiem;
-
     private ImageView imgCart;
-
     private EditText etSearch;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -135,25 +128,6 @@ public class HomeFragment extends Fragment {
 
         return list;
     }
-    
-//    private void setStatusBar(){
-//        //Mau cua status bar
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//            getWindow().setStatusBarColor(ContextCompat.getColor(getActivity(), R.color.activity_home_status_bar));
-//        }
-//
-//        // Đặt chế độ sáng/tối cho status bar
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-//            if (true /* điều kiện của bạn để sử dụng chế độ sáng */) {
-//                getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-//            } else {
-//                getWindow().getDecorView().setSystemUiVisibility(0); // Đặt về chế độ tối mặc định
-//            }
-//        }
-//    }
-//
-//    private Window getWindow() {
-//    }
 
     // Đảm bảo getActivity() không null trước khi gọi getWindow()
     private void setStatusBar(View view) {
