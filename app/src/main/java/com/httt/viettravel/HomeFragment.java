@@ -2,6 +2,8 @@ package com.httt.viettravel;
 
 
 
+import android.annotation.SuppressLint;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -40,13 +42,12 @@ public class HomeFragment extends Fragment {
     private RecyclerView rcvVoucher;
     private VoucherAdapter voucherAdapter;
     private ScrollView scrollView;
-    private View fragment;
+    private View fragmentHome;
     private ConstraintLayout clTimKiem;
     private ImageView imgCart;
     private EditText etSearch;
     private TabLayout tabLayout;
     private ViewPager2 viewPager2;
-    private ViewPager2Adapter viewPager2Adapter;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -110,7 +111,7 @@ public class HomeFragment extends Fragment {
         rcvCombo = view.findViewById(R.id.fragment_home_rcv_combo);
         rcvVoucher = view.findViewById(R.id.fragment_home_rcv_voucher);
         scrollView = view.findViewById(R.id.fragment_home_sv);
-        fragment = view.findViewById(R.id.fragment_home);
+        fragmentHome = view.findViewById(R.id.fragment_home);
         clTimKiem = view.findViewById(R.id.fragment_home_cl_tim_kiem);
         imgCart = view.findViewById(R.id.fragmet_home_img_cart);
         etSearch = view.findViewById(R.id.fragment_home_et_search);
@@ -151,19 +152,19 @@ public class HomeFragment extends Fragment {
             scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
                 @Override
                 public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                    if(scrollY > oldScrollY){
+                    if(scrollY > 0){
                         window.setStatusBarColor(ContextCompat.getColor(getActivity(), R.color.white));
                         clTimKiem.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.white));
                         imgCart.setImageResource(R.mipmap.fragment_home_cart_black_adaptive_fore);
                         etSearch.setBackgroundResource(R.drawable.fragment_home_bacground_search_after);
-                        fragment.setBackgroundResource(R.color.white);
+                        fragmentHome.setBackgroundResource(R.color.white);
                     }
                     if(scrollY < 5){
                         window.setStatusBarColor(ContextCompat.getColor(getActivity(),R.color.fragment_home_status_bar));
                         clTimKiem.setBackgroundResource(R.drawable.fragment_home_background_cl_search_after);
                         scrollView.setBackgroundResource(R.drawable.fragment_home_background_cl_search_after);
                         imgCart.setImageResource(R.mipmap.fragment_home_cart_adaptive_fore);
-                        fragment.setBackgroundResource(R.drawable.activity_home_background);
+                        fragmentHome.setBackgroundResource(R.drawable.activity_home_background);
                     }
                 }
             });
