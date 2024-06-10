@@ -74,18 +74,23 @@ public class ProposeFragment extends Fragment {
 
     private List<Propose> getList(){
         List<Propose> list = new ArrayList<>();
-        list.add(new Propose(R.drawable.img,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
-        list.add(new Propose(R.drawable.img,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
-        list.add(new Propose(R.drawable.img,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
-        list.add(new Propose(R.drawable.img,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
-        list.add(new Propose(R.drawable.img,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
-        list.add(new Propose(R.drawable.img,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
-        list.add(new Propose(R.drawable.img,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
-        list.add(new Propose(R.drawable.img,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
-        list.add(new Propose(R.drawable.img,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
-        list.add(new Propose(R.drawable.img,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
-        list.add(new Propose(R.drawable.img,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
-        list.add(new Propose(R.drawable.img,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
+        list.add(new Propose(R.drawable.hue5,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
+        list.add(new Propose(R.drawable.qpc,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
+        list.add(new Propose(R.drawable.hue1,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
+        list.add(new Propose(R.drawable.hue1,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
+        list.add(new Propose(R.drawable.qpc,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
+        list.add(new Propose(R.drawable.qpc,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
+        list.add(new Propose(R.drawable.qpc,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
+        list.add(new Propose(R.drawable.qpc,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
+        list.add(new Propose(R.drawable.qpc,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
+        list.add(new Propose(R.drawable.qpc,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
+        list.add(new Propose(R.drawable.qpc,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
+        list.add(new Propose(R.drawable.qpc,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
+        list.add(new Propose(R.drawable.qpc,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
+        list.add(new Propose(R.drawable.qpc,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
+        list.add(new Propose(R.drawable.qpc,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
+        list.add(new Propose(R.drawable.qpc,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
+
 
         return list;
     }

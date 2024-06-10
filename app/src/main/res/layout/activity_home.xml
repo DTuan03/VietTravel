@@ -13,7 +13,7 @@
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
         android:name="com.httt.viettravel.HomeFragment"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:paddingBottom="10dp"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
