@@ -33,6 +33,7 @@ public class ComboAdapter extends RecyclerView.Adapter<ComboAdapter.ComboViewHol
         if(combo != null){
             holder.img.setImageResource(combo.getResourceId());
             holder.tvTitle.setText(combo.getTitle());
+            holder.tvPrice.setText(combo.getPrice());
         }
     }
 
@@ -47,10 +48,13 @@ public class ComboAdapter extends RecyclerView.Adapter<ComboAdapter.ComboViewHol
     public class ComboViewHolder extends RecyclerView.ViewHolder{
         private ImageView img;
         private TextView tvTitle;
+
+        private TextView tvPrice;
         public ComboViewHolder(@NonNull View itemView) {
             super(itemView);
             img = itemView.findViewById(R.id.item_combo_img);
             tvTitle = itemView.findViewById(R.id.item_combo_tv);
+            tvPrice = itemView.findViewById(R.id.item_combo_price);
         }
     }
 }

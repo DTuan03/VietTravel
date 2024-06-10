@@ -120,12 +120,14 @@ public class HomeFragment extends Fragment {
 
     private List<Combo> getListCombo(){
         List<Combo> list = new ArrayList<>();
-        list.add(new Combo(R.drawable.img,"Test thu la 1"));
-        Log.d("sss", "ssss");
-        list.add(new Combo(R.drawable.img,"Test thu la 2"));
-        list.add(new Combo(R.drawable.img,"Test thu la 3"));
-        list.add(new Combo(R.drawable.img,"Test thu la 4"));
-        list.add(new Combo(R.drawable.img,"Test thu la 5"));
+        list.add(new Combo(R.drawable.qpc,"Tour tham quan du lich lang Quang Phu Cau tam huong truyen thong lau doi o Ung Hoa", "840,000"));
+        list.add(new Combo(R.drawable.qpc,"Tour tham quan du lich lang Quang Phu Cau tam huong truyen thong lau doi o Ung Hoa", "840,000"));
+        list.add(new Combo(R.drawable.qpc,"Tour tham quan du lich lang Quang Phu Cau tam huong truyen thong lau doi o Ung Hoa", "840,000"));
+        list.add(new Combo(R.drawable.qpc,"Tour tham quan du lich lang Quang Phu Cau tam huong truyen thong lau doi o Ung Hoa", "840,000"));
+        list.add(new Combo(R.drawable.qpc,"Tour tham quan du lich lang Quang Phu Cau tam huong truyen thong lau doi o Ung Hoa", "840,000"));
+        list.add(new Combo(R.drawable.qpc,"Tour tham quan du lich lang Quang Phu Cau tam huong truyen thong lau doi o Ung Hoa", "840,000"));
+        list.add(new Combo(R.drawable.qpc,"Tour tham quan du lich lang Quang Phu Cau tam huong truyen thong lau doi o Ung Hoa", "840,000"));
+        list.add(new Combo(R.drawable.qpc,"Tour tham quan du lich lang Quang Phu Cau tam huong truyen thong lau doi o Ung Hoa", "840,000"));
 
         return list;
     }

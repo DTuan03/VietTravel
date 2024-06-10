@@ -74,21 +74,18 @@ public class ProposeFragment extends Fragment {
 
     private List<Combo> getList(){
         List<Combo> list = new ArrayList<>();
-        list.add(new Combo(R.drawable.img,"Test thu la 1"));
-        list.add(new Combo(R.drawable.img,"Test thu la 2"));
-        list.add(new Combo(R.drawable.img,"Test thu la 3"));
-        list.add(new Combo(R.drawable.img,"Test thu la 4"));
-        list.add(new Combo(R.drawable.img,"Test thu la 5"));
-        list.add(new Combo(R.drawable.img,"Test thu la 1"));
-        list.add(new Combo(R.drawable.img,"Test thu la 2"));
-        list.add(new Combo(R.drawable.img,"Test thu la 3"));
-        list.add(new Combo(R.drawable.img,"Test thu la 4"));
-        list.add(new Combo(R.drawable.img,"Test thu la 5"));
-        list.add(new Combo(R.drawable.img,"Test thu la 1"));
-        list.add(new Combo(R.drawable.img,"Test thu la 2"));
-        list.add(new Combo(R.drawable.img,"Test thu la 3"));
-        list.add(new Combo(R.drawable.img,"Test thu la 4"));
-        list.add(new Combo(R.drawable.img,"Test thu la 5"));
+        list.add(new Combo(R.drawable.img,"Test thu la 1","840,000"));
+        list.add(new Combo(R.drawable.img,"Test thu la 2","840,000"));
+        list.add(new Combo(R.drawable.img,"Test thu la 3","840,000"));
+        list.add(new Combo(R.drawable.img,"Test thu la 4","840,000"));
+        list.add(new Combo(R.drawable.img,"Test thu la 5","840,000"));
+        list.add(new Combo(R.drawable.img,"Test thu la 1","840,000"));
+        list.add(new Combo(R.drawable.img,"Test thu la 1","840,000"));
+        list.add(new Combo(R.drawable.img,"Test thu la 2","840,000"));
+        list.add(new Combo(R.drawable.img,"Test thu la 3","840,000"));
+        list.add(new Combo(R.drawable.img,"Test thu la 4","840,000"));
+        list.add(new Combo(R.drawable.img,"Test thu la 5","840,000"));
+        list.add(new Combo(R.drawable.img,"Test thu la 1","840,000"));
 
         return list;
     }
