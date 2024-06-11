@@ -13,7 +13,7 @@ public class FavTour {
 
     public void addFavTour(Tour tour) {
         int quantity = tourMap.getOrDefault(tour, 0);
-        if (quantity < 10) {
+        if (quantity < 50) {
             tourMap.put(tour, quantity + 1);
         }
     }
@@ -29,7 +29,7 @@ public class FavTour {
         return tourMap.getOrDefault(tour, 0);
     }
 
-    public List<Tour> getTours() {
+    public List<Tour> getFavTours() {
         return new ArrayList<>(tourMap.keySet());
     }
 

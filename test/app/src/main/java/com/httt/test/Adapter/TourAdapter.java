@@ -20,12 +20,14 @@ import java.util.List;
 
 public class TourAdapter extends RecyclerView.Adapter<TourAdapter.TourViewHolder> {
 
-    private List<Tour> tourList;
+    private Boolean isFav = false;
+    public List<Tour> tourList;
     private Context context;
     public FavTour favouriteTour = new FavTour();
     public TourAdapter(Context context, List<Tour> tourList) {
         this.context = context;
         this.tourList = tourList;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -61,13 +63,24 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.TourViewHolder
     @Override
     public void onBindViewHolder(@NonNull TourViewHolder holder, int position) {
         Tour tour = tourList.get(position);
+
         if (tour != null) {
             holder.tvNameTour.setText(tour.getTv_name_tour());
             holder.tvDescription.setText(tour.getTv_description());
             holder.tvPrice.setText(String.format("%.2f", tour.getPrice()));
             holder.imgTour.setImageURI(Uri.parse(tour.getImg_tour()));
             holder.tvFav.setOnClickListener(v -> {
-                favouriteTour.addFavTour(tour);
+                if (!isFav) {
+                    holder.tvFav.setImageResource(R.drawable.baseline_bookmark_24);
+                    isFav = true;
+                    favouriteTour.addFavTour(tour);
+                } else {
+                    holder.tvFav.setImageResource(R.drawable.baseline_bookmark_unfav);
+                    isFav = false;
+                    favouriteTour.removeFavTour(tour);
+                    favouriteTour.getFavTours().remove(tour);
+                    notifyDataSetChanged();
+                }
                 Toast.makeText(context,"Add favorite tour: "+ tour.getTv_name_tour(), Toast.LENGTH_LONG).show();
             });
         }

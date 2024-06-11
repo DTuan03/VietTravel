@@ -59,6 +59,7 @@ public class TourRepository {
 
             TourDatabase.getInstance(context).tourDAO().insertTours(tours);
         }
+
         return tourList;
     }
 }

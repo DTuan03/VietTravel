@@ -19,10 +19,13 @@ import com.httt.test.Model.FavTour;
 import com.httt.test.Model.Tour;
 import com.httt.test.R;
 
+import java.util.List;
+
 public class FavTourAdapter extends RecyclerView.Adapter<FavTourAdapter.FavTourViewHolder> {
 
     private FavTour favTour;
     private Context context;
+    private List<FavTour> favTourList;
 
     public FavTourAdapter(FavTour favTour, Context context) {
         this.favTour = favTour;
@@ -38,21 +41,21 @@ public class FavTourAdapter extends RecyclerView.Adapter<FavTourAdapter.FavTourV
 
     @Override
     public void onBindViewHolder(@NonNull FavTourViewHolder holder, int position) {
-        Tour tour = favTour.getTours().get(position);
+        Tour tour = favTour.getFavTours().get(position);
         holder.tvNameTour.setText(tour.getTv_name_tour());
         holder.tvDescription.setText(tour.getTv_description());
         holder.tvPrice.setText(String.format("%.2f", tour.getPrice()));
         holder.imgTour.setImageURI(Uri.parse(tour.getImg_tour()));
         holder.tvFav.setOnClickListener(v -> {
             favTour.removeFavTour(tour);
-            favTour.getTours().remove(tour);
+            favTour.getFavTours().remove(tour);
             notifyDataSetChanged(); // Cập nhật lại toàn bộ view
         });
     }
 
     @Override
     public int getItemCount() {
-        return favTour.getTours().size();
+        return favTour.getFavTours().size();
     }
 
     public static class FavTourViewHolder extends RecyclerView.ViewHolder {
@@ -60,7 +63,7 @@ public class FavTourAdapter extends RecyclerView.Adapter<FavTourAdapter.FavTourV
         public TextView tvDescription;
         public TextView tvPrice;
         public ImageView imgTour;
-        public TextView tvFav;
+        public ImageView tvFav;
 
         public FavTourViewHolder(@NonNull View itemView) {
             super(itemView);

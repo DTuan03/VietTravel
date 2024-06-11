@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -12,11 +13,17 @@ import java.io.Serializable;
 @Entity(tableName = "tour")
 public class Tour implements Serializable {
     @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "IDTour")
     public int id_tour;
+    @ColumnInfo(name = "TourType")
     public int type;
+    @ColumnInfo(name = "NameOfTour")
     public String tv_name_tour;
+    @ColumnInfo(name = "DescriptionOfTour")
     public String tv_description;
+    @ColumnInfo(name = "Price")
     public float price;
+    @ColumnInfo(name = "Image")
     public String img_tour;
 
     public Tour() {

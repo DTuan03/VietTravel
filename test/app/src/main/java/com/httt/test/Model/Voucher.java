@@ -3,6 +3,7 @@ package com.httt.test.Model;
 import android.net.Uri;
 import android.widget.TextView;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -12,9 +13,13 @@ import java.io.Serializable;
 public class Voucher implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "IDVoucher")
     public int id_voucher;
+    @ColumnInfo(name = "ImageVoucher")
     public String img_voucher;
+    @ColumnInfo(name = "TitleOfVoucher")
     public String tv_title_voucher;
+    @ColumnInfo(name = "DescriptionOfVoucher")
     public String tv_description_voucher;
 
     public Voucher(){
