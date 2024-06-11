@@ -91,7 +91,6 @@ public class ProposeFragment extends Fragment {
         list.add(new Propose(R.drawable.qpc,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
         list.add(new Propose(R.drawable.qpc,"Tour tham quan lang tam huong quang phu cau lang nghe truyen thong o Ha Noi","5.0", "840,000"));
 
-
         return list;
     }
 }
