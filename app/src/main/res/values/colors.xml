@@ -19,4 +19,7 @@
     <!--    Mau cua status bar fragment_setting trong activity_home-->
     <color name="fragment_setting_status_bar">#67ced9</color>
 
+<!--    Mau cua replace PassWork-->
+    <color name="replace_activity_btn">#FF5722</color>
+
 </resources>

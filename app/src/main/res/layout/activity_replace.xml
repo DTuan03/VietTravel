@@ -75,7 +75,7 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/activity_replace_new"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/activity_replace_et_mat_khau_hien_tai" />
+                app:layout_constraintTop_toBottomOf="@+id/activity_replace_et_pass_present" />
 
             <TextView
                 android:id="@+id/textView31"
@@ -85,10 +85,10 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/activity_replace_cf_new"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/activity_replace_et_mat_khau_moi" />
+                app:layout_constraintTop_toBottomOf="@+id/activity_replace_et_pass_new" />
 
             <EditText
-                android:id="@+id/activity_replace_et_mat_khau_hien_tai"
+                android:id="@+id/activity_replace_et_pass_present"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -102,7 +102,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView29" />
 
             <EditText
-                android:id="@+id/activity_replace_et_mat_khau_moi"
+                android:id="@+id/activity_replace_et_pass_new"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -116,7 +116,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView30" />
 
             <EditText
-                android:id="@+id/activity_replace_et_mat_khau_nhap_lai"
+                android:id="@+id/activity_replace_et_pass_cf"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
@@ -132,40 +132,52 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView31" />
 
             <ImageView
-                android:id="@+id/activity_replace_img_mat_an_hien_tai"
+                android:id="@+id/activity_replace_img_eye_hiden_present"
                 android:layout_width="58dp"
                 android:layout_height="54dp"
                 android:layout_marginEnd="-8dp"
                 android:src="@mipmap/ic_launcher_eye_hidden_adaptive_fore"
-                app:layout_constraintBottom_toBottomOf="@+id/activity_replace_et_mat_khau_hien_tai"
-                app:layout_constraintEnd_toEndOf="@+id/activity_replace_et_mat_khau_hien_tai"
-                app:layout_constraintTop_toTopOf="@+id/activity_replace_et_mat_khau_hien_tai"
+                app:layout_constraintBottom_toBottomOf="@+id/activity_replace_et_pass_present"
+                app:layout_constraintEnd_toEndOf="@+id/activity_replace_et_pass_present"
+                app:layout_constraintTop_toTopOf="@+id/activity_replace_et_pass_present"
                 app:layout_constraintVertical_bias="0.888" />
 
             <ImageView
-                android:id="@+id/activity_replace_img_mat_an_moi"
+                android:id="@+id/activity_replace_img_eye_hide_new"
                 android:layout_width="58dp"
                 android:layout_height="54dp"
                 android:layout_marginEnd="-8dp"
                 android:src="@mipmap/ic_launcher_eye_hidden_adaptive_fore"
-                app:layout_constraintBottom_toBottomOf="@+id/activity_replace_et_mat_khau_moi"
-                app:layout_constraintEnd_toEndOf="@+id/activity_replace_et_mat_khau_moi"
-                app:layout_constraintTop_toTopOf="@+id/activity_replace_et_mat_khau_moi" />
+                app:layout_constraintBottom_toBottomOf="@+id/activity_replace_et_pass_new"
+                app:layout_constraintEnd_toEndOf="@+id/activity_replace_et_pass_new"
+                app:layout_constraintTop_toTopOf="@+id/activity_replace_et_pass_new" />
 
             <ImageView
-                android:id="@+id/activity_replace_img_mat_an_nhap_lai"
+                android:id="@+id/activity_replace_img_eye_hiden_cf"
                 android:layout_width="58dp"
                 android:layout_height="54dp"
                 android:layout_marginEnd="-8dp"
                 android:src="@mipmap/ic_launcher_eye_hidden_adaptive_fore"
-                app:layout_constraintBottom_toBottomOf="@+id/activity_replace_et_mat_khau_nhap_lai"
-                app:layout_constraintEnd_toEndOf="@+id/activity_replace_et_mat_khau_nhap_lai"
-                app:layout_constraintTop_toTopOf="@+id/activity_replace_et_mat_khau_nhap_lai" />
+                app:layout_constraintBottom_toBottomOf="@+id/activity_replace_et_pass_cf"
+                app:layout_constraintEnd_toEndOf="@+id/activity_replace_et_pass_cf"
+                app:layout_constraintTop_toTopOf="@+id/activity_replace_et_pass_cf" />
+
+            <TextView
+                android:id="@+id/activity_replace_tv_notifi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="4dp"
+                android:text="Nhap mat khau khong khop"
+                android:textColor="#E91E63"
+                android:textSize="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity_replace_et_pass_cf" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Button
-            android:id="@+id/activity_replace_btn_cap_nhat"
+            android:id="@+id/activity_replace_btn_update"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
