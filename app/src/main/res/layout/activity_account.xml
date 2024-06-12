@@ -76,6 +76,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/activity_account_img"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:layout_centerHorizontal="true"
@@ -85,7 +86,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView42" />
 
                     <TextView
-                        android:id="@+id/activity_account_tv_edit"
+                        android:id="@+id/activity_account_tv_edit_img"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Chỉnh sửa"
@@ -119,7 +120,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView47"
+                        android:id="@+id/activity_account_tv_show_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="3dp"
@@ -132,7 +133,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView44" />
 
                     <TextView
-                        android:id="@+id/textView48"
+                        android:id="@+id/activity_account_tv_edit_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Chỉnh sửa"
@@ -159,12 +160,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="2dp"
-                        android:text="Tên của bạn"
+                        android:text="Danh xưng"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView4772"
+                        android:id="@+id/activity_account_tv_show_sex"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="3dp"
@@ -177,7 +178,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView474" />
 
                     <TextView
-                        android:id="@+id/textView4883"
+                        android:id="@+id/activity_account_tv_edit_sex"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Chỉnh sửa"
@@ -204,12 +205,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="2dp"
-                        android:text="Tên của bạn"
+                        android:text="Số điện thoại"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView479"
+                        android:id="@+id/activity_account_tv_show_phone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="3dp"
@@ -222,7 +223,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView449" />
 
                     <TextView
-                        android:id="@+id/textView4888"
+                        android:id="@+id/activity_account_tv_edit_phone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Chỉnh sửa"
@@ -249,12 +250,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="2dp"
-                        android:text="Tên của bạn"
+                        android:text="Email"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView488"
+                        android:id="@+id/activity_account_tv_show_email"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="3dp"
@@ -267,7 +268,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView448" />
 
                     <TextView
-                        android:id="@+id/textView49"
+                        android:id="@+id/activity_account_tv_edit_email"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Chỉnh sửa"
@@ -294,12 +295,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="2dp"
-                        android:text="Tên của bạn"
+                        android:text="Quốc gia"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView51"
+                        android:id="@+id/activity_account_tv_show_country"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="3dp"
@@ -312,7 +313,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView50" />
 
                     <TextView
-                        android:id="@+id/textView52"
+                        android:id="@+id/activity_account_tv_edit_country"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Chỉnh sửa"
