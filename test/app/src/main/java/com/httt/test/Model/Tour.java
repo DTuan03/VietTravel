@@ -19,6 +19,8 @@ public class Tour implements Serializable {
     public int type;
     @ColumnInfo(name = "NameOfTour")
     public String tv_name_tour;
+    @ColumnInfo(name = "Rating")
+    public float tv_rating;
     @ColumnInfo(name = "DescriptionOfTour")
     public String tv_description;
     @ColumnInfo(name = "Price")
@@ -29,11 +31,27 @@ public class Tour implements Serializable {
     public Tour() {
     }
 
-    public Tour(String tv_name_tour, String tv_description, float price, String img_tour) {
+    public Tour(String tv_name_tour, float tv_rating, float price, String img_tour) {
         this.tv_name_tour = tv_name_tour;
-        this.tv_description = tv_description;
+        this.tv_rating = tv_rating;
         this.price = price;
         this.img_tour = img_tour;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
+    public float getTv_rating() {
+        return tv_rating;
+    }
+
+    public void setTv_rating(float tv_rating) {
+        this.tv_rating = tv_rating;
     }
 
     public String getTv_name_tour() {

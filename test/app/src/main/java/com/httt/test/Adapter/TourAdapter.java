@@ -45,7 +45,7 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.TourViewHolder
 
     public static class TourViewHolder extends RecyclerView.ViewHolder {
         public TextView tvNameTour;
-        public TextView tvDescription;
+        public TextView tvRating;
         public TextView tvPrice;
         public ImageView tvFav;
         public ImageView imgTour;
@@ -53,7 +53,7 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.TourViewHolder
         public TourViewHolder(@NonNull View itemView) {
             super(itemView);
             tvNameTour = itemView.findViewById(R.id.tv_title);
-            tvDescription = itemView.findViewById(R.id.tv_description);
+            tvRating = itemView.findViewById(R.id.tv_rating);
             tvPrice = itemView.findViewById(R.id.price);
             tvFav = itemView.findViewById(R.id.tv_fav);
             imgTour = itemView.findViewById(R.id.img_tour);
@@ -66,7 +66,7 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.TourViewHolder
 
         if (tour != null) {
             holder.tvNameTour.setText(tour.getTv_name_tour());
-            holder.tvDescription.setText(tour.getTv_description());
+            holder.tvRating.setText(String.format("%.2f", tour.getTv_rating()));
             holder.tvPrice.setText(String.format("%.2f", tour.getPrice()));
             holder.imgTour.setImageURI(Uri.parse(tour.getImg_tour()));
             holder.tvFav.setOnClickListener(v -> {

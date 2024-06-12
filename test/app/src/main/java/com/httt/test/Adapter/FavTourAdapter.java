@@ -43,7 +43,7 @@ public class FavTourAdapter extends RecyclerView.Adapter<FavTourAdapter.FavTourV
     public void onBindViewHolder(@NonNull FavTourViewHolder holder, int position) {
         Tour tour = favTour.getFavTours().get(position);
         holder.tvNameTour.setText(tour.getTv_name_tour());
-        holder.tvDescription.setText(tour.getTv_description());
+        holder.tvRatingTour.setText(String.format("%.2f", tour.getTv_rating()));
         holder.tvPrice.setText(String.format("%.2f", tour.getPrice()));
         holder.imgTour.setImageURI(Uri.parse(tour.getImg_tour()));
         holder.tvFav.setOnClickListener(v -> {
@@ -60,7 +60,7 @@ public class FavTourAdapter extends RecyclerView.Adapter<FavTourAdapter.FavTourV
 
     public static class FavTourViewHolder extends RecyclerView.ViewHolder {
         public TextView tvNameTour;
-        public TextView tvDescription;
+        public TextView tvRatingTour;
         public TextView tvPrice;
         public ImageView imgTour;
         public ImageView tvFav;
@@ -68,7 +68,7 @@ public class FavTourAdapter extends RecyclerView.Adapter<FavTourAdapter.FavTourV
         public FavTourViewHolder(@NonNull View itemView) {
             super(itemView);
             tvNameTour = itemView.findViewById(R.id.tv_title_fav);
-            tvDescription = itemView.findViewById(R.id.tv_description_fav);
+            tvRatingTour = itemView.findViewById(R.id.tv_rating_fav);
             tvPrice = itemView.findViewById(R.id.tv_price_fav);
             tvFav = itemView.findViewById(R.id.tv_favTour);
             imgTour = itemView.findViewById(R.id.img_favtour);
