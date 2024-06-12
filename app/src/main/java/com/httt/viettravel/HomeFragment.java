@@ -1,7 +1,5 @@
 package com.httt.viettravel;
 
-
-
 import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Bundle;
@@ -48,6 +46,10 @@ public class HomeFragment extends Fragment {
     private EditText etSearch;
     private TabLayout tabLayout;
     private ViewPager2 viewPager2;
+    //Bien dùng để kiểm tra xem có cuộn không, nếu có cuộn thì ở ReSum thực hiện đổi maàu, còn nếu mà
+    //có cuộn nhưng trước lúc quay về nó lại cuộn trở về đầu có nghĩa là ScroolY = 0 thì sẽ kh thực hiện if trong resum
+    private boolean isScrolled = false;
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -73,6 +75,21 @@ public class HomeFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("dd", "Dang o trang thai quay tro lai");
+        if (isScrolled){
+            Window window = getActivity().getWindow();
+            // Màu của status bar
+            window.setStatusBarColor(ContextCompat.getColor(getActivity(), R.color.white));
+            clTimKiem.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.white));
+            imgCart.setImageResource(R.mipmap.fragment_home_cart_black_adaptive_fore);
+            etSearch.setBackgroundResource(R.drawable.fragment_home_bacground_search_after);
+            fragmentHome.setBackgroundResource(R.color.white);
         }
     }
 
@@ -153,6 +170,7 @@ public class HomeFragment extends Fragment {
                 @Override
                 public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
                     if(scrollY > 0){
+                        isScrolled = true;
                         window.setStatusBarColor(ContextCompat.getColor(getActivity(), R.color.white));
                         clTimKiem.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.white));
                         imgCart.setImageResource(R.mipmap.fragment_home_cart_black_adaptive_fore);
@@ -165,6 +183,9 @@ public class HomeFragment extends Fragment {
                         scrollView.setBackgroundResource(R.drawable.fragment_home_background_cl_search_after);
                         imgCart.setImageResource(R.mipmap.fragment_home_cart_adaptive_fore);
                         fragmentHome.setBackgroundResource(R.drawable.activity_home_background);
+                    }
+                    if (scrollY == 0){
+                        isScrolled = false;
                     }
                 }
             });
