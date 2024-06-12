@@ -30,7 +30,7 @@ import com.httt.viettravel.SettingFragment;
 public class HomeActivity extends AppCompatActivity {
     Fragment fragmentHome = new HomeFragment();
     Fragment fragmentSetting = new SettingFragment();
-
+    private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,7 @@ public class HomeActivity extends AppCompatActivity {
             return insets;
         });
 
-        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        init();
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -51,15 +51,27 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
-
     public void onResume() {
         super.onResume();
+        Log.d("JDHSIUDEFHSDEI8u7Fh", "YGDEF7Y8UsGHFI8U7eWHDFO9I");
+        init();
         Intent intent = getIntent();
-        if (intent != null && "FragmentSetting".equals(intent.getStringExtra("ActivityHome"))) {
+        if (intent != null && "SettingFragment".equals(intent.getStringExtra("ReplaceActivity"))) {
             loadFragment(fragmentSetting);
             getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.fragment_setting_status_bar));
+            bottomNavigationView.setSelectedItemId(R.id.navigation_setting); // Đặt mục đã chọn của BottomNavigationView về Setting
+        }else{
+            if (intent != null && "SettingFragment".equals(intent.getStringExtra("AccountActivity"))) {
+                loadFragment(fragmentSetting);
+                getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.fragment_setting_status_bar));
+                bottomNavigationView.setSelectedItemId(R.id.navigation_setting); // Đặt mục đã chọn của BottomNavigationView về Setting
+            }
         }
 
+    }
+
+    private void init(){
+        bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
     }
 
     public boolean handleNavigationItemSelected(MenuItem item) {

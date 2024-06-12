@@ -29,10 +29,12 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="105dp"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="-50dp"
             android:layout_marginTop="18dp"
+            android:gravity="center"
             android:text="@string/activity_registration_dang_ky"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textSize="18sp"

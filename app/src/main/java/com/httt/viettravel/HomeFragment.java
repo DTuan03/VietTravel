@@ -184,6 +184,7 @@ public class HomeFragment extends Fragment {
                         imgCart.setImageResource(R.mipmap.fragment_home_cart_adaptive_fore);
                         fragmentHome.setBackgroundResource(R.drawable.activity_home_background);
                     }
+                    //kiểm tra nếu cuộn trở lại về đầu thì kh thực hiện đổi màu khi resum
                     if (scrollY == 0){
                         isScrolled = false;
                     }

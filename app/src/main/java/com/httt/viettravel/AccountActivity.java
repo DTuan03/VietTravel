@@ -1,7 +1,9 @@
 package com.httt.viettravel;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -15,6 +17,7 @@ import org.w3c.dom.Text;
 public class AccountActivity extends AppCompatActivity {
 
     private TextView tvEditName, tvEditDate, tvEditPhone, tvEditEmail;
+    private ImageView imgBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,7 @@ public class AccountActivity extends AppCompatActivity {
         });
         init();
         showDialog();
+        setImgBack();
     }
 
     private void init(){
@@ -35,6 +39,8 @@ public class AccountActivity extends AppCompatActivity {
         tvEditDate = (TextView) findViewById(R.id.activity_account_tv_edit_date);
         tvEditPhone = (TextView) findViewById(R.id.activity_account_tv_edit_phone);
         tvEditEmail = (TextView) findViewById(R.id.activity_account_tv_edit_email);
+
+        imgBack = (ImageView) findViewById(R.id.activity_account_img_back);
     }
 
     private void showDialog(){
@@ -66,6 +72,16 @@ public class AccountActivity extends AppCompatActivity {
             public void onClick(View v) {
                 AccountDialogEmailFragment accountDialogEmailFragment = new AccountDialogEmailFragment();
                 accountDialogEmailFragment.show(getSupportFragmentManager(), "AccountDialogEmailFragment");
+            }
+        });
+    }
+    private void setImgBack(){
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AccountActivity.this, HomeActivity.class);
+                intent.putExtra("AccountActivity", "SettingFragment");
+                startActivity(intent);
             }
         });
     }

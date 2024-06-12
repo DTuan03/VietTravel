@@ -68,7 +68,7 @@ public class ReplaceActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ReplaceActivity.this, HomeActivity.class);
-                intent.putExtra("ActivityHome","FragmentSetting");
+                intent.putExtra("ReplaceActivity","SettingFragment");
                 startActivity(intent);
             }
         });
