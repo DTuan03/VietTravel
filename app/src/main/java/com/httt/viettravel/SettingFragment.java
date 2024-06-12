@@ -14,6 +14,7 @@ import android.widget.TextView;
 public class SettingFragment extends Fragment {
     private TextView tvReplace;
     private LinearLayout llMatKhau;
+    private LinearLayout llInforAccount;
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -47,7 +48,17 @@ public class SettingFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_setting, container, false);
 
+        init(view);
+        setClick();
+        return view;
+    }
+
+    private void init(View view){
         llMatKhau = (LinearLayout) view.findViewById(R.id.fragment_setting_ll_mat_khau);
+        llInforAccount = (LinearLayout) view.findViewById(R.id.fragment_setting_ll_info_account);
+    }
+
+    private void setClick(){
         llMatKhau.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,7 +67,13 @@ public class SettingFragment extends Fragment {
             }
         });
 
+        llInforAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), AccountActivity.class);
+                startActivity(intent);
+            }
+        });
 
-        return view;
     }
 }

@@ -160,12 +160,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="2dp"
-                        android:text="Danh xưng"
+                        android:text="Ngày sinh"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/activity_account_tv_show_sex"
+                        android:id="@+id/activity_account_tv_show_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="3dp"
@@ -178,7 +178,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView474" />
 
                     <TextView
-                        android:id="@+id/activity_account_tv_edit_sex"
+                        android:id="@+id/activity_account_tv_edit_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Chỉnh sửa"
@@ -330,6 +330,11 @@
                     android:layout_marginTop="25dp"
                     android:layout_marginBottom="25dp"
                     android:background="@color/regis_before" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="vertical"></LinearLayout>
 
             </LinearLayout>
         </ScrollView>
