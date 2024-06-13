@@ -27,10 +27,10 @@
 
                 <ImageView
                     android:id="@+id/item_guide_img"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="160dp"
+                    android:layout_height="200dp"
                     android:layout_gravity="start|center_horizontal"
-                    android:scaleType="matrix"
+                    android:scaleType="centerCrop"
                     tools:srcCompat="@drawable/img" />
             </androidx.cardview.widget.CardView>
 

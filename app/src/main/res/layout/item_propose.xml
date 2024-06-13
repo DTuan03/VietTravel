@@ -26,10 +26,10 @@
 
                 <ImageView
                     android:id="@+id/item_propose_img"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="start|center_horizontal"
-                    android:scaleType="matrix"
+                    android:layout_width="160dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center_horizontal"
+                    android:scaleType="centerCrop"
                     tools:srcCompat="@drawable/img" />
 
             </androidx.cardview.widget.CardView>
@@ -103,8 +103,7 @@
             android:layout_width="70dp"
             android:layout_height="83dp"
             android:layout_gravity="end"
-            android:layout_marginTop="-25dp"
-            android:layout_marginEnd="-20dp"
+            android:layout_marginTop="-20dp"
             app:srcCompat="@mipmap/activity_home_favorite" />
 
     </FrameLayout>

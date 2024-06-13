@@ -27,7 +27,8 @@
                     android:id="@+id/item_combo_img"
                     android:layout_width="123dp"
                     android:layout_height="65dp"
-                    android:layout_gravity="start|center_horizontal"
+                    android:layout_gravity="center_horizontal"
+                    android:scaleType="centerCrop"
                     tools:srcCompat="@drawable/img" />
             </androidx.cardview.widget.CardView>
 
