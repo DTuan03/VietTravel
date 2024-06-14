@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.androidApplication)
+    alias(libs.plugins.googleGmsGoogleServices)
 }
 
 android {
@@ -44,9 +45,20 @@ dependencies {
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
     implementation(libs.activity)
+    implementation(libs.firebase.analytics)
+    implementation(libs.firebase.auth)
+    implementation(libs.firebase.database)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
     implementation ("androidx.room:room-runtime:2.6.1")
     annotationProcessor ("androidx.room:room-compiler:2.6.1")
+
+    // Import the BoM for the Firebase platform
+    implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
+
+    // Add the dependency for the Analytics library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation("com.google.firebase:firebase-analytics")
+
 }
