@@ -1,6 +1,7 @@
 package com.httt.viettravel;
 
 import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
@@ -17,6 +18,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -52,7 +55,7 @@ public class SqlActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 getData();
-                getImgFireBase();
+                getImgFireBase("ImgTour/CBBTTV/2.jpeg");
             }
         });
     }
@@ -100,42 +103,24 @@ public class SqlActivity extends AppCompatActivity {
         }
     }
 
-//    StorageReference storageReference = FirebaseStorage.getInstance().getReference("gs://studious-tape-415209.appspot.com");
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-    private void getImgFireBase(){
-        String a = null;
-        //Viet ring ra 1 ham loadData
-        databaseReference.child("ImgTour").child("CBTQHG").addChildEventListener(new ChildEventListener() {
+    // Trong phương thức getImgFireBase():
+    FirebaseStorage storage = FirebaseStorage.getInstance();
+    StorageReference storageRef = storage.getReference();
+
+    private void getImgFireBase(String link) {
+        StorageReference imageRef = storageRef.child(link); // Đường dẫn ảnh trong Firebase Storage
+
+        imageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                ImgTour imgTour = snapshot.getValue(ImgTour.class);
-                if (imgTour != null) {
-                    String imageUrl = imgTour.getLinkImg(); // Lấy URL của hình ảnh từ đối tượng ImgTour
-                    if (imageUrl != null && !imageUrl.isEmpty()) {
-                        // Sử dụng Picasso hoặc Glide để tải và hiển thị hình ảnh trong ImageView
-                        Picasso.with(SqlActivity.this).load(imageUrl).into(imageView);
-                    }
-                }
+            public void onSuccess(Uri uri) {
+                // Sử dụng Picasso để tải và hiển thị ảnh từ Firebase Storage vào ImageView
+                Picasso.with(SqlActivity.this).load(uri).into(imageView);
             }
-
+        }).addOnFailureListener(new OnFailureListener() {
             @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
+            public void onFailure(@NonNull Exception e) {
+                // Xử lý trường hợp không thể tải xuống ảnh
+                Log.e("Firebase", "Failed to download image: " + e.getMessage());
             }
         });
     }
