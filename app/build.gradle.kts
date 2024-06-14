@@ -52,4 +52,5 @@ dependencies {
     implementation("de.hdodenhof:circleimageview:3.1.0")
     implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
     implementation("com.google.firebase:firebase-database")
+    implementation ("com.google.firebase:firebase-storage")
 }
