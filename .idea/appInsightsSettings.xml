@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.httt.viettravel" />
+                  <option name="mobileSdkAppId" value="1:988687440430:android:289b198fdd273f9e111dbf" />
+                  <option name="projectId" value="studious-tape-415209" />
+                  <option name="projectNumber" value="988687440430" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
