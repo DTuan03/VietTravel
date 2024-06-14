@@ -1,5 +1,6 @@
 package com.httt.viettravel;
 
+
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
@@ -47,9 +48,8 @@ public class ReviewActivity extends AppCompatActivity {
 
 
         ratingBar = findViewById(R.id.ratingBar);
-        btn_submit =findViewById(R.id.btn_submit);
+        btn_submit = findViewById(R.id.btn_submit);
         btn_back = findViewById(R.id.btn_back);
-
 
 
         // Khởi tạo các views
@@ -89,7 +89,6 @@ public class ReviewActivity extends AppCompatActivity {
 //        textViewComment.setText(comment);
 
 
-
         btn_submit.setOnClickListener(v -> {
             float rating = ratingBar.getRating();
             String cmt = textViewComment.getText().toString();
@@ -109,7 +108,6 @@ public class ReviewActivity extends AppCompatActivity {
             setResult(RESULT_OK, resultIntent);
             finish();
         });
-
 
 
         btn_back.setOnClickListener(new View.OnClickListener() {

@@ -1,12 +1,10 @@
 package com.httt.viettravel;
 
-import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
@@ -15,14 +13,9 @@ import android.view.ViewGroup;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
-import com.httt.viettravel.Adapter.FavoriteAdapter;
-import com.httt.viettravel.Adapter.HistoryAdatper;
-import com.httt.viettravel.Model.Favorite;
-import com.httt.viettravel.Model.Tour;
+import com.httt.viettravel.TabHistory.Tab1;
+import com.httt.viettravel.TabHistory.Tab2;
 import com.httt.viettravel.TabHistory.TabAdapter;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -93,14 +86,16 @@ public class HistoryFragment extends Fragment {
                 (tab, position) -> {
                     switch (position) {
                         case 0:
-                            tab.setText("Lịch sử chuyến đi");
+                            tab.setText("Chưa đánh giá");
                             break;
                         case 1:
-                            tab.setText("Lịch sủ đánh giá");
+                            tab.setText("Đánh giá");
                             break;
                     }
                 }).attach();
         return view;
     }
+
+
 }
 

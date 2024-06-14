@@ -3,7 +3,9 @@ package com.httt.viettravel;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +16,7 @@ import android.widget.TextView;
 public class SettingFragment extends Fragment {
     private TextView tvReplace;
     private LinearLayout llMatKhau;
+    private LinearLayout help;
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -55,6 +58,16 @@ public class SettingFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        help = (LinearLayout) view.findViewById(R.id.fragment_setting_ll_ho_tro);
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(),HelpActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
 
         return view;

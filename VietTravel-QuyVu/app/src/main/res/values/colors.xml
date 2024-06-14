@@ -12,7 +12,8 @@
     <color name="setting_tv">#999696</color>
     <color name="price">#F68712</color>
     <color name="button">#2D96E0</color>
-
+    <color name="purple">#6200EE</color>
+    <color name="gray">#999696</color>
     <color name="fragment_home_rcv_combo">#99F3EFEF</color>
 
 

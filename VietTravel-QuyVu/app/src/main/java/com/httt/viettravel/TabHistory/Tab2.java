@@ -1,26 +1,17 @@
 package com.httt.viettravel.TabHistory;
 
-import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RatingBar;
-import android.widget.TextView;
 
-import com.httt.viettravel.Adapter.HistoryAdatper;
 import com.httt.viettravel.Model.Tour;
 import com.httt.viettravel.R;
-import com.httt.viettravel.ReviewActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -82,7 +73,7 @@ public class Tab2 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_tab2, container, false);
 
         // Tìm RecyclerView
-        recyclerView = view.findViewById(R.id.recyclerViewtab2);
+        recyclerView = view.findViewById(R.id.recyclerView);
 
         // Lấy dữ liệu từ Bundle
         ArrayList<Tour> tourList = null;

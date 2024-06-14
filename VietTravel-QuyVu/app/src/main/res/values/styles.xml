@@ -9,4 +9,13 @@
     <style name="activity_home_theme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:statusBarColor">#FF5722</item>
     </style>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here -->
+        <item name="colorPrimary">@color/purple</item>
+        <item name="colorPrimaryDark">@color/purple</item>
+        <item name="colorAccent">@color/purple</item>
+    </style>
+
+
 </resources>

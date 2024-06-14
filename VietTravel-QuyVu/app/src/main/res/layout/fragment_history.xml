@@ -5,6 +5,8 @@
     android:orientation="vertical"
     tools:context=".HistoryFragment">
 
+
+
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout1"
         android:layout_width="match_parent"

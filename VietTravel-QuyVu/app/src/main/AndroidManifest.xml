@@ -16,6 +16,9 @@
             android:name=".ReviewActivity"
             android:exported="false" />
         <activity
+            android:name=".HelpActivity"
+            android:exported="false" />
+        <activity
             android:name=".ReplaceActivity"
             android:exported="false" />
         <activity
