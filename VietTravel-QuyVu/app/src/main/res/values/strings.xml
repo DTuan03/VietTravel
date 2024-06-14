@@ -28,19 +28,21 @@
     <string name="fragment_logout_huy">Hủy</string>
     <string name="fragment_logout_xac_nhan">Xác nhận</string>
 
-    <!-- Setting   -->
-    <string name="activity_setting_cai_dat">Cài đặt</string>
-    <string name="activity_setting_ten_nguoi_dung">Tên người dùng</string>
-    <string name="activity_setting_ma_uu_dai">Mã ưu đãi</string>
-    <string name="activity_setting_the">Thẻ</string>
-    <string name="activity_setting_qua_tang">Quà tặng</string>
-    <string name="activity_setting_thong_tin_tai_khoan">Thông tin tài khoản</string>
-    <string name="activity_setting_mat_khau">Mật khẩu và bảo mật</string>
-    <string name="activity_setting_the_cua_toi">Thẻ của tôi</string>
-    <string name="activity_setting_danh_gia">Đánh giá</string>
-    <string name="activity_setting_trung_tam_ho_tro">Trung tâm hỗ trợ</string>
-    <string name="activity_setting_ma_giam_gia">Mã giảm giá của tôi</string>
-    <string name="activity_setting_dang_xuat">Đăng xuất</string>
+    <!-- Fragemnt Setting   -->
+    <string name="fragment_setting_cai_dat">Cài đặt</string>
+    <string name="fragment_setting_ten_nguoi_dung">Tên người dùng</string>
+    <string name="fragment_setting_ma_uu_dai">Mã ưu đãi</string>
+    <string name="fragment_setting_the">Thẻ</string>
+    <string name="fragment_setting_qua_tang">Quà tặng</string>
+    <string name="fragment_setting_thong_tin_tai_khoan">Thông tin tài khoản</string>
+    <string name="fragment_setting_mat_khau">Mật khẩu và bảo mật</string>
+    <string name="fragment_setting_the_cua_toi">Thẻ của tôi</string>
+    <string name="fragment_setting_danh_gia">Đánh giá</string>
+    <string name="fragment_setting_trung_tam_ho_tro">Trung tâm hỗ trợ</string>
+    <string name="fragment_setting_ma_giam_gia">Mã giảm giá của tôi</string>
+    <string name="fragment_setting_dang_xuat">Đăng xuất</string>
+
+    <string name="fragment_history">Lịch sử tour</string>
 
 
     <!--Replace password-->

@@ -1,17 +1,20 @@
 package com.httt.viettravel;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.LongDef;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -20,8 +23,15 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.httt.viettravel.HomeFragment;
+import com.httt.viettravel.R;
+import com.httt.viettravel.SettingFragment;
 
 public class HomeActivity extends AppCompatActivity {
+    Fragment fragmentHome = new HomeFragment();
+    Fragment fragmentSetting = new SettingFragment();
+    Fragment fragmentFavorite = new FavoriteFragment();
+    Fragment fragmentHistory = new HistoryFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +43,7 @@ public class HomeActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -42,21 +53,32 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
+    public void onResume() {
+        super.onResume();
+        Intent intent = getIntent();
+        if (intent != null && "FragmentSetting".equals(intent.getStringExtra("ActivityHome"))) {
+            loadFragment(fragmentSetting);
+            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.fragment_setting_status_bar));
+        }
+
+    }
+
     public boolean handleNavigationItemSelected(MenuItem item) {
-        Log.d("HomeActivity", "Item selected: " + item.getTitle());
-        Fragment fragment;
         if (item.getItemId() == R.id.navigation_home) {
-            fragment = new HomeFragment();
-            loadFragment(fragment);
+            loadFragment(fragmentHome);
+            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.fragment_home_status_bar));
             return true;
         } else if (item.getItemId() == R.id.navigation_favorite) {
+            loadFragment(fragmentFavorite);
+            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.white));
             return true;
         } else if (item.getItemId() == R.id.navigation_history) {
-
+            loadFragment(fragmentHistory);
+           // getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.fragment_home_status_bar));
             return true;
         } else if (item.getItemId() == R.id.navigation_setting) {
-            fragment = new SettingFragment();
-            loadFragment(fragment);
+            loadFragment(fragmentSetting);
+            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.fragment_setting_status_bar));
             return true;
         }
         return false;
@@ -67,6 +89,20 @@ public class HomeActivity extends AppCompatActivity {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.fragmentContainerView, fragment);
         transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
+    private void removeFragment(Fragment fragment){
+        // Bắt đầu giao dịch FragmentTransaction
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+        // Xóa Fragment được chỉ định
+        transaction.remove(fragment);
+
+        // Thêm giao dịch vào back stack
+        transaction.addToBackStack(null);
+
+        // Hoàn thành và xác nhận giao dịch
         transaction.commit();
     }
 }
