@@ -172,6 +172,8 @@
                     android:layout_marginRight="10dp"
                     android:paddingLeft="15dp"
                     android:textSize="@dimen/textSize"
+                    android:drawableLeft="@drawable/baseline_calendar_month_24"
+                    android:drawablePadding="8dp"
                     android:hint="Ngày bắt đầu" />
 
                 <TextView
