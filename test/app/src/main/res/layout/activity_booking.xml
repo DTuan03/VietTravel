@@ -2,9 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/Booking"
     tools:context=".Activity.BookingActivity">
 
     <LinearLayout
@@ -36,12 +36,6 @@
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/baseline_home"
-                android:id="@+id/imgBackHome" />
         </LinearLayout>
 
         <ScrollView
@@ -240,6 +234,27 @@
                     android:paddingLeft="15dp"
                     android:textSize="@dimen/textSize"
                     android:hint="Voucher" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Phương thức thanh toán"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/textSize"
+                    android:layout_margin="8dp"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/sp_payment_method"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/input_border"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:paddingLeft="15dp"
+                    android:textSize="@dimen/textSize"
+                    android:entries="@array/sp_payment_method"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"

@@ -62,6 +62,11 @@ public class LoginActivity extends AppCompatActivity implements LoginView, View.
     }
 
     @Override
+    public void goRegister() {
+        startActivity(new Intent(this, RegisterActivity.class));
+    }
+
+    @Override
     public void onClick(View view) {
         if (view.getId() == R.id.btnLogin) {
             String username = edtUsername.getText().toString();

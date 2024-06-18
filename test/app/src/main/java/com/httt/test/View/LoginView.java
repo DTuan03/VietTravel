@@ -6,4 +6,6 @@ public interface LoginView {
     void loginSuccessful();
 
     void goHome();
+    
+    void goRegister();
 }
