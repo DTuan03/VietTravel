@@ -36,6 +36,7 @@ android {
             }
         }
     }
+    buildToolsVersion = "34.0.0"
 }
 
 dependencies {
@@ -48,6 +49,14 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+    //implementation ("com.microsoft.sqlserver:mssql-jdbc")
+    implementation (libs.mssql.jdbc)
+    //implementation("com.microsoft.sqlserver:mssql-jdbc:9.2.1.jre11")
+    implementation(libs.sqlserver.mssql.jdbc)     //cái náy mới
+   //implementation("net.sourceforge.jtds:jtds:1.3.1")
+    implementation(libs.jtds)
+
 
 }
 

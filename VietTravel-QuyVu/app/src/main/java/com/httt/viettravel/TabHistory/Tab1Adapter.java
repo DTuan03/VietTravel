@@ -1,99 +1,167 @@
 package com.httt.viettravel.TabHistory;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.httt.viettravel.Adapter.HistoryAdatper;
-import com.httt.viettravel.Model.Tour;
 import com.httt.viettravel.R;
-import com.httt.viettravel.ReviewActivity;
-
-import java.util.ConcurrentModificationException;
+import com.httt.viettravel.Model.Tour;
 import java.util.List;
 
-public class Tab1Adapter extends RecyclerView.Adapter<Tab1Adapter.Tab1ViewHolder> {
-
-
-    private List<Tour> tours;
+public class Tab1Adapter extends RecyclerView.Adapter<Tab1Adapter.TourViewHolder> {
+    private List<Tour> tourList;
     private Context context;
 
-    public Tab1Adapter(List<Tour> tours, Context context) {
-        this.tours = tours;
+    public Tab1Adapter(Context context, List<Tour> tourList) {
         this.context = context;
+        this.tourList = tourList;
     }
 
-    public void setData(List<Tour> tours){
-        this.tours = tours;
-    }
-
-    @NonNull
     @Override
-    public Tab1Adapter.Tab1ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public TourViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_history, parent, false);
-        return new Tab1ViewHolder(view);
+        return new TourViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Tab1Adapter.Tab1ViewHolder holder, int position) {
-        Tour tour = tours.get(position);
-        if(tour == null){
-            return;
-        }
-
-        holder.pic.setImageResource(tour.getPic());
-        holder.location.setText(tour.getLocation());
-        holder.price.setText(tour.getPrice());
-        holder.time.setText(tour.getTime());
-
-        holder.btn_comment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Chuyển sang FeedbackActivity và truyền dữ liệu tour du lịch
-                Intent intent = new Intent(context, ReviewActivity.class);
-                intent.putExtra("pic", tour.getPic());
-                intent.putExtra("content", tour.getContent());
-                intent.putExtra("location", tour.getLocation());
-                intent.putExtra("routine", tour.getRoutine());
-                intent.putExtra("time", tour.getTime());
-                intent.putExtra("price", tour.getPrice());
-                intent.putExtra("vehicle", tour.getVehicle());
-                intent.putExtra("place", tour.getPlace());
-//                intent.putExtra("comment", tour.getComment());
-                context.startActivity(intent);
-            }
-        });
+    public void onBindViewHolder(TourViewHolder holder, int position) {
+        Tour tour = tourList.get(position);
+        holder.bind(tour);
     }
-
 
     @Override
     public int getItemCount() {
-        return tours.size();
+        return tourList.size();
     }
 
-    public class Tab1ViewHolder extends RecyclerView.ViewHolder {
-        ImageView pic;
-        TextView content,location, routine,time,price,vehicle,place, comment;
-        CardView card;
-        Button btn_comment;
-        public Tab1ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            pic = itemView.findViewById(R.id.img);
-            location = itemView.findViewById(R.id.location);
-            price = itemView.findViewById(R.id.price);
-            time = itemView.findViewById(R.id.time);
-            card = itemView.findViewById(R.id.card);
-            btn_comment = itemView.findViewById(R.id.btn_comment);
+    public void setTours(List<Tour> tours) {
+        this.tourList = tours;
+    }
 
+    public class TourViewHolder extends RecyclerView.ViewHolder {
+        TextView nameTour;
+        TextView numberDay;
+        TextView totalTour;
+        Button rateButton;
+
+        public TourViewHolder(View itemView) {
+            super(itemView);
+            nameTour = itemView.findViewById(R.id.NameTour);
+            numberDay = itemView.findViewById(R.id.NumberDay);
+           totalTour = itemView.findViewById(R.id.TotalTour);
+            rateButton = itemView.findViewById(R.id.btn_rate);
+        }
+
+        public void bind(Tour tour) {
+            nameTour.setText(tour.getNameTour());
+            numberDay.setText(String.valueOf(tour.getNumberDay()));
+            totalTour.setText(String.valueOf(tour.getTotal()));
+            // Thêm xử lý cho nút rateButton nếu cần
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+//package com.httt.viettravel.TabHistory;
+//
+//import android.content.Context;
+//import android.content.Intent;
+//import android.view.LayoutInflater;
+//import android.view.View;
+//import android.view.ViewGroup;
+//import android.widget.Button;
+//import android.widget.ImageView;
+//import android.widget.TextView;
+//
+//import androidx.annotation.NonNull;
+//import androidx.cardview.widget.CardView;
+//import androidx.recyclerview.widget.RecyclerView;
+//
+////import com.httt.viettravel.Adapter.HistoryAdatper;
+//import com.httt.viettravel.Model.Tour;
+//import com.httt.viettravel.R;
+//import com.httt.viettravel.ReviewActivity;
+//
+//import java.util.ConcurrentModificationException;
+//import java.util.List;
+//
+//public class Tab1Adapter extends RecyclerView.Adapter<Tab1Adapter.Tab1ViewHolder> {
+//
+//
+//    private List<Tour> tours;
+//    private Context context;
+//
+//
+//    public Tab1Adapter(Context context, List<Tour> tourList) {
+//        this.context = context;
+//        this.tours = tourList;
+//    }
+//
+////    public void setData(List<Tour> tours){
+////        this.tours = tours;
+////    }
+//
+//    @NonNull
+//    @Override
+//    public Tab1Adapter.Tab1ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+//        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_history, parent, false);
+//        return new Tab1ViewHolder(view);
+//    }
+//
+//    @Override
+//    public void onBindViewHolder(@NonNull Tab1Adapter.Tab1ViewHolder holder, int position) {
+//        Tour tour = tours.get(position);
+//        if(tour == null){
+//            return;
+//        }
+//        holder.bind(tour);
+//
+//    }
+//
+//
+//    @Override
+//    public int getItemCount() {
+//        return tours.size();
+//    }
+//
+//    public void setTours(List<Tour> tours) {
+//        this.tours = tours;
+//    }
+//
+//
+//    public class Tab1ViewHolder extends RecyclerView.ViewHolder {
+//        TextView nameTour;
+//        TextView numberDay;
+//        TextView priceTour;
+//        Button rateButton;
+//
+//        public Tab1ViewHolder(@NonNull View itemView) {
+//            super(itemView);
+//            nameTour = itemView.findViewById(R.id.NameTour);
+//            numberDay = itemView.findViewById(R.id.NumberDay);
+//            priceTour = itemView.findViewById(R.id.PriceTour);
+//            rateButton = itemView.findViewById(R.id.btn_rate);
+//
+//        }
+//
+//        public void bind(Tour tour) {
+//            nameTour.setText(tour.getNameTour());
+//            numberDay.setText(String.valueOf(tour.getNumberDay()));
+//            priceTour.setText(String.valueOf(tour.getPriceTour()));
+//            // Thêm xử lý cho nút rateButton nếu cần
+//        }
+//    }
+//}

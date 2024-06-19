@@ -1,7 +1,6 @@
 package com.httt.viettravel;
 
 
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -18,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.httt.viettravel.Model.Tour;
 import com.httt.viettravel.TabHistory.Tab1;
@@ -95,18 +95,18 @@ public class ReviewActivity extends AppCompatActivity {
             String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
             String currentTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
 
-            Toast.makeText(ReviewActivity.this, "Đánh giá đã được gửi thành công", Toast.LENGTH_SHORT).show();
-
-            // Cập nhật thông tin đánh giá vào tour
-            tour.setRating(rating);
-            tour.setComment(cmt);
-            tour.setDate(currentDate);
-            tour.setTime(currentTime);
-            // Truyền dữ liệu đánh giá về lại cho Tab1Fragment
-            Intent resultIntent = new Intent();
-            resultIntent.putExtra("updatedTour", tour);
-            setResult(RESULT_OK, resultIntent);
-            finish();
+            Toast.makeText(ReviewActivity.this, "Viết logic của đánh giá", Toast.LENGTH_SHORT).show();
+//
+//            // Cập nhật thông tin đánh giá vào tour
+//            tour.setRating(rating);
+//            tour.setComment(cmt);
+//            tour.setDate(currentDate);
+//            tour.setTime(currentTime);
+//            // Truyền dữ liệu đánh giá về lại cho Tab1Fragment
+//            Intent resultIntent = new Intent();
+//            resultIntent.putExtra("updatedTour", tour);
+//            setResult(RESULT_OK, resultIntent);
+//            finish();
         });
 
 
@@ -114,11 +114,14 @@ public class ReviewActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Sử dụng FragmentManager để quản lý Fragment trong Activity
-                FragmentManager fragmentManager = getSupportFragmentManager(); // hoặc getFragmentManager() nếu bạn không sử dụng AppCompatActivity
+                FragmentManager fragmentManager = getSupportFragmentManager(); // Sử dụng getSupportFragmentManager() với AppCompatActivity
                 // Tạo một instance của Fragment bạn muốn hiển thị trong TabLayout1
-                Tab1 = new Tab1();
+                Tab1 = new Tab1(); // Đảm bảo bạn đã định nghĩa Fragment Tab1
+
                 // Thực hiện việc thay đổi Fragment cho TabLayout1
-                fragmentManager.beginTransaction().replace(R.id.tab1, Tab1).commit();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.tab1, Tab1);
+                fragmentTransaction.commit();
             }
         });
     }

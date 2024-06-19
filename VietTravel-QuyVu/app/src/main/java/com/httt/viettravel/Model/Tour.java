@@ -4,137 +4,104 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
+public class Tour {
+    private String idTour;
+    private String typeTour;
+    private String nameTour;
+    private String descriptionTour;
+    private int numberDay;
+    private float priceTour;
+    private float total;
+    private boolean favTour;
+    private String hotel;
+    private String vehicle;
+    private boolean propose;
+    private boolean notMissed;
 
-public class Tour  implements Parcelable{
+//    public Tour(String idTour, String nameTour, int numberDay, float priceTour) {
+//        this.idTour = idTour;
+//        this.nameTour = nameTour;
+//        this.numberDay = numberDay;
+//        this.priceTour = priceTour;
+//    }
 
-    private  int pic;
-    private String content, location, routine, time, price, vehicle, place, comment;
-    private float rating;
-    private String date;
-    private String reviewTime;
-
-    public Tour(int pic, String content, String location, String routine, String time, String price, String vehicle, String place, String comment, float rating, String date, String reviewTime) {
-        this.pic = pic;
-        this.content = content;
-        this.location = location;
-        this.routine = routine;
-        this.time = time;
-        this.price = price;
+    public Tour(String idTour, String typeTour, String nameTour, String descriptionTour, int numberDay, float priceTour,float total, boolean favTour, String hotel, String vehicle, boolean propose, boolean notMissed) {
+        this.idTour = idTour;
+        this.typeTour = typeTour;
+        this.nameTour = nameTour;
+        this.descriptionTour = descriptionTour;
+        this.numberDay = numberDay;
+        this.priceTour = priceTour;
+        this.total = total;
+        this.favTour = favTour;
+        this.hotel = hotel;
         this.vehicle = vehicle;
-        this.place = place;
-        this.comment = comment;
-        this.rating = rating;
-        this.date = date;
-        this.reviewTime = reviewTime;
+        this.propose = propose;
+        this.notMissed = notMissed;
     }
 
-    public Tour(int pic, String location, float rating, String comment, String date, String reviewTime) {
-        this.pic = pic;
-        this.location = location;
-        this.comment = comment;
-        this.rating = rating;
-        this.date = date;
-        this.reviewTime=reviewTime;
+    public String getIdTour() {
+        return idTour;
     }
 
-
-    protected Tour(Parcel in) {
-        pic = in.readInt();
-        content = in.readString();
-        location = in.readString();
-        routine = in.readString();
-        time = in.readString();
-        price = in.readString();
-        vehicle = in.readString();
-        place = in.readString();
-        comment = in.readString();
-        rating = in.readFloat();
-        date = in.readString();
-        reviewTime = in.readString();
+    public void setIdTour(String idTour) {
+        this.idTour = idTour;
     }
 
-    public static final Creator<Tour> CREATOR = new Creator<Tour>() {
-        @Override
-        public Tour createFromParcel(Parcel in) {
-            return new Tour(in);
-        }
-
-        @Override
-        public Tour[] newArray(int size) {
-            return new Tour[size];
-        }
-    };
-
-    public float getRating() {
-        return rating;
+    public String getTypeTour() {
+        return typeTour;
     }
 
-    public void setRating(float rating) {
-        this.rating = rating;
+    public void setTypeTour(String typeTour) {
+        this.typeTour = typeTour;
     }
 
-    public String getDate() {
-        return date;
+    public String getNameTour() {
+        return nameTour;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setNameTour(String nameTour) {
+        this.nameTour = nameTour;
     }
 
-    public String getReviewTime() {
-        return reviewTime;
+    public String getDescriptionTour() {
+        return descriptionTour;
     }
 
-    public void setReviewTime(String reviewTime) {
-        this.reviewTime = reviewTime;
+    public void setDescriptionTour(String descriptionTour) {
+        this.descriptionTour = descriptionTour;
     }
 
-    public int getPic() {
-        return pic;
+    public int getNumberDay() {
+        return numberDay;
     }
 
-    public void setPic(int pic) {
-        this.pic = pic;
+    public void setNumberDay(int numberDay) {
+        this.numberDay = numberDay;
     }
 
-    public String getContent() {
-        return content;
+    public float getPriceTour() {
+        return priceTour;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setPriceTour(float priceTour) {
+        this.priceTour = priceTour;
     }
 
-    public String getLocation() {
-        return location;
+    public boolean isFavTour() {
+        return favTour;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setFavTour(boolean favTour) {
+        this.favTour = favTour;
     }
 
-    public String getRoutine() {
-        return routine;
+    public String getHotel() {
+        return hotel;
     }
 
-    public void setRoutine(String routine) {
-        this.routine = routine;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
+    public void setHotel(String hotel) {
+        this.hotel = hotel;
     }
 
     public String getVehicle() {
@@ -145,34 +112,28 @@ public class Tour  implements Parcelable{
         this.vehicle = vehicle;
     }
 
-    public String getPlace() {
-        return place;
+    public boolean isPropose() {
+        return propose;
     }
 
-    public void setPlace(String place) {
-        this.place = place;
+    public void setPropose(boolean propose) {
+        this.propose = propose;
     }
 
-    public String getComment() {
-        return comment;
+    public boolean isNotMissed() {
+        return notMissed;
     }
 
-    public void setComment(String comment) {
-        this.comment = comment;
+    public void setNotMissed(boolean notMissed) {
+        this.notMissed = notMissed;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
+    public float getTotal() {
+        return total;
     }
 
-    @Override
-    public void writeToParcel(@NonNull Parcel dest, int flags) {
-        dest.writeInt(pic);
-        dest.writeString(location);
-        dest.writeFloat(rating);
-        dest.writeString(comment);
-        dest.writeString(date);
-        dest.writeString(reviewTime);
+    public void setTotal(float total) {
+        this.total = total;
     }
 }
+

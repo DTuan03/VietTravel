@@ -79,7 +79,7 @@ public class Tab2 extends Fragment {
         ArrayList<Tour> tourList = null;
         Bundle bundle = getArguments();
         if (bundle != null) {
-            tourList = bundle.getParcelableArrayList("data");
+//            tourList = bundle.getParcelableArrayList("data");
         }
 
         // Cài đặt RecyclerView

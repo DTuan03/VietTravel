@@ -33,12 +33,12 @@ public class Tab2Adapter extends RecyclerView.Adapter<Tab2Adapter.Tab2ViewHolder
     public void onBindViewHolder(@NonNull Tab2Adapter.Tab2ViewHolder holder, int position) {
         Tour tour = tours.get(position);
         if (tour != null) {
-            holder.imageViewTour.setImageResource(tour.getPic());
-            holder.textViewLocation.setText(tour.getLocation());
-            holder.textViewComment.setText(tour.getComment());
-            holder.ratingBar.setRating(tour.getRating());
-            holder.textViewDate.setText(tour.getDate());
-            holder.textViewTime.setText(tour.getReviewTime());
+//            holder.imageViewTour.setImageResource(tour.getPic());
+//            holder.textViewLocation.setText(tour.getLocation());
+//            holder.textViewComment.setText(tour.getComment());
+//            holder.ratingBar.setRating(tour.getRating());
+//            holder.textViewDate.setText(tour.getDate());
+//            holder.textViewTime.setText(tour.getReviewTime());
         }
 
     }

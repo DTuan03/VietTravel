@@ -89,7 +89,7 @@ public class HistoryFragment extends Fragment {
                             tab.setText("Chưa đánh giá");
                             break;
                         case 1:
-                            tab.setText("Đánh giá");
+                            tab.setText("Đã đánh giá");
                             break;
                     }
                 }).attach();
