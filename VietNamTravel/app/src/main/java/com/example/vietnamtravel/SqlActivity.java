@@ -54,11 +54,11 @@ public class SqlActivity extends AppCompatActivity {
                 } else {
                     // Truy vấn giá trị Name từ bảng Tour
                     Statement stmt = con.createStatement();
-                    String query = "SELECT Username FROM User";
+                    String query = "SELECT Name FROM Tour";
                     ResultSet rs = stmt.executeQuery(query);  //lặp qua tất cả
                     StringBuilder names = new StringBuilder(); // chứa mỗi chuỗi trên 1 dòng
                     while (rs.next()) {
-                        names.append(rs.getString("Username")).append("\n");
+                        names.append(rs.getString("Name")).append("\n");
                     }
                     rs.close();
                     stmt.close();

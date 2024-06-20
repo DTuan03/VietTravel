@@ -1,6 +1,7 @@
 package com.example.vietnamtravel.Connection.SQL;
 
 import android.os.StrictMode;
+import android.util.Log;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,8 +13,8 @@ public class ConnectSQL {
     protected static String ip = "192.168.1.118";
     protected static String port = "1433";
     protected static String db = "VIETNAMTRAVEL";
-    protected static String un = "sa";
-    protected static String password = "kt123";
+    protected static String un = "trang";
+    protected static String password = "12345";
 
     public static Connection CONN(){
         // Xin full quyền
@@ -25,8 +26,8 @@ public class ConnectSQL {
             String conUrl = "jdbc:jtds:sqlserver://" + ip + ":" + port + ";databasename=" + db + ";user=" + un + ";password=" + password;
             conn = DriverManager.getConnection(conUrl, un, password);
         }
-        catch (ClassNotFoundException | SQLException e) {
-            throw new RuntimeException(e);
+        catch (Exception e) {
+            Log.e("Error is: ", e.getMessage());
         }
         return conn;
     }

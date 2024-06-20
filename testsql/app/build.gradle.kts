@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.vietnamtravel"
+    namespace = "com.httt.myapplication"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.vietnamtravel"
+        applicationId = "com.httt.myapplication"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -29,8 +29,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-
-    buildFeatures{
+    buildFeatures {
         viewBinding = true
     }
 }
@@ -39,12 +38,13 @@ dependencies {
 
     implementation(libs.appcompat)
     implementation(libs.material)
-    implementation(libs.activity)
     implementation(libs.constraintlayout)
+    implementation(libs.lifecycle.livedata.ktx)
+    implementation(libs.lifecycle.viewmodel.ktx)
+    implementation(libs.navigation.fragment)
+    implementation(libs.navigation.ui)
+    implementation(libs.legacy.support.v4)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    implementation (libs.mssql.jdbc)
-    implementation(libs.sqlserver.mssql.jdbc)
-    implementation(libs.jtds)
 }
