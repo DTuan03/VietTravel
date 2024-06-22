@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "432344139017",
+    "firebase_url": "https://vietnam-travel-2a29e-default-rtdb.firebaseio.com",
+    "project_id": "vietnam-travel-2a29e",
+    "storage_bucket": "vietnam-travel-2a29e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:432344139017:android:4eb5307310169b1610bfd8",
+        "android_client_info": {
+          "package_name": "com.httt.viettravel"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsO8ntbELLQ0bFVgWmfWRZiIyamg83I98"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

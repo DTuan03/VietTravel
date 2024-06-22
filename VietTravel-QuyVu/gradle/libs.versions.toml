@@ -9,8 +9,13 @@ material = "1.12.0"
 activity = "1.8.0"
 constraintlayout = "2.1.4"
 mssqlJdbc = "9.2.1.jre11"
+picasso = "2.71828"
 recyclerviewV7 = "27.1.1"
 recyclerview = "1.1.0"
+googleGmsGoogleServices = "4.4.2"
+firebaseStorage = "21.0.0"
+tedbottompicker = "2.0.1"
+tedpermissionNormal = "3.3.0"
 
 [libraries]
 jtds = { module = "net.sourceforge.jtds:jtds", version.ref = "jtds" }
@@ -22,10 +27,15 @@ material = { group = "com.google.android.material", name = "material", version.r
 activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 mssql-jdbc = { module = "com.microsoft.sqlserver:mssql-jdbc" }
+picasso = { module = "com.squareup.picasso:picasso", version.ref = "picasso" }
 recyclerview-v7 = { group = "com.android.support", name = "recyclerview-v7", version.ref = "recyclerviewV7" }
 recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
 sqlserver-mssql-jdbc = { module = "com.microsoft.sqlserver:mssql-jdbc", version.ref = "mssqlJdbc" }
+firebase-storage = { group = "com.google.firebase", name = "firebase-storage", version.ref = "firebaseStorage" }
+tedbottompicker = { module = "gun0912.ted:tedbottompicker", version.ref = "tedbottompicker" }
+tedpermission-normal = { module = "io.github.ParkSangGwon:tedpermission-normal", version.ref = "tedpermissionNormal" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
+googleGmsGoogleServices = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
 

@@ -1,5 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
+    alias(libs.plugins.googleGmsGoogleServices)
+
 }
 
 android {
@@ -25,6 +27,10 @@ android {
             )
         }
     }
+
+//    buidFeaures{
+//        viewBinding true
+//    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -46,6 +52,7 @@ dependencies {
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     implementation(libs.recyclerview)
+    implementation(libs.firebase.storage)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
@@ -56,6 +63,9 @@ dependencies {
     implementation(libs.sqlserver.mssql.jdbc)     //cái náy mới
    //implementation("net.sourceforge.jtds:jtds:1.3.1")
     implementation(libs.jtds)
+
+    //implementation ("com.squareup.picasso:picasso:2.71828")
+    implementation (libs.picasso)
 
 
 }

@@ -1,67 +1,77 @@
 package com.httt.viettravel.TabHistory;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.httt.viettravel.Model.Tour;
+import com.httt.viettravel.Model.Feedback;
 import com.httt.viettravel.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class Tab2Adapter extends RecyclerView.Adapter<Tab2Adapter.Tab2ViewHolder> {
-    private List<Tour> tours;
+public class Tab2Adapter extends RecyclerView.Adapter<Tab2Adapter.FeedbackViewHolder> {
+    private List<Feedback> feedbackList;
+    private Context context;
 
-    public Tab2Adapter(List<Tour> tours) {
-        this.tours = tours;
-    }
-
-    @NonNull
-    @Override
-    public Tab2Adapter.Tab2ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_commented_tab2, parent, false);
-        return new Tab2ViewHolder(view);
+    public Tab2Adapter(Context context, List<Feedback> feedbackList) {
+        this.context = context;
+        this.feedbackList = feedbackList;
+        notifyDataSetChanged();
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Tab2Adapter.Tab2ViewHolder holder, int position) {
-        Tour tour = tours.get(position);
-        if (tour != null) {
-//            holder.imageViewTour.setImageResource(tour.getPic());
-//            holder.textViewLocation.setText(tour.getLocation());
-//            holder.textViewComment.setText(tour.getComment());
-//            holder.ratingBar.setRating(tour.getRating());
-//            holder.textViewDate.setText(tour.getDate());
-//            holder.textViewTime.setText(tour.getReviewTime());
-        }
+    public FeedbackViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_feedback, parent, false);
+        return new FeedbackViewHolder(view);
+    }
 
+    @Override
+    public void onBindViewHolder(FeedbackViewHolder holder, int position) {
+        Feedback feedback = feedbackList.get(position);
+        holder.bind(feedback);
     }
 
     @Override
     public int getItemCount() {
-        return tours.size();
+        return feedbackList.size();
     }
 
-    public class Tab2ViewHolder extends RecyclerView.ViewHolder {
+    public void setFeedbacks(List<Feedback> feedbacks) {
+        this.feedbackList = feedbacks;
+    }
 
-        private ImageView imageViewTour;
-        private TextView textViewLocation, textViewComment, textViewDate, textViewTime;
-        private RatingBar ratingBar;
+    public class FeedbackViewHolder extends RecyclerView.ViewHolder {
+        TextView userName, nameTour, date, time, comment;
+        RatingBar ratingBar;
+        ImageView imgTour;
 
-        public Tab2ViewHolder(@NonNull View itemView) {
+        public FeedbackViewHolder(View itemView) {
             super(itemView);
-            imageViewTour = itemView.findViewById(R.id.img);
-            textViewLocation = itemView.findViewById(R.id.location);
-            textViewComment = itemView.findViewById(R.id.cmt);
+            userName = itemView.findViewById(R.id.userName);
+            nameTour = itemView.findViewById(R.id.nameTour);
+            date = itemView.findViewById(R.id.tvDate);
+            time = itemView.findViewById(R.id.tvTime);
+            comment = itemView.findViewById(R.id.cmt);
             ratingBar = itemView.findViewById(R.id.ratingBar);
-            textViewDate = itemView.findViewById(R.id.tvDate);
-            textViewTime = itemView.findViewById(R.id.tvTime);
+            imgTour = itemView.findViewById(R.id.ImgTour); // Thêm ImageView
+        }
+
+        public void bind(Feedback feedback) {
+            userName.setText(feedback.getUserName());
+            nameTour.setText(feedback.getNameTour()); // Hiển thị NameTour
+            date.setText(feedback.getDateOfFeedback());
+            time.setText(feedback.getTimeOfFeedback());
+            comment.setText(feedback.getDescriptionFeedback());
+            ratingBar.setRating(feedback.getRating());
+            // Load image using Picasso
+            Picasso.get().load(feedback.getImgMainResource()).into(imgTour);
+
         }
     }
 }

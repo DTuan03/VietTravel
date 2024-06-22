@@ -4,6 +4,9 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
+
+import java.util.Date;
+
 public class Tour {
     private String idTour;
     private String typeTour;
@@ -12,20 +15,15 @@ public class Tour {
     private int numberDay;
     private float priceTour;
     private float total;
-    private boolean favTour;
+    private Date startDay;  // Thêm trường startDay
+    private Date endDay;
     private String hotel;
     private String vehicle;
-    private boolean propose;
-    private boolean notMissed;
+    private String idBookedTour;
+    private String imgMainResource; // Thêm thuộc tính này
 
-//    public Tour(String idTour, String nameTour, int numberDay, float priceTour) {
-//        this.idTour = idTour;
-//        this.nameTour = nameTour;
-//        this.numberDay = numberDay;
-//        this.priceTour = priceTour;
-//    }
 
-    public Tour(String idTour, String typeTour, String nameTour, String descriptionTour, int numberDay, float priceTour,float total, boolean favTour, String hotel, String vehicle, boolean propose, boolean notMissed) {
+    public Tour(String idTour, String typeTour, String nameTour, String descriptionTour, int numberDay, float priceTour,float total, Date startDay, Date endDay , String hotel, String vehicle, String idBookedTour,String imgMainResource) {
         this.idTour = idTour;
         this.typeTour = typeTour;
         this.nameTour = nameTour;
@@ -33,11 +31,12 @@ public class Tour {
         this.numberDay = numberDay;
         this.priceTour = priceTour;
         this.total = total;
-        this.favTour = favTour;
+        this.startDay = startDay;
+        this.endDay = endDay;
         this.hotel = hotel;
         this.vehicle = vehicle;
-        this.propose = propose;
-        this.notMissed = notMissed;
+        this.idBookedTour = idBookedTour;
+        this.imgMainResource = imgMainResource;
     }
 
     public String getIdTour() {
@@ -88,14 +87,6 @@ public class Tour {
         this.priceTour = priceTour;
     }
 
-    public boolean isFavTour() {
-        return favTour;
-    }
-
-    public void setFavTour(boolean favTour) {
-        this.favTour = favTour;
-    }
-
     public String getHotel() {
         return hotel;
     }
@@ -112,28 +103,44 @@ public class Tour {
         this.vehicle = vehicle;
     }
 
-    public boolean isPropose() {
-        return propose;
-    }
-
-    public void setPropose(boolean propose) {
-        this.propose = propose;
-    }
-
-    public boolean isNotMissed() {
-        return notMissed;
-    }
-
-    public void setNotMissed(boolean notMissed) {
-        this.notMissed = notMissed;
-    }
-
     public float getTotal() {
         return total;
     }
 
     public void setTotal(float total) {
         this.total = total;
+    }
+
+    public Date getStartDay() {
+        return startDay;
+    }
+
+    public void setStartDay(Date startDay) {
+        this.startDay = startDay;
+    }
+
+    public Date getEndDay() {
+        return endDay;
+    }
+
+    public void setEndDay(Date endDay) {
+        this.endDay = endDay;
+    }
+
+    public String getIdBookedTour() {
+        return idBookedTour;
+    }
+
+    public void setIdBookedTour(String idBookedTour) {
+        this.idBookedTour = idBookedTour;
+    }
+
+    public String getImgMainResource() {
+        return imgMainResource;
+    }
+
+    public void setImgMainResource(String imgMainResource) {
+        this.imgMainResource = imgMainResource;
     }
 }
 

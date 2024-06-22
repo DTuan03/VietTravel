@@ -56,17 +56,7 @@
                     android:src="@drawable/halong" />
 
                 <TextView
-                    android:id="@+id/textViewContent"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
-                    android:text="Tham quan Vịnh Hạ Long, 2N1Đ"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/textViewLocation"
+                    android:id="@+id/nameTour"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -84,28 +74,28 @@
             android:layout_marginTop="10dp"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="vertical">
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:orientation="vertical">-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lịch trình:"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Lịch trình:"-->
+<!--                    android:textSize="18sp"-->
+<!--                    android:textStyle="bold" />-->
 
-                <TextView
-                    android:id="@+id/textViewRoutine"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="0dp"
-                    android:text="-\Hang Sửng Sốt. \n-\tHang Luồn \n-\tTên Hạ Long nghĩa là con rồng bay xuống"
-                    android:textSize="18sp"
-                    android:textStyle="normal" />
-            </LinearLayout>
+<!--                <TextView-->
+<!--                    android:id="@+id/rountine"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="0dp"-->
+<!--                    android:text="-\Hang Sửng Sốt. \n-\tHang Luồn \n-\tTên Hạ Long nghĩa là con rồng bay xuống"-->
+<!--                    android:textSize="18sp"-->
+<!--                    android:textStyle="normal" />-->
+<!--            </LinearLayout>-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -121,7 +111,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewTime"
+                    android:id="@+id/NumberDay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="\t\t2 ngày 1 đêm"
@@ -138,12 +128,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Chi phí:"
+                    android:text="Tổng tiền:"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewPrice"
+                    android:id="@+id/total"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="\t\t2.500.000 VND"
@@ -151,49 +141,49 @@
                     android:textStyle="normal" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:orientation="horizontal">-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Phương tiện:"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Phương tiện:"-->
+<!--                    android:textSize="18sp"-->
+<!--                    android:textStyle="bold" />-->
 
-                <TextView
-                    android:id="@+id/textViewVehicle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="\t\tÔ tô,Tàu hỏa"
-                    android:textSize="18sp"
-                    android:textStyle="normal" />
-            </LinearLayout>
+<!--                <TextView-->
+<!--                    android:id="@+id/vehical"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="\t\tÔ tô,Tàu hỏa"-->
+<!--                    android:textSize="18sp"-->
+<!--                    android:textStyle="normal" />-->
+<!--            </LinearLayout>-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:orientation="horizontal">-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nơi ở:"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Nơi ở:"-->
+<!--                    android:textSize="18sp"-->
+<!--                    android:textStyle="bold" />-->
 
-                <TextView
-                    android:id="@+id/textViewPlace"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="\t\tKhách sạn Mường Thanh"
-                    android:textSize="18sp"
-                    android:textStyle="normal" />
-            </LinearLayout>
+<!--                <TextView-->
+<!--                    android:id="@+id/hotel"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="\t\tKhách sạn Mường Thanh"-->
+<!--                    android:textSize="18sp"-->
+<!--                    android:textStyle="normal" />-->
+<!--            </LinearLayout>-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -221,7 +211,7 @@
                     android:stepSize="1" />
 
                 <EditText
-                    android:id="@+id/textViewComment"
+                    android:id="@+id/txtRate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
@@ -236,6 +226,29 @@
 
             </LinearLayout>
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-30dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/selectPhoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Chọn ảnh" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewPhotos"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal" />
+        </LinearLayout>
+
+
 
         <Button
             android:id="@+id/btn_submit"

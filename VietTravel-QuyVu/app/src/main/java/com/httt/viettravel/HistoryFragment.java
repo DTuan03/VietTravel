@@ -13,8 +13,7 @@ import android.view.ViewGroup;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
-import com.httt.viettravel.TabHistory.Tab1;
-import com.httt.viettravel.TabHistory.Tab2;
+
 import com.httt.viettravel.TabHistory.TabAdapter;
 
 /**
