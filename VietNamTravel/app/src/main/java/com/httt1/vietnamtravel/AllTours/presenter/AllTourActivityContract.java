@@ -1,6 +1,6 @@
-package com.httt1.vietnamtravel.ui.presenter;
+package com.httt1.vietnamtravel.AllTours.presenter;
 
-import com.httt1.vietnamtravel.ui.model.TourModel;
+import com.httt1.vietnamtravel.home.model.TourModel;
 
 import java.util.List;
 

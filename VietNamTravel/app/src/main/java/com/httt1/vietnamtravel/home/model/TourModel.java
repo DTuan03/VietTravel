@@ -1,4 +1,4 @@
-package com.httt1.vietnamtravel.ui.model;
+package com.httt1.vietnamtravel.home.model;
 
 public class TourModel {
     private int userId;

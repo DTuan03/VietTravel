@@ -1,13 +1,13 @@
-package com.httt1.vietnamtravel.ui.view;
+package com.httt1.vietnamtravel.history.view;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class FavoriteViewModel extends ViewModel {
+public class HistoryViewModel extends ViewModel {
     private final MutableLiveData<String> mText;
 
-    public FavoriteViewModel() {
+    public HistoryViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is history fragment");
     }

@@ -1,4 +1,4 @@
-package com.httt1.vietnamtravel.ui.view;
+package com.httt1.vietnamtravel.setting.view;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

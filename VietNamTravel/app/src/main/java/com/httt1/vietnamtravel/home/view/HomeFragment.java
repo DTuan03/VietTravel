@@ -1,4 +1,4 @@
-package com.httt1.vietnamtravel.ui.view;
+package com.httt1.vietnamtravel.home.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
@@ -21,10 +20,11 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
 import com.httt1.vietnamtravel.common.utils.SharedPrefsHelper;
 import com.httt1.vietnamtravel.databinding.FragmentHomeBinding;
-import com.httt1.vietnamtravel.ui.adapter.TourAdapter;
-import com.httt1.vietnamtravel.ui.model.TourModel;
-import com.httt1.vietnamtravel.ui.presenter.HomeContract;
-import com.httt1.vietnamtravel.ui.presenter.HomePresenter;
+import com.httt1.vietnamtravel.home.adapter.TourAdapter;
+import com.httt1.vietnamtravel.home.model.TourModel;
+import com.httt1.vietnamtravel.home.presenter.HomeContract;
+import com.httt1.vietnamtravel.home.presenter.HomePresenter;
+import com.httt1.vietnamtravel.AllTours.view.AllTourActivity;
 
 import java.util.List;
 
@@ -45,8 +45,6 @@ public class HomeFragment extends Fragment implements HomeContract.View
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();

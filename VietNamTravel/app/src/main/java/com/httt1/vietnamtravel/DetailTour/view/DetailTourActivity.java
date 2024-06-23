@@ -1,4 +1,4 @@
-package com.httt1.vietnamtravel.ui.view;
+package com.httt1.vietnamtravel.DetailTour.view;
 
 import android.os.Bundle;
 

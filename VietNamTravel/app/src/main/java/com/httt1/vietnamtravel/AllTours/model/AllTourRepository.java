@@ -1,8 +1,9 @@
-package com.httt1.vietnamtravel.ui.model;
+package com.httt1.vietnamtravel.AllTours.model;
 
 import android.util.Log;
 
 import com.httt1.vietnamtravel.common.database.SQLServerDataSource;
+import com.httt1.vietnamtravel.home.model.TourModel;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -1,4 +1,4 @@
-package com.httt1.vietnamtravel.ui.view;
+package com.httt1.vietnamtravel.history.view;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

@@ -1,9 +1,9 @@
-package com.httt1.vietnamtravel.ui.presenter;
+package com.httt1.vietnamtravel.home.presenter;
 
 import android.content.Context;
 
-import com.httt1.vietnamtravel.ui.model.HomeRepository;
-import com.httt1.vietnamtravel.ui.model.TourModel;
+import com.httt1.vietnamtravel.home.model.HomeRepository;
+import com.httt1.vietnamtravel.home.model.TourModel;
 
 import java.util.List;
 

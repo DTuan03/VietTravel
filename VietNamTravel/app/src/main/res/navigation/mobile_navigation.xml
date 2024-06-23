@@ -7,21 +7,21 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.httt1.vietnamtravel.ui.view.HomeFragment"
+        android:name="com.httt1.vietnamtravel.home.view.HomeFragment"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_favourite"
-        android:name="com.httt1.vietnamtravel.ui.view.FavoriteFragment"
+        android:name="com.httt1.vietnamtravel.favorite.view.FavoriteFragment"
         tools:layout="@layout/fragment_favorite" />
 
     <fragment
         android:id="@+id/navigation_history"
-        android:name="com.httt1.vietnamtravel.ui.view.HistoryFragment"
+        android:name="com.httt1.vietnamtravel.history.view.HistoryFragment"
         tools:layout="@layout/fragment_history" />
 
     <fragment
         android:id="@+id/navigation_setting"
-        android:name="com.httt1.vietnamtravel.ui.view.SettingFragment"
+        android:name="com.httt1.vietnamtravel.setting.view.SettingFragment"
         tools:layout="@layout/fragment_setting" />
 </navigation>

@@ -1,4 +1,4 @@
-package com.httt1.vietnamtravel.ui.view;
+package com.httt1.vietnamtravel.AllTours.view;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -11,10 +11,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.httt1.vietnamtravel.common.utils.SharedPrefsHelper;
 import com.httt1.vietnamtravel.databinding.ActivityAllTourBinding;
-import com.httt1.vietnamtravel.ui.adapter.TourAdapter;
-import com.httt1.vietnamtravel.ui.model.TourModel;
-import com.httt1.vietnamtravel.ui.presenter.AllTourActivityContract;
-import com.httt1.vietnamtravel.ui.presenter.AllTourPresenter;
+import com.httt1.vietnamtravel.home.adapter.TourAdapter;
+import com.httt1.vietnamtravel.home.model.TourModel;
+import com.httt1.vietnamtravel.AllTours.presenter.AllTourActivityContract;
+import com.httt1.vietnamtravel.AllTours.presenter.AllTourPresenter;
 
 import java.util.List;
 

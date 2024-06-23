@@ -1,4 +1,4 @@
-package com.httt1.vietnamtravel.ui.adapter;
+package com.httt1.vietnamtravel.home.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,9 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.httt1.vietnamtravel.R;
-import com.httt1.vietnamtravel.ui.model.AllTourRepository;
-import com.httt1.vietnamtravel.ui.model.HomeRepository;
-import com.httt1.vietnamtravel.ui.model.TourModel;
+import com.httt1.vietnamtravel.AllTours.model.AllTourRepository;
+import com.httt1.vietnamtravel.home.model.HomeRepository;
+import com.httt1.vietnamtravel.home.model.TourModel;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
