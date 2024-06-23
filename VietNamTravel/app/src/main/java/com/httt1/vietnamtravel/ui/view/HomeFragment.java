@@ -1,5 +1,6 @@
 package com.httt1.vietnamtravel.ui.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -32,6 +34,7 @@ public class HomeFragment extends Fragment implements HomeContract.View
     private FragmentHomeBinding binding;
     private RecyclerView rcvCombo, rcvVoucher;
     private TourAdapter comboAdapter;
+    private TextView tvSeeMore;
 //    private VoucherAdapter voucherAdapter;
     private ViewPager2 viewPager2;
     private TabLayout tabLayout;
@@ -62,6 +65,16 @@ public class HomeFragment extends Fragment implements HomeContract.View
         HomePresenter homePresenter = new HomePresenter(this, getContext());
 
         setComboAdapter(homePresenter, userId);
+
+        tvSeeMore = binding.fragmentHomeTvSeemore;
+        tvSeeMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), AllTourActivity.class);
+                intent.putExtra("userId", userId);
+                startActivity(intent);
+            }
+        });
 
         return root;
     }

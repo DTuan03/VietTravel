@@ -4,12 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/activity_home_background"
     tools:context=".ui.view.HomeFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/activity_home_background"
         android:orientation="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -255,7 +255,7 @@
                             tools:ignore="DuplicateIds" />
 
                         <TextView
-                            android:id="@+id/textView37"
+                            android:id="@+id/fragment_home_tv_seemore"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="30dp"
@@ -266,7 +266,10 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintHorizontal_bias="0.736"
                             app:layout_constraintStart_toEndOf="@+id/text_home"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:onClick="onSeeMoreClicked"/>
 
                         <TextView
                             android:id="@+id/textView38"

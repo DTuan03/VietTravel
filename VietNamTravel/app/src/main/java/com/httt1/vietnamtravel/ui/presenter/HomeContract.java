@@ -15,4 +15,5 @@ public interface HomeContract {
 //        void getDataVoucher();
         void getDataDiscover(String typeDiscover, int userId);
     }
+
 }

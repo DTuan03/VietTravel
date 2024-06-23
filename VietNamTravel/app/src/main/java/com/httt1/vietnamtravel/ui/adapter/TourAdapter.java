@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.httt1.vietnamtravel.R;
+import com.httt1.vietnamtravel.ui.model.AllTourRepository;
 import com.httt1.vietnamtravel.ui.model.HomeRepository;
 import com.httt1.vietnamtravel.ui.model.TourModel;
 import com.squareup.picasso.Picasso;
@@ -22,11 +23,18 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.TourViewHolder
     private Context context;
     private int userId;
     private HomeRepository homeRepository;
+    private AllTourRepository allTourRepository;
 
     public TourAdapter(Context context, int userId, HomeRepository homeRepository) {
         this.context = context;
         this.userId = userId;
         this.homeRepository = homeRepository;
+    }
+
+    public TourAdapter(Context context, int userId, AllTourRepository allTourRepository) {
+        this.context = context;
+        this.userId = userId;
+        this.allTourRepository = allTourRepository;
     }
 
     public void setDataCombo(Context context, List<TourModel> listCombo){
@@ -64,11 +72,13 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.TourViewHolder
             if (combo.isFavorite()) {
                 // Xóa yêu thích
                 homeRepository.removeFavorite(userId, combo.getTourId());
+                allTourRepository.removeFavorite(userId, combo.getTourId());
                 combo.setIsFavorite(false); // Cập nhật trạng thái yêu thích của tour
                 holder.imgFav.setImageResource(R.drawable.baseline_favorite_border_24); // Cập nhật icon
             } else {
                 // Thêm yêu thích
                 homeRepository.addFavorite(userId, combo);
+                allTourRepository.addFavorite(userId, combo);
                 combo.setIsFavorite(true); // Cập nhật trạng thái yêu thích của tour
                 holder.imgFav.setImageResource(R.drawable.baseline_favorite_24); // Cập nhật icon
             }

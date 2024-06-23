@@ -25,6 +25,7 @@ public class HomePresenter implements HomeContract.Presenter {
         this.view = view;
         this.homeRepository = homeRepository;
     }
+
     @Override
     public void getDataCombo(String typeTour, int userId) {
         homeRepository.getComboTour(userId, new HomeRepository.ComboCallBack() {
