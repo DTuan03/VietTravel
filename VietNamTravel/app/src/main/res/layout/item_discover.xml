@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="160dp"
-    android:layout_height="180dp"
+    android:layout_height="200dp"
     android:background="@color/grey"
     android:layout_margin="8dp"
     android:layout_marginEnd="10dp"
@@ -17,14 +17,14 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/item_img_tour"
+            android:id="@+id/item_img_discover_tour"
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:scaleType="centerCrop"
             android:src="@drawable/img_0" />
 
         <TextView
-            android:id="@+id/item_tv_name_tour"
+            android:id="@+id/item_tv_name_discover_tour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -39,6 +39,28 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintHorizontal_bias="0.0"/>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="3dp"
+                app:srcCompat="@drawable/baseline_star_24" />
+
+            <TextView
+                android:id="@+id/item_discover_tv_avg_star"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:text="4.4"
+                android:textColor="@color/blue_dark"
+                android:textSize="@dimen/textSize" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -56,7 +78,7 @@
                 android:textSize="@dimen/textSize" />
 
             <TextView
-                android:id="@+id/item_price_tour"
+                android:id="@+id/item_price_discover_tour"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="840,000"
@@ -75,7 +97,7 @@
         android:layout_marginLeft="125dp">
 
         <ImageView
-            android:id="@+id/item_img_favorite"
+            android:id="@+id/item_img_discover_favorite"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginTop="10dp"

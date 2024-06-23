@@ -44,7 +44,12 @@ dependencies {
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
     implementation(libs.legacy.support.v4)
+    implementation(libs.firebase.storage)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    implementation (libs.mssql.jdbc)
+    implementation(libs.sqlserver.mssql.jdbc)
+    implementation(libs.jtds)
+    implementation ("com.squareup.picasso:picasso:2.5.2")
 }
