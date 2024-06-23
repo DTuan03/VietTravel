@@ -73,6 +73,8 @@
                         android:layout_marginStart="28dp"
                         android:layout_marginTop="32dp"
                         android:text="Ha Hoang Minh"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toEndOf="@+id/fragment_setting_img_avater"
                         app:layout_constraintTop_toTopOf="parent" />

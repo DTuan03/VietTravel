@@ -7,11 +7,16 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.httt1.vietnamtravel.R;
+import com.httt1.vietnamtravel.common.utils.SharedPrefsHelper;
+import com.httt1.vietnamtravel.setting.presenter.SettingContract;
+import com.httt1.vietnamtravel.setting.presenter.SettingPresenter;
 
-public class SettingFragment extends Fragment {
-
+public class SettingFragment extends Fragment implements SettingContract.View{
+    private TextView tvName;
+    public SettingPresenter settingPresenter;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -44,6 +49,19 @@ public class SettingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_setting, container, false);
+        SharedPrefsHelper sharedPrefsHelper = new SharedPrefsHelper(requireContext()); //requireContext tuong tu getContext() nhung neu null no se tra ra loi...
+        int userId = sharedPrefsHelper.getInt("UserId");
+        init(view);
+        settingPresenter = new SettingPresenter(this);
+        settingPresenter.setNameUser(userId);
         return view;
+    }
+    private void init(View view){
+        tvName = view.findViewById(R.id.fragment_setting_tv_name_user);
+    }
+
+    @Override
+    public void setText(String string) {
+        tvName.setText(string);
     }
 }
