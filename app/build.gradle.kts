@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.httt.viettravel"
+    namespace = "com.httt1.vietnamtravel"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.httt.viettravel"
+        applicationId = "com.httt1.vietnamtravel"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -30,13 +30,6 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-    sourceSets {
-        getByName("main") {
-            java {
-                srcDirs("src/main/java", "src/main/java/Adapter")
-            }
-        }
-    }
 }
 
 dependencies {
@@ -45,12 +38,11 @@ dependencies {
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
-    implementation(libs.recyclerview)
-    implementation(files("jtds-1.3.1.jar")) //thu vien ho tro ket noi sql server
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    implementation("de.hdodenhof:circleimageview:3.1.0")
+    implementation(files("jtds-1.3.1.jar")) //thu vien ho tro ket noi sql server
+    implementation("de.hdodenhof:circleimageview:3.1.0") //thư viện card view de bo ảnh
     implementation(platform("com.google.firebase:firebase-bom:33.1.0")) // thư viện firebase
     implementation("com.google.firebase:firebase-database") // thư viện firebase real time
     implementation ("com.google.firebase:firebase-storage") // thư viện firebase storage

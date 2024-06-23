@@ -4,7 +4,7 @@
     android:id="@+id/fragment_recommend"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RecommendFragment">
+    tools:context=".home.view.RecommendFragment">
 
     <ScrollView
         android:layout_width="match_parent"
