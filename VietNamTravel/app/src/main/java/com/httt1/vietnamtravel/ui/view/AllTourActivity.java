@@ -36,7 +36,7 @@ public class AllTourActivity extends AppCompatActivity implements AllTourActivit
         rcvAllTour = binding.activityAlltourRcvAlltour;
 
         AllTourPresenter allTourPresenter = new AllTourPresenter(this);
-        allTourPresenter.getAllData(userId);
+        setAllTourAdapter(allTourPresenter, userId);
 
         tvbackhome = binding.activityTvBackhome;
         tvbackhome.setOnClickListener(new View.OnClickListener() {

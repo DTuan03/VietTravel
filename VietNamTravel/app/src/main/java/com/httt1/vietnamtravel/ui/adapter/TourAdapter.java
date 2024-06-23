@@ -72,13 +72,13 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.TourViewHolder
             if (combo.isFavorite()) {
                 // Xóa yêu thích
                 homeRepository.removeFavorite(userId, combo.getTourId());
-                allTourRepository.removeFavorite(userId, combo.getTourId());
+//                allTourRepository.removeFavorite(userId, combo.getTourId());
                 combo.setIsFavorite(false); // Cập nhật trạng thái yêu thích của tour
                 holder.imgFav.setImageResource(R.drawable.baseline_favorite_border_24); // Cập nhật icon
             } else {
                 // Thêm yêu thích
                 homeRepository.addFavorite(userId, combo);
-                allTourRepository.addFavorite(userId, combo);
+//                allTourRepository.addFavorite(userId, combo);
                 combo.setIsFavorite(true); // Cập nhật trạng thái yêu thích của tour
                 holder.imgFav.setImageResource(R.drawable.baseline_favorite_24); // Cập nhật icon
             }

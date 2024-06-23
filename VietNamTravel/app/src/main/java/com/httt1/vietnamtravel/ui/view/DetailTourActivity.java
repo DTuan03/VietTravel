@@ -1,4 +1,4 @@
-package com.httt.test.Activity;
+package com.httt1.vietnamtravel.ui.view;
 
 import android.os.Bundle;
 
@@ -8,7 +8,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.httt.test.R;
+import com.httt1.vietnamtravel.R;
 
 public class DetailTourActivity extends AppCompatActivity {
 
