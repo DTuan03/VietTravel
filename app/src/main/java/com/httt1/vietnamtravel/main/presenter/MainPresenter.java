@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.httt1.vietnamtravel.R;
 import com.httt1.vietnamtravel.home.view.HomeFragment;
+import com.httt1.vietnamtravel.setting.view.SettingFragment;
 
 public class MainPresenter implements MainContract.Presenter{
     private final MainContract.View view;
@@ -33,6 +34,9 @@ public class MainPresenter implements MainContract.Presenter{
 
             return true;
         } else if (item.getItemId() == R.id.navigation_setting) {
+            Fragment fragmentSetting = new SettingFragment();
+            int setStatusBarColor = ContextCompat.getColor(context, R.color.fragment_setting_status_bar);
+            view.loadFragment(fragmentSetting, setStatusBarColor);
             return true;
         }
         return false;
