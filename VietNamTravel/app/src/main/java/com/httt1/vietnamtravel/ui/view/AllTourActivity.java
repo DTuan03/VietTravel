@@ -1,17 +1,17 @@
 package com.httt1.vietnamtravel.ui.view;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.httt1.vietnamtravel.R;
+import com.httt1.vietnamtravel.common.utils.SharedPrefsHelper;
 import com.httt1.vietnamtravel.databinding.ActivityAllTourBinding;
 import com.httt1.vietnamtravel.ui.adapter.TourAdapter;
-import com.httt1.vietnamtravel.ui.model.AllTourRepository;
 import com.httt1.vietnamtravel.ui.model.TourModel;
 import com.httt1.vietnamtravel.ui.presenter.AllTourActivityContract;
 import com.httt1.vietnamtravel.ui.presenter.AllTourPresenter;
@@ -23,38 +23,30 @@ public class AllTourActivity extends AppCompatActivity implements AllTourActivit
     private ActivityAllTourBinding binding;
     private RecyclerView rcvAllTour;
     private TourAdapter alltourAdapter;
-    private AllTourRepository allTourRepository;
+    private ImageView tvbackhome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_all_tour);
-
         binding = ActivityAllTourBinding.inflate(getLayoutInflater());
-        View view = binding.getRoot();
-        setContentView(view);
-
+        setContentView(binding.getRoot());
+        SharedPrefsHelper sharedPrefsHelper = new SharedPrefsHelper(this); //requireContext tuong tu getContext() nhung neu null no se tra ra loi...
+        int userId = 1;
+        Log.d("Thong tin UserId 18:03", "Thong tin: " + userId);
         rcvAllTour = binding.activityAlltourRcvAlltour;
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        rcvAllTour.setLayoutManager(layoutManager);
 
-        // Khởi tạo adapter
-        alltourAdapter = new TourAdapter(this, userId, allTourRepository); // Điền tham số phù hợp
-        rcvAllTour.setAdapter(alltourAdapter);
-
-        // Gọi phương thức để lấy dữ liệu
         AllTourPresenter allTourPresenter = new AllTourPresenter(this);
         allTourPresenter.getAllData(userId);
+
+        tvbackhome = binding.activityTvBackhome;
+        tvbackhome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 
-    @Override
-    public void showAllData(List<TourModel> list) {
-        // Cập nhật dữ liệu vào adapter và thông báo thay đổi
-        if (alltourAdapter != null) {
-            alltourAdapter.setDataCombo(this, list);
-            alltourAdapter.notifyDataSetChanged();
-        }
-    }
     // Phương thức được gọi khi ImageView "Back" được nhấn
     public void onBackHomeClicked(View view) {
         onBackPressed();
@@ -77,4 +69,14 @@ public class AllTourActivity extends AppCompatActivity implements AllTourActivit
         allTourPresenter.getAllData(userId);
     }
 
+    public void showAllData(List<TourModel> list) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                // Cập nhật dữ liệu vào adapter và RecyclerView
+                alltourAdapter.setDataCombo(AllTourActivity.this, list);
+                alltourAdapter.notifyDataSetChanged();
+            }
+        });
+    }
 }
