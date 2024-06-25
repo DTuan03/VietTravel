@@ -87,7 +87,6 @@ public class HomeRepository {
                     ResultSet resultSet = statement.executeQuery();
                     List<HomeModel> list = setDataCombo(resultSet);
                     comboCallBack.listCombo(list);
-                    Log.d("So luong tour: ", "So luong tour yeu thich: " + list.size());
                 }catch (Exception e){
                     e.printStackTrace();
                 }

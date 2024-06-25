@@ -1,6 +1,7 @@
 package com.httt1.vietnamtravel.home.adapter;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,8 +10,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.httt1.vietnamtravel.R;
 import com.httt1.vietnamtravel.home.model.HomeModel;
 import com.squareup.picasso.Picasso;
@@ -40,7 +47,7 @@ public class ComboAdapter extends RecyclerView.Adapter<ComboAdapter.ComboViewHol
         int tvPriceTour = combo.getPrice();
         if (combo != null){
             //placeholder để đặt hình ảnh mặc định khi đang tải và error() để đặt hình ảnh mặc định khi xảy ra lỗi khi tải ảnh
-            Picasso.with(context).load(uriImgCombo).error(R.drawable.hue5).into(holder.image);
+            Picasso.get().load(uriImgCombo).error(R.drawable.hue5).into(holder.image);
             holder.tvNameToure.setText(tvNameTour);
             holder.tvPriceToure.setText(String.valueOf(tvPriceTour));
             if(combo.getIsFavorite() != 0){

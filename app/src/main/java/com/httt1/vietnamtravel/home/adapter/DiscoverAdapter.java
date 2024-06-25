@@ -39,7 +39,7 @@ public class DiscoverAdapter extends RecyclerView.Adapter<DiscoverAdapter.Discov
         String tvAvgRate = String.valueOf(discover.getavgrStar());
         String tvPrice = String.valueOf(discover.getPrice());
         if (discover != null){
-            Picasso.with(context).load(imgUrl).error(R.drawable.hue5).into(holder.imgDiscover);
+            Picasso.get().load(imgUrl).error(R.drawable.hue5).into(holder.imgDiscover);
             holder.tvName.setText(tvNameTour);
             holder.tvAvgRate.setText(tvAvgRate);
             holder.tvPrice.setText(tvPrice);

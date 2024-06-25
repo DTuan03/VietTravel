@@ -38,7 +38,7 @@ public class VoucherAdapter extends RecyclerView.Adapter<VoucherAdapter.VoucherV
         int voucherId = voucher.getVoucherId();
         String url = voucher.geturlImg();
         if(voucher != null){
-            Picasso.with(context).load(url).error(R.drawable.hue5).into(holder.imgVoucher);
+            Picasso.get().load(url).error(R.drawable.hue5).into(holder.imgVoucher);
         }
         holder.imgVoucher.setOnClickListener(new View.OnClickListener() {
             @Override

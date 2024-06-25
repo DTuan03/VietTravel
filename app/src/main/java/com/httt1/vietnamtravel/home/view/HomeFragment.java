@@ -164,7 +164,6 @@ public class HomeFragment extends Fragment implements HomeContract.View {
                         homePresenter.onMyVoucher(userId, voucherId);
                     }
                 });
-
                 voucherAdapter.notifyDataSetChanged();
             }
         });

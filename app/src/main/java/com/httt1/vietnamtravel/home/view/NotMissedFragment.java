@@ -92,7 +92,13 @@ public class NotMissedFragment extends Fragment implements HomeContract.View {
     @Override
     public void showDataDiscover(List<HomeModel> list) {
         discoverAdapter.setDataDiscover(getContext(),list);
-        discoverAdapter.notifyDataSetChanged();
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                // Thao tác liên quan đến UI
+               discoverAdapter.notifyDataSetChanged();
+            }
+        });
     }
 
     @Override

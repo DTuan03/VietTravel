@@ -43,8 +43,10 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     implementation(files("jtds-1.3.1.jar")) //thu vien ho tro ket noi sql server
     implementation("de.hdodenhof:circleimageview:3.1.0") //thư viện card view de bo ảnh
-    implementation(platform("com.google.firebase:firebase-bom:33.1.0")) // thư viện firebase
+    implementation(platform("com.google.firebase:firebase-bom:33.1.1")) // thư viện firebase
     implementation("com.google.firebase:firebase-database") // thư viện firebase real time
     implementation ("com.google.firebase:firebase-storage") // thư viện firebase storage
-    implementation ("com.squareup.picasso:picasso:2.5.2") //thu vien ho tro load hinh anh tu url
+    implementation("com.squareup.picasso:picasso:2.71828") //thu vien ho tro load hinh anh tu url
+    implementation ("com.github.bumptech.glide:glide:4.12.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
 }

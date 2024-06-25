@@ -353,6 +353,7 @@
                     android:layout_marginBottom="15dp"
                     app:tabIndicatorColor="#FF5722"
                     app:tabIndicatorFullWidth="false"
+                    app:tabGravity="start"
                     app:tabMode="scrollable"
                     app:tabRippleColor="#00FFFFFF"
                     app:tabSelectedTextColor="#FF5722"

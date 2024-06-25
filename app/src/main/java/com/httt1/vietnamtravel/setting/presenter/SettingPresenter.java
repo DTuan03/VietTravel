@@ -20,6 +20,17 @@ public class SettingPresenter implements SettingContract.Presenter{
             });
         }else{
             view.setText("Đăng ký/Đăng nhập");
+            view.onRegis();
+        }
+    }
+
+    @Override
+    public void setClick(int userId) {
+        if(userId != 0){
+            view.onAccount();
+            view.onReplacePass();
+        }else{
+            view.notifi();
         }
     }
 }
