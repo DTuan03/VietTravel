@@ -10,7 +10,7 @@ public interface BookTourContract {
         Date getStarDay();
         Date getEndDay();
         int getNumberBook();
-        int getVoucher();
+        String getVoucher();
         String getPayMendMethod();
     }
     interface Presenter{

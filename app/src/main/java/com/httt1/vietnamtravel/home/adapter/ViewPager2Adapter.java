@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.httt1.vietnamtravel.home.view.FavoriteFragment;
+import com.httt1.vietnamtravel.home.view.TabFavoriteFragment;
 import com.httt1.vietnamtravel.home.view.NotMissedFragment;
 import com.httt1.vietnamtravel.home.view.RecommendFragment;
 
@@ -23,7 +23,7 @@ public class ViewPager2Adapter  extends FragmentStateAdapter {
             case 1:
                 return new NotMissedFragment();
             case 2:
-                return new FavoriteFragment();
+                return new TabFavoriteFragment();
             default:
                 return new RecommendFragment();
         }

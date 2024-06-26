@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
+import com.httt1.vietnamtravel.AllTours.view.AllTourActivity;
 import com.httt1.vietnamtravel.DetailTour.view.DetailTourActivity;
 import com.httt1.vietnamtravel.R;
 import com.httt1.vietnamtravel.common.utils.SharedPrefsHelper;
@@ -102,6 +103,7 @@ public class HomeFragment extends Fragment implements HomeContract.View {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), AllTourActivity.class);
+                intent.putExtra("userId", userId);
                 startActivity(intent);
             }
         });
@@ -128,7 +130,6 @@ public class HomeFragment extends Fragment implements HomeContract.View {
 
     private void refreshData() {
         // Cập nhật dữ liệu combo
-        int userId = 1;
         homePresenter.getDataCombo("CB", userId);
     }
     private void init(View view){

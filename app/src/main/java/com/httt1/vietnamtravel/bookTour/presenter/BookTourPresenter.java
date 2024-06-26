@@ -26,6 +26,6 @@ public class BookTourPresenter implements BookTourContract.Presenter{
 
     @Override
     public void onBookTour(int userId, int idTour) {
-        list = new BookTourModel(idTour, userId, view.getName(), view.getPhone(), view.getPhone(), view.getEmail(), view.getStarDay(), view.getEndDay(), view.getNumberBook(),view.getVoucher(), view.getPayMendMethod());
+//        list = new BookTourModel(idTour, userId, view.getName(), view.getPhone(), view.getPhone(), view.getEmail(), view.getStarDay(), view.getEndDay(), view.getNumberBook(),view.getVoucher(), view.getPayMendMethod());
     }
 }

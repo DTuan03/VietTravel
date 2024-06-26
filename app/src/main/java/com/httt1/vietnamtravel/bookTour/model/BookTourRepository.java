@@ -36,7 +36,7 @@ public class BookTourRepository {
                     statement.setInt(1, userId);
                     ResultSet resultSet = statement.executeQuery();
                     ArrayList<String> voucherList = new ArrayList<>();
-                    listVouherCallBack.getListVoucher()
+//                    listVouherCallBack.getListVoucher(array);
                 }catch (Exception e){
                     e.printStackTrace();
                 }
