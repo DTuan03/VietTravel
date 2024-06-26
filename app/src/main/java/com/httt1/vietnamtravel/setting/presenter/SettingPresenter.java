@@ -30,6 +30,7 @@ public class SettingPresenter implements SettingContract.Presenter{
             view.onAccount();
             view.onReplacePass();
             view.onMyVoucher();
+            view.onLogOut();
         }else{
             view.notifi();
         }

@@ -14,7 +14,9 @@ import android.widget.Toast;
 
 import com.httt1.vietnamtravel.R;
 import com.httt1.vietnamtravel.account.view.AccountActivity;
+import com.httt1.vietnamtravel.account.view.AccountFragmentDiaLogName;
 import com.httt1.vietnamtravel.common.utils.SharedPrefsHelper;
+import com.httt1.vietnamtravel.logOut.view.LogOutFragment;
 import com.httt1.vietnamtravel.myvoucher.view.MyVoucherActivity;
 import com.httt1.vietnamtravel.regis.view.RegisActivity;
 import com.httt1.vietnamtravel.replacePass.view.ReplacePassActivity;
@@ -152,7 +154,14 @@ public class SettingFragment extends Fragment implements SettingContract.View{
 
     @Override
     public void onLogOut() {
-
+        llLogOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LogOutFragment logOutFragment = new LogOutFragment();
+//                Lưu ý bên Fragment tương ứng phải sửa thành kế thừa DialogFragment (tương tự Fragment) kh thi se bao loi
+                logOutFragment.show(getParentFragmentManager(), "LogOutFragment");
+            }
+        });
     }
 
 
