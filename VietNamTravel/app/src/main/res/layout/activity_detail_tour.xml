@@ -18,18 +18,13 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/activity_img_detail_tour"
-                    android:layout_width="wrap_content"
-                    android:layout_height="200dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/img_0"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/viewpager_image_detail_tour"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"/>
 
                 <ImageView
                     android:id="@+id/activity_img_back_detail_tour"
@@ -242,8 +237,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:clipToPadding="false"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginBottom="8dp" />
+                        android:layout_margin="8dp" />
 
                 </LinearLayout>
             </LinearLayout>

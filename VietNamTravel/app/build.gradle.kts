@@ -53,4 +53,7 @@ dependencies {
     implementation(libs.sqlserver.mssql.jdbc)
     implementation(libs.jtds)
     implementation ("com.squareup.picasso:picasso:2.5.2")
+    implementation ("com.squareup.picasso:picasso:2.8")
+    implementation ("com.google.android.material:material:1.4.0")
+    implementation ("androidx.viewpager2:viewpager2:1.0.0")
 }

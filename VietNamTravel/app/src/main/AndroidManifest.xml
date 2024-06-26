@@ -15,6 +15,9 @@
         android:theme="@style/Theme.VietNamTravel"
         tools:targetApi="31">
         <activity
+            android:name=".BookTour.view.BookTourActivity"
+            android:exported="false" />
+        <activity
             android:name=".DetailTour.view.DetailTourActivity"
             android:exported="false" />
         <activity

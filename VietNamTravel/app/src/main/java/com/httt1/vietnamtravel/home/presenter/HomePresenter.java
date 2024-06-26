@@ -2,14 +2,14 @@ package com.httt1.vietnamtravel.home.presenter;
 
 import android.content.Context;
 
+import com.httt1.vietnamtravel.home.model.HomeModel;
 import com.httt1.vietnamtravel.home.model.HomeRepository;
-import com.httt1.vietnamtravel.home.model.TourModel;
 
 import java.util.List;
 
 public class HomePresenter implements HomeContract.Presenter {
     private final HomeContract.View view;
-    private List<TourModel> list; // Biến instance để lưu trữ danh sách
+    private List<HomeModel> list; // Biến instance để lưu trữ danh sách
 
     HomeRepository homeRepository = new HomeRepository();
 
@@ -30,35 +30,48 @@ public class HomePresenter implements HomeContract.Presenter {
     public void getDataCombo(String typeTour, int userId) {
         homeRepository.getComboTour(userId, new HomeRepository.ComboCallBack() {
             @Override
-            public void listCombo(List<TourModel> listFavoriteTour) {
-                list = listFavoriteTour;
+            public void listCombo(List<HomeModel> listComboTour) {
+                list = listComboTour;
                 view.showDataCombo(list);
             }
         });
     }
 
-
-
-//    @Override
-//    public void getDataVoucher() {
-//        homeRepository.getVoucher(new HomeRepository.VoucherCallBack() {
-//            @Override
-//            public void listVoucher(List<HomeModel> listVoucher) {
-//                list = listVoucher;
-//                view.showDataVoucher(list);
-//            }
-//        });
-//    }
-
     @Override
     public void getDataDiscover(String typeDiscover, int userId) {
         homeRepository.getDiscover(userId, typeDiscover, new HomeRepository.DiscoverCallBack() {
             @Override
-            public void listDiscover(List<TourModel> listDiscover) {
+            public void listDiscover(List<HomeModel> listDiscover) {
                 list = listDiscover;
                 view.showDataDiscover(list);
             }
         });
     }
 
+    @Override
+    public void getDataVoucher(int userId) {
+        homeRepository.getVoucher(new HomeRepository.VoucherCallBack() {
+            @Override
+            public void listVoucher(List<HomeModel> listVoucher) {
+                list = listVoucher;
+                view.showDataVoucher(list, userId); // Đảm bảo gọi lại showDataVoucher với cả userId
+            }
+        });
+    }
+
+
+    @Override
+    public void onMyVoucher(int userId, int voucherId) {
+        homeRepository.getMyVoucher(userId, voucherId, new HomeRepository.CheckMyVoucherCallBack(){
+            @Override
+            public void checkMyVoucher(boolean checkMyVoucher) {
+                if(checkMyVoucher){
+                    view.notifVoucher(userId, checkMyVoucher);
+                }else {
+                    homeRepository.saveVoucher(userId, voucherId);
+                    view.notifVoucher(userId, checkMyVoucher);
+                }
+            }
+        });
+    }
 }

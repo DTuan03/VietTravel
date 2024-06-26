@@ -3,7 +3,7 @@ package com.httt1.vietnamtravel.AllTours.model;
 import android.util.Log;
 
 import com.httt1.vietnamtravel.common.database.SQLServerDataSource;
-import com.httt1.vietnamtravel.home.model.TourModel;
+import com.httt1.vietnamtravel.home.model.HomeModel;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -96,35 +96,38 @@ public class AllTourRepository {
 
     // Callback interfaces
     public interface AllTourCallBack {
-        void listAllTour(List<TourModel> listAllTour);
+        void listAllTour(List<HomeModel> listAllTour);
     }
 
     // Method to get all tours
     public void getAllTour(int userId, AllTourRepository.AllTourCallBack allTourCallBack) {
-        executorService.execute(() -> {
-            String query = "SELECT Tour.TourId, Tour.TypeTour, Tour.NameTour, Tour.PriceTour, ImgTour.ImgResource, " +
-                    "CASE WHEN FavTour.UserId = ? THEN 1 ELSE 0 END AS IsFavorite " +
-                    "FROM Tour " +
-                    "INNER JOIN ImgTour ON Tour.TourId = ImgTour.TourId " +
-                    "LEFT JOIN FavTour ON Tour.TourId = FavTour.TourId AND FavTour.UserId = ? ";
-            try (Connection connection = sqlServerDataSource.getConnection();
-                 PreparedStatement statement = connection.prepareStatement(query)) {
-                statement.setInt(1, userId);
-                statement.setInt(2, userId);
-                ResultSet resultSet = statement.executeQuery();
-                List<TourModel> list = setDataAllTour(resultSet);
-                allTourCallBack.listAllTour(list);
-                Log.d("So luong tour: ", "So luong tour yeu thich: " + list.size());
-            } catch (SQLException e) {
-                e.printStackTrace();
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                String query = "SELECT Tour.IdTour, Tour.TypeTour, Tour.NameTour, Tour.PriceTour, ImgTour.ImgResource, " +
+                        "CASE WHEN FavTour.IdUser IS NOT NULL THEN 1 ELSE 0 END AS IsFavorite " +
+                        "FROM Tour " +
+                        "INNER JOIN ImgTour ON Tour.IdTour = ImgTour.IdTour " +
+                        "LEFT JOIN FavTour ON Tour.IdTour = FavTour.IdTour AND FavTour.IdUser = ? " +
+                        "WHERE ImgTour.ImgPosition = 1";
+                try (Connection connection = sqlServerDataSource.getConnection();
+                     PreparedStatement statement = connection.prepareStatement(query)) {
+                    statement.setInt(1, userId);
+                    ResultSet resultSet = statement.executeQuery();
+                    List<HomeModel> list = setDataAllTour(resultSet);
+                    allTourCallBack.listAllTour(list);
+                    Log.d("So luong tour: ", "So luong tour yeu thich: " + list.size());
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
 
-    private List<TourModel> setDataAllTour(ResultSet resultSet) throws SQLException {
-        List<TourModel> alltours = new ArrayList<>();
+    private List<HomeModel> setDataAllTour(ResultSet resultSet) throws SQLException {
+        List<HomeModel> alltours = new ArrayList<>();
         while (resultSet.next()) {
-            String tourId = resultSet.getString("TourId");
+            int tourId = resultSet.getInt("IdTour");
             String nameTour = resultSet.getString("NameTour");
             int priceTour = resultSet.getInt("PriceTour");
             String imgUrl = resultSet.getString("ImgResource");
@@ -133,7 +136,7 @@ public class AllTourRepository {
             // Chuyển đổi giá trị isFavorite từ int sang boolean
             boolean favorite = isFavorite != 0;
 
-            TourModel alltour = new TourModel(tourId, imgUrl, nameTour, priceTour, favorite);
+            HomeModel alltour = new HomeModel(tourId, imgUrl, nameTour, priceTour, favorite);
             alltours.add(alltour);
         }
         return alltours;

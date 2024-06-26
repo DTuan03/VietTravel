@@ -10,14 +10,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class HomeRepository {
     private final SQLServerDataSource sqlServerDataSource;
     private final ExecutorService executorService;
-    private final List<TourModel> favoriteTours;
+    private final List<HomeModel> favoriteTours;
 
     public HomeRepository() {
         this.sqlServerDataSource = new SQLServerDataSource();
@@ -31,61 +30,66 @@ public class HomeRepository {
         this.favoriteTours = new ArrayList<>();
     }
 
+//    public interface DatabaseCallback {
+//        void onSuccess();
+//        void onError(Exception e);
+//    }
+//
+//    public void addFavorite(int userId, int tourId, DatabaseCallback callback) {
+//        executorService.execute(() -> {
+//            String query = "INSERT INTO FavTour (IdUser, IdTour) VALUES (?, ?)";
+//            try (Connection connection = sqlServerDataSource.getConnection();
+//                 PreparedStatement statement = connection.prepareStatement(query)) {
+//                statement.setInt(1, userId);
+//                statement.setInt(2, tourId);
+//                statement.executeUpdate();
+//                callback.onSuccess();
+//            } catch (SQLException e) {
+//                callback.onError(e);
+//            }
+//        });
+//    }
+//
+//    public void removeFavorite(int userId, int tourId, DatabaseCallback callback) {
+//        executorService.execute(() -> {
+//            String query = "DELETE FROM FavTour WHERE IdUser = ? AND IdTour = ?";
+//            try (Connection connection = sqlServerDataSource.getConnection();
+//                 PreparedStatement statement = connection.prepareStatement(query)) {
+//                statement.setInt(1, userId);
+//                statement.setInt(2, tourId);
+//                statement.executeUpdate();
+//                callback.onSuccess();
+//            } catch (SQLException e) {
+//                callback.onError(e);
+//            }
+//        });
+//    }
+//}
 
-    public void removeFavorite(int userId, String tourId) {
-        executorService.execute(() -> {
-            synchronized (favoriteTours) {
-                // Tìm tour có tourId trong danh sách favoriteTours
-                Optional<TourModel> optionalTour = favoriteTours.stream()
-                        .filter(tour -> tour.getTourId().equals(tourId))
-                        .findFirst();
 
-                if (optionalTour.isPresent()) {
-                    TourModel tour = optionalTour.get();
-                    tour.setIsFavorite(false); // Đánh dấu tour là không yêu thích trước khi xóa
-                    favoriteTours.removeIf(t -> t.getTourId().equals(tourId)); // Xóa tour khỏi danh sách favoriteTours
-
-                    // Thực hiện xóa tour từ cơ sở dữ liệu
-                    String query = "DELETE FROM favtour WHERE UserId = ? AND TourId = ?";
-                    try (Connection connection = sqlServerDataSource.getConnection();
-                         PreparedStatement statement = connection.prepareStatement(query)) {
-                        statement.setInt(1, userId);
-                        statement.setString(2, tourId);
-                        int rowsAffected = statement.executeUpdate();
-                        if (rowsAffected <= 0) {
-                            // Nếu không xóa được từ cơ sở dữ liệu, thêm lại tour vào danh sách favoriteTours
-                            favoriteTours.add(tour);
-                            tour.setIsFavorite(true); // Đánh dấu lại tour là yêu thích
-                        }
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                        // Nếu xảy ra lỗi, thêm lại tour vào danh sách favoriteTours và đánh dấu lại là yêu thích
-                        favoriteTours.add(tour);
-                        tour.setIsFavorite(true);
-                    }
-                }
-            }
-        });
+    // Callback interfaces
+    public interface ComboCallBack {
+        void listCombo(List<HomeModel> listComboTour);
     }
 
-
-    public void addFavorite(int userId, TourModel tour) {
-        executorService.execute(() -> {
-            synchronized (favoriteTours) {
-                // Thực hiện thêm tour vào cơ sở dữ liệu
-                String query = "INSERT INTO favtour (UserId, TourId, NameTour, PriceTour, ImgResource) VALUES (?, ?, ?, ?, ?)";
+    // Method to get combo tours
+    public void getComboTour(int userId, ComboCallBack comboCallBack) {
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                String query = "SELECT Tour.IdTour, Tour.TypeTour, Tour.NameTour, Tour.PriceTour, ImgTour.ImgResource, " +
+                        "CASE WHEN FavTour.IdUser IS NOT NULL THEN 1 ELSE 0 END AS IsFavorite " +
+                        "FROM Tour " +
+                        "INNER JOIN ImgTour ON Tour.IdTour = ImgTour.IdTour " +
+                        "LEFT JOIN FavTour ON Tour.IdTour = FavTour.IdTour AND FavTour.IdUser = ? " +
+                        "WHERE ImgTour.ImgPosition = 1 AND Tour.TypeTour = 'CB'";
                 try (Connection connection = sqlServerDataSource.getConnection();
                      PreparedStatement statement = connection.prepareStatement(query)) {
                     statement.setInt(1, userId);
-                    statement.setString(2, tour.getTourId());
-                    statement.setString(3, tour.getNameTour());
-                    statement.setInt(4, tour.getPrice());
-                    statement.setString(5, tour.getUrlImg());
-                    int rowsAffected = statement.executeUpdate();
-                    if (rowsAffected > 0) {
-                        tour.setIsFavorite(true); // Đánh dấu tour là yêu thích
-                        favoriteTours.add(tour); // Thêm vào danh sách yêu thích
-                    }
+                    ResultSet resultSet = statement.executeQuery();
+                    List<HomeModel> list = setDataCombo(resultSet);
+                    comboCallBack.listCombo(list);
+                    Log.d("So luong tour: ", "So luong tour yeu thich: " + list.size());
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -93,90 +97,154 @@ public class HomeRepository {
         });
     }
 
-
-
-    // Callback interfaces
-    public interface ComboCallBack {
-        void listCombo(List<TourModel> listComboTour);
-    }
-
-    public interface DiscoverCallBack {
-        void listDiscover(List<TourModel> listDiscover);
-    }
-
-    // Method to get combo tours
-    public void getComboTour(int userId, ComboCallBack comboCallBack) {
-        executorService.execute(() -> {
-            String query = "SELECT Tour.TourId, Tour.TypeTour, Tour.NameTour, Tour.PriceTour, ImgTour.ImgResource, " +
-                    "CASE WHEN FavTour.UserId = ? THEN 1 ELSE 0 END AS IsFavorite " +
-                    "FROM Tour " +
-                    "INNER JOIN ImgTour ON Tour.TourId = ImgTour.TourId " +
-                    "LEFT JOIN FavTour ON Tour.TourId = FavTour.TourId AND FavTour.UserId = ? " +
-                    "WHERE ImgTour.ImgPosition = 1 AND Tour.TypeTour = 'CB'";
-            try (Connection connection = sqlServerDataSource.getConnection();
-                 PreparedStatement statement = connection.prepareStatement(query)) {
-                statement.setInt(1, userId);
-                statement.setInt(2, userId);
-                ResultSet resultSet = statement.executeQuery();
-                List<TourModel> list = setDataCombo(resultSet);
-                comboCallBack.listCombo(list);
-                Log.d("So luong tour: ", "So luong tour yeu thich: " + list.size());
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        });
-    }
-
-    private List<TourModel> setDataCombo(ResultSet resultSet) throws SQLException {
-        List<TourModel> combos = new ArrayList<>();
-        while (resultSet.next()) {
-            String tourId = resultSet.getString("TourId");
+    private List<HomeModel> setDataCombo(ResultSet resultSet) throws SQLException{
+        List<HomeModel> combos = new ArrayList<>();
+        while (resultSet.next()){
+            int tourId = resultSet.getInt("IdTour");
             String nameTour = resultSet.getString("NameTour");
-            int priceTour = resultSet.getInt("PriceTour");
+            int price = resultSet.getInt("PriceTour");
             String imgUrl = resultSet.getString("ImgResource");
             int isFavorite = resultSet.getInt("IsFavorite");
 
             // Chuyển đổi giá trị isFavorite từ int sang boolean
             boolean favorite = isFavorite != 0;
 
-            TourModel combo = new TourModel(tourId, imgUrl, nameTour, priceTour, favorite);
+            HomeModel combo = new HomeModel(tourId, imgUrl, nameTour, price, favorite);
             combos.add(combo);
         }
         return combos;
     }
 
+    public interface VoucherCallBack{
+        void listVoucher(List<HomeModel> listVoucher);
+    }
+    public void getVoucher(VoucherCallBack voucherCallBack) {
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                String query = "SELECT Voucher.IdVoucher, ImgVoucher.ImgResoucre " +
+                        "FROM Voucher INNER JOIN ImgVoucher " +
+                        "ON Voucher.IdVoucher = ImgVoucher.IdVoucher ";
+                try (Connection connection = sqlServerDataSource.getConnection();
+                     PreparedStatement statement = connection.prepareStatement(query);
+                     ResultSet resultSet = statement.executeQuery()) {
+
+                    List<HomeModel> vouchers = setListVoucher(resultSet);
+                    voucherCallBack.listVoucher(vouchers);
+                    Log.d("So luong Voucher", "So luong la: " + vouchers.size());
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    voucherCallBack.listVoucher(new ArrayList<>());
+                }
+            }
+        });
+    }
+
+    private List<HomeModel> setListVoucher(ResultSet resultSet) throws SQLException {
+        List<HomeModel> vouchers = new ArrayList<>();
+        while (resultSet.next()) {
+            int voucherId = resultSet.getInt("IdVoucher");
+            String imgUrl = resultSet.getString("ImgResource");
+            HomeModel voucher = new HomeModel(voucherId, imgUrl);
+            vouchers.add(voucher);
+        }
+        return vouchers;
+    }
+
+
+    public interface CheckMyVoucherCallBack{
+        void checkMyVoucher(boolean checkMyVoucher);
+    }
+
+    public void getMyVoucher(int userId, int voucherId, CheckMyVoucherCallBack checkMyVoucherCallBack){
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                String query = "SELECT Voucher.IdVoucher " +
+                        "FROM Voucher " +
+                        "INNER JOIN ImgVoucher ON Voucher.IdVoucher = ImgVoucher.IdVoucher " +
+                        "INNER JOIN MyVoucher ON Voucher.IdVoucher = MyVoucher.IdVoucher " +
+                        "WHERE Voucher.IdVoucher = ? AND MyVoucher.IdUser = ? ";
+                try (
+                        Connection connection = sqlServerDataSource.getConnection();
+                        PreparedStatement statement = connection.prepareStatement(query);
+                ){
+                    statement.setInt(1, voucherId);
+                    statement.setInt(2, userId);
+                    ResultSet resultSet = statement.executeQuery();
+                    // co dong dau tien thi tra ve true
+                    checkMyVoucherCallBack.checkMyVoucher(resultSet.next()); // da luu
+                    Log.d("vOUCHER", "vOUCHERiD" + voucherId);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    public void saveVoucher(int userId, int voucherId){
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                String query = "INSERT INTO MyVoucher(IdUser, IdVoucher) VALUES (?, ?) ";
+
+                try(
+                        Connection connection = sqlServerDataSource.getConnection();
+                        PreparedStatement statement = connection.prepareStatement(query);
+                ){
+                    statement.setInt(1, userId);
+                    statement.setInt(2, voucherId);
+                    int rowsInserted = statement.executeUpdate();
+//                        if (rowsInserted > 0) {
+//                            System.out.println("Voucher đã được lưu thành công!");
+//                        } else {
+//                            System.out.println("Lưu voucher không thành công.");
+//                        }
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    public interface DiscoverCallBack {
+        void listDiscover(List<HomeModel> listDiscover);
+    }
 
     // Method to get discover tours
     public void getDiscover(int userId, String typeDiscover, DiscoverCallBack discoverCallBack) {
         executorService.execute(() -> {
-            String query;
+            String query = "";
             if (typeDiscover.equals("recommend")) {
-                query = "SELECT Tour.TourId, Tour.NameTour, Tour.PriceTour, ImgTour.ImgResource, ROUND(AVG(CAST(Feedback.Rating AS FLOAT)), 1) AS AvgRating, " +
-                        "CASE WHEN FavTour.UserId = ? THEN 1 ELSE 0 END AS IsFavorite " +
+                query = "SELECT Tour.IdTour, Tour.NameTour, Tour.PriceTour, ImgTour.ImgResource " +
+                        "CASE WHEN FavTour.IdUser IS NOT NULL THEN 1 ELSE 0 END AS IsFavorite " +
                         "FROM Tour " +
-                        "INNER JOIN ImgTour ON Tour.TourId = ImgTour.TourId " +
-                        "INNER JOIN BookedTour ON Tour.TourId = BookedTour.TourId " +
-                        "INNER JOIN Feedback ON Feedback.BookedTourId = BookedTour.BookedTourId " +
-                        "LEFT JOIN FavTour ON Tour.TourId = FavTour.TourId AND FavTour.UserId = ? " +
+                        "INNER JOIN ImgTour ON Tour.IdTour = ImgTour.IdTour " +
+                        "LEFT JOIN FavTour ON Tour.IdTour = FavTour.IdTour AND FavTour.IdUser = ? " +
                         "WHERE ImgTour.ImgPosition = 1 AND Tour.Recommend = 1 " +
-                        "GROUP BY Tour.TourId, Tour.NameTour, ImgTour.ImgResource, Tour.PriceTour, FavTour.UserId";
-            } else {
-                query = "SELECT Tour.TourId, Tour.NameTour, Tour.PriceTour, ImgTour.ImgResource, ROUND(AVG(CAST(Feedback.Rating AS FLOAT)), 1) AS AvgRating, " +
-                        "CASE WHEN FavTour.UserId = ? THEN 1 ELSE 0 END AS IsFavorite " +
+                        "GROUP BY Tour.IdTour, Tour.NameTour, ImgTour.ImgResource, Tour.PriceTour, FavTour.IdUser";
+            } else if (typeDiscover.equals("notmissed")) {
+                query = "SELECT Tour.IdTour, Tour.NameTour, Tour.PriceTour, ImgTour.ImgResource " +
+                        "CASE WHEN FavTour.IdUser IS NOT NULL THEN 1 ELSE 0 END AS IsFavorite " +
                         "FROM Tour " +
-                        "INNER JOIN ImgTour ON Tour.TourId = ImgTour.TourId " +
-                        "INNER JOIN BookedTour ON Tour.TourId = BookedTour.TourId " +
-                        "INNER JOIN Feedback ON Feedback.BookedTourId = BookedTour.BookedTourId " +
-                        "LEFT JOIN FavTour ON Tour.TourId = FavTour.TourId AND FavTour.UserId = ? " +
+                        "INNER JOIN ImgTour ON Tour.IdTour = ImgTour.IdTour " +
+                        "LEFT JOIN FavTour ON Tour.IdTour = FavTour.IdTour AND FavTour.IdUser = ? " +
                         "WHERE ImgTour.ImgPosition = 1 AND Tour.NotMissed = 1 " +
-                        "GROUP BY Tour.TourId, Tour.NameTour, ImgTour.ImgResource, Tour.PriceTour, FavTour.UserId";
+                        "GROUP BY Tour.IdTour, Tour.NameTour, ImgTour.ImgResource, Tour.PriceTour, FavTour.IdUser";
+            } else if (typeDiscover.equals("favorite")) {
+                query = "SELECT FavTour.IdUser, Tour.IdTour, Tour.NameTour, Tour.PriceTour, ImgTour.ImgResource," +
+                        "CASE WHEN FavTour.IdUser IS NOT NULL THEN 1 ELSE 0 END AS IsFavorite" +
+                        "FROM Tour" +
+                        "INNER JOIN ImgTour ON Tour.IdTour = ImgTour.IdTour " +
+                        "LEFT JOIN FavTour ON Tour.IdTour = FavTour.IdTour " +
+                        "WHERE ImgTour.ImgPosition = 1 AND FavTour.IdUser IS NOT NULL " +
+                        "GROUP BY Tour.IdTour, Tour.NameTour, ImgTour.ImgResource, Tour.PriceTour, FavTour.IdUser";
             }
             try (Connection connection = sqlServerDataSource.getConnection();
                  PreparedStatement statement = connection.prepareStatement(query)) {
                 statement.setInt(1, userId);
-                statement.setInt(2, userId);
                 ResultSet resultSet = statement.executeQuery();
-                List<TourModel> discovers = setListDiscover(resultSet);
+                List<HomeModel> discovers = setListDiscover(resultSet);
                 discoverCallBack.listDiscover(discovers);
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -184,10 +252,10 @@ public class HomeRepository {
         });
     }
 
-    private List<TourModel> setListDiscover(ResultSet resultSet) throws SQLException {
-        List<TourModel> discovers = new ArrayList<>();
+    private List<HomeModel> setListDiscover(ResultSet resultSet) throws SQLException {
+        List<HomeModel> discovers = new ArrayList<>();
         while (resultSet.next()) {
-            String tourId = resultSet.getString("TourId");
+            int tourId = resultSet.getInt("IdTour");
             String nameTour = resultSet.getString("NameTour");
             String imgUrl = resultSet.getString("ImgResource");
             int price = resultSet.getInt("PriceTour");
@@ -197,7 +265,7 @@ public class HomeRepository {
             // Chuyển đổi giá trị isFavorite từ int sang boolean
             boolean favorite = isFavorite != 0;
 
-            TourModel discover = new TourModel(tourId, imgUrl, nameTour, price, favorite);
+            HomeModel discover = new HomeModel(tourId, imgUrl, nameTour, price, favorite);
             discovers.add(discover);
         }
         return discovers;

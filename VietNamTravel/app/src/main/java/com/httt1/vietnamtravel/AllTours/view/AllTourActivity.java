@@ -1,5 +1,6 @@
 package com.httt1.vietnamtravel.AllTours.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,28 +12,31 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.httt1.vietnamtravel.common.utils.SharedPrefsHelper;
 import com.httt1.vietnamtravel.databinding.ActivityAllTourBinding;
-import com.httt1.vietnamtravel.home.adapter.TourAdapter;
-import com.httt1.vietnamtravel.home.model.TourModel;
+import com.httt1.vietnamtravel.AllTours.adapter.TourAdapter;
+import com.httt1.vietnamtravel.home.model.HomeModel;
 import com.httt1.vietnamtravel.AllTours.presenter.AllTourActivityContract;
 import com.httt1.vietnamtravel.AllTours.presenter.AllTourPresenter;
+import com.httt1.vietnamtravel.DetailTour.view.DetailTourActivity;
 
 import java.util.List;
 
-public class AllTourActivity extends AppCompatActivity implements AllTourActivityContract.View {
+public class AllTourActivity extends AppCompatActivity implements AllTourActivityContract.View, TourAdapter.OnItemClickListener {
 
     private ActivityAllTourBinding binding;
     private RecyclerView rcvAllTour;
     private TourAdapter alltourAdapter;
     private ImageView tvbackhome;
+    private int userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityAllTourBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        SharedPrefsHelper sharedPrefsHelper = new SharedPrefsHelper(this); //requireContext tuong tu getContext() nhung neu null no se tra ra loi...
-        int userId = 1;
-        Log.d("Thong tin UserId 18:03", "Thong tin: " + userId);
+        SharedPrefsHelper sharedPrefsHelper = new SharedPrefsHelper(this);
+        userId = 1; // Lấy userId từ SharedPrefsHelper hoặc intent (tùy vào cách bạn truyền dữ liệu)
+        Log.d("UserId Info", "UserId: " + userId);
+
         rcvAllTour = binding.activityAlltourRcvAlltour;
 
         AllTourPresenter allTourPresenter = new AllTourPresenter(this);
@@ -59,24 +63,33 @@ public class AllTourActivity extends AppCompatActivity implements AllTourActivit
         getSupportFragmentManager().popBackStack();
     }
 
-
     private void setAllTourAdapter(AllTourPresenter allTourPresenter, int userId) {
         alltourAdapter = new TourAdapter(this, userId, allTourPresenter.getAllTourRepository());
-        GridLayoutManager gridVoucherManager = new GridLayoutManager(this, 2);
-        rcvAllTour.setLayoutManager(gridVoucherManager);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
+        rcvAllTour.setLayoutManager(gridLayoutManager);
         rcvAllTour.setAdapter(alltourAdapter);
 
         allTourPresenter.getAllData(userId);
+        alltourAdapter.setOnItemClickListener(this); // Đăng ký sự kiện item click
     }
 
-    public void showAllData(List<TourModel> list) {
+    @Override
+    public void showAllData(List<HomeModel> list) {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                // Cập nhật dữ liệu vào adapter và RecyclerView
-                alltourAdapter.setDataCombo(AllTourActivity.this, list);
+                alltourAdapter.setAllData(list);
                 alltourAdapter.notifyDataSetChanged();
             }
         });
+    }
+
+    // Xử lý sự kiện khi người dùng nhấn vào item tour
+    @Override
+    public void onItemClick(int idTour, int userId) {
+        Intent intent = new Intent(this, DetailTourActivity.class);
+        intent.putExtra("idTour", idTour);
+        intent.putExtra("idUser", userId);
+        startActivity(intent);
     }
 }

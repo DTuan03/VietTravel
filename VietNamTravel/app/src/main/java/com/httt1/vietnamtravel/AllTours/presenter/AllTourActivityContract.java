@@ -1,12 +1,12 @@
 package com.httt1.vietnamtravel.AllTours.presenter;
 
-import com.httt1.vietnamtravel.home.model.TourModel;
+import com.httt1.vietnamtravel.home.model.HomeModel;
 
 import java.util.List;
 
 public interface AllTourActivityContract {
     interface View{
-        void showAllData(List<TourModel> list);
+        void showAllData(List<HomeModel> list);
     }
 
     interface Presenter{
