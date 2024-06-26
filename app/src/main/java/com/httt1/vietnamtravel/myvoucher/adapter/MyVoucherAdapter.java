@@ -1,5 +1,6 @@
 package com.httt1.vietnamtravel.myvoucher.adapter;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +39,8 @@ public class MyVoucherAdapter extends RecyclerView.Adapter<MyVoucherAdapter.Myvo
             //placeholder để đặt hình ảnh mặc định khi đang tải và error() để đặt hình ảnh mặc định khi xảy ra lỗi khi tải ảnh
             Picasso.get().load(imgUrl).error(R.drawable.hue5).into(holder.img);
             holder.tvTitle.setText(title);
-            holder.tvDescrip.setText(String.valueOf(descrip));
+            holder.tvDescrip.setText(descrip);
+            Log.d("MyVoucherAdapter", "Position: " + position + ", Title: " + title + ", Description: " + descrip + ", ImgUrl: " + imgUrl);
         }
     }
 

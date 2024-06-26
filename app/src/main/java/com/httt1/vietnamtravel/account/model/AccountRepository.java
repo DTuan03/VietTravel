@@ -27,7 +27,7 @@ public class AccountRepository {
         executorService.execute(new Runnable() {
             @Override
             public void run() {
-                String query = "SELECT UserName, UserPhone, UserBirth, UserEmail, UserAddress, UserImg FROM Users WHERE UserId = ?";
+                String query = "SELECT UserName, UserPhone, UserBirth, UserEmail, UserAddress, UserImg FROM Users WHERE IdUser = ?";
                 try(
                         Connection connection = sqlServerDataSource.getConnection();
                         PreparedStatement statement = connection.prepareStatement(query);
@@ -54,7 +54,7 @@ public class AccountRepository {
         executorService.execute(new Runnable() {
             @Override
             public void run() {
-                String query = "UPDATE Users SET " + properties + " = ? WHERE UserId = ?";
+                String query = "UPDATE Users SET " + properties + " = ? WHERE IdUser = ?";
                 try(
                         Connection connection = sqlServerDataSource.getConnection();
                         PreparedStatement statement = connection.prepareStatement(query);

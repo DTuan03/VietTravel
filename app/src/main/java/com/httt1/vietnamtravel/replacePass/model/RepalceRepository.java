@@ -26,7 +26,7 @@ public class RepalceRepository {
         executorService.execute(new Runnable() {
             @Override
             public void run() {
-                String query = "UPDATE Users SET UserPass = ? WHERE UserId = ?";
+                String query = "UPDATE Users SET UserPass = ? WHERE IdUser = ?";
                 try (
                         Connection connection = sqlServerDataSource.getConnection();
                         PreparedStatement statement = connection.prepareStatement(query))
@@ -49,7 +49,7 @@ public class RepalceRepository {
         executorService.execute(new Runnable() {
             @Override
             public void run() {
-                String query = "SELECT UserPass FROM Users WHERE UserId = ?";
+                String query = "SELECT UserPass FROM Users WHERE IdUser = ?";
                 try (
                         Connection connection = sqlServerDataSource.getConnection();
                         PreparedStatement statement = connection.prepareStatement(query)

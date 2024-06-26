@@ -30,9 +30,9 @@ public class HomeRepository {
 //        executorService.execute(new Runnable() {
 //            @Override
 //            public void run() {
-//                String query = "SELECT Tour.TourId, Tour.NameTour, Tour.PriceTour, ImgTour.ImgResource " +
+//                String query = "SELECT Tour.IdTour, Tour.NameTour, Tour.PriceTour, ImgTour.ImgResource " +
 //                        "FROM Tour " +
-//                        "INNER JOIN ImgTour ON Tour.TourId = ImgTour.TourId " +
+//                        "INNER JOIN ImgTour ON Tour.IdTour = ImgTour.IdTour " +
 //                        "WHERE Tour.TypeTour = ? " + "AND ImgTour.ImgPosition = 1";
 //                try(
 //                        Connection connection = sqlServerDataSource.getConnection();
@@ -54,11 +54,11 @@ public class HomeRepository {
 //    private List<HomeModel> setListTour(ResultSet resultSet) throws SQLException {
 //        List<HomeModel> tours = new ArrayList<>();
 //        while (resultSet.next()) {
-//            String tourId = resultSet.getString("TourId");
+//            String IdTour = resultSet.getString("IdTour");
 //            String nameTour = resultSet.getString("NameTour");
 //            int priceTour = resultSet.getInt("PriceTour");
 //            String imgUrl = resultSet.getString("ImgResource");
-//            HomeModel tour = new HomeModel(tourId, imgUrl, nameTour, priceTour);
+//            HomeModel tour = new HomeModel(IdTour, imgUrl, nameTour, priceTour);
 //            tours.add(tour);
 //        }
 //        return tours;
@@ -72,11 +72,11 @@ public class HomeRepository {
         executorService.execute(new Runnable() {
             @Override
             public void run() {
-                String query = "SELECT Tour.TourId, Tour.TypeTour, Tour.NameTour, Tour.PriceTour, ImgTour.ImgResource, " +
-                        "CASE WHEN FavTour.UserId = ? THEN 1 ELSE 0 END AS IsFavorite " +
+                String query = "SELECT Tour.IdTour, Tour.TypeTour, Tour.NameTour, Tour.PriceTour, ImgTour.ImgResource, " +
+                        "CASE WHEN FavTour.IdUser = ? THEN 1 ELSE 0 END AS IsFavorite " +
                         "FROM Tour " +
-                        "INNER JOIN ImgTour ON Tour.TourId = ImgTour.TourId " +
-                        "LEFT JOIN FavTour ON Tour.TourId = FavTour.TourId AND FavTour.UserId = ? " +
+                        "INNER JOIN ImgTour ON Tour.IdTour = ImgTour.IdTour " +
+                        "LEFT JOIN FavTour ON Tour.IdTour = FavTour.IdTour AND FavTour.IdUser = ? " +
                         "WHERE ImgTour.ImgPosition = 1 AND Tour.TypeTour = 'CB'";
                 try(
                         Connection connection = sqlServerDataSource.getConnection();
@@ -96,12 +96,12 @@ public class HomeRepository {
     private List<HomeModel> setDataCombo(ResultSet resultSet) throws SQLException{
         List<HomeModel> combos = new ArrayList<>();
         while (resultSet.next()){
-            String tourId = resultSet.getString("TourId");
+            String IdTour = resultSet.getString("IdTour");
             String nameTour = resultSet.getString("NameTour");
             int priceTour = resultSet.getInt("PriceTour");
             String imgUrl = resultSet.getString("ImgResource");
             int isFavorite = resultSet.getInt("IsFavorite");
-            HomeModel combo = new HomeModel(tourId, imgUrl, nameTour, priceTour, isFavorite);
+            HomeModel combo = new HomeModel(IdTour, imgUrl, nameTour, priceTour, isFavorite);
             combos.add(combo);
         }
         return combos;
@@ -114,9 +114,9 @@ public class HomeRepository {
         executorService.execute(new Runnable() {
             @Override
             public void run() {
-                String query = "SELECT Voucher.VoucherId, ImgVoucher.ImgResource " +
+                String query = "SELECT Voucher.IdVoucher, ImgVoucher.ImgResource " +
                                 "FROM Voucher INNER JOIN ImgVoucher " +
-                                "ON Voucher.VoucherId = ImgVoucher.VoucherId ";
+                                "ON Voucher.IdVoucher = ImgVoucher.IdVoucher ";
                 try (
                         Connection connection = sqlServerDataSource.getConnection();
                         PreparedStatement statement = connection.prepareStatement(query);
@@ -135,9 +135,9 @@ public class HomeRepository {
     private List<HomeModel> setListVoucher(ResultSet resultSet) throws SQLException {
         List<HomeModel> vouchers = new ArrayList<>();
         while (resultSet.next()) {
-            int voucherId = resultSet.getInt("VoucherId");
+            int IdVoucher = resultSet.getInt("IdVoucher");
             String imgUrl = resultSet.getString("ImgResource");
-            HomeModel voucher = new HomeModel(voucherId ,imgUrl);
+            HomeModel voucher = new HomeModel(IdVoucher ,imgUrl);
             vouchers.add(voucher);
         }
         return vouchers;
@@ -152,36 +152,36 @@ public class HomeRepository {
             public void run() {
                 String query;
                 if(typeDiscover.equals("recommend")){
-                    query = "SELECT Tour.TourId, Tour.NameTour, Tour.PriceTour, ImgTour.ImgResource, ROUND(AVG(CAST(Feedback.Rating AS FLOAT)), 1) AS AvgRating, " +
-                            "CASE WHEN FavTour.UserId = ? THEN 1 ELSE 0 END AS IsFavorite " +
+                    query = "SELECT Tour.IdTour, Tour.NameTour, Tour.PriceTour, ImgTour.ImgResource, ROUND(AVG(CAST(Feedback.Rating AS FLOAT)), 1) AS AvgRating, " +
+                            "CASE WHEN FavTour.IdUser = ? THEN 1 ELSE 0 END AS IsFavorite " +
                             "FROM Tour " +
-                            "INNER JOIN ImgTour ON Tour.TourId = ImgTour.TourId " +
-                            "INNER JOIN BookedTour ON Tour.TourId = BookedTour.TourId " +
-                            "INNER JOIN Feedback ON Feedback.BookedTourId = BookedTour.BookedTourId " +
-                            "LEFT JOIN FavTour ON Tour.TourId = FavTour.TourId AND FavTour.UserId = ? " +
+                            "INNER JOIN ImgTour ON Tour.IdTour = ImgTour.IdTour " +
+                            "INNER JOIN BookedTour ON Tour.IdTour = BookedTour.IdTour " +
+                            "INNER JOIN Feedback ON Feedback.IdBookedTour = BookedTour.IdBookedTour " +
+                            "LEFT JOIN FavTour ON Tour.IdTour = FavTour.IdTour AND FavTour.IdUser = ? " +
                             "WHERE ImgTour.ImgPosition = 1 AND Tour.Recommend = 1 " +
                             "GROUP BY " +
-                                " Tour.TourId, " +
+                                " Tour.IdTour, " +
                                 " Tour.NameTour, " +
                                 " ImgTour.ImgResource, " +
                                 " Tour.PriceTour, " +
-                                " FavTour.UserId;";
+                                " FavTour.IdUser;";
                 }
                 else {
-                    query = "SELECT Tour.TourId, Tour.NameTour, Tour.PriceTour, ImgTour.ImgResource, ROUND(AVG(CAST(Feedback.Rating AS FLOAT)), 1) AS AvgRating, " +
-                            "CASE WHEN FavTour.UserId = ? THEN 1 ELSE 0 END AS IsFavorite " +
+                    query = "SELECT Tour.IdTour, Tour.NameTour, Tour.PriceTour, ImgTour.ImgResource, ROUND(AVG(CAST(Feedback.Rating AS FLOAT)), 1) AS AvgRating, " +
+                            "CASE WHEN FavTour.IdUser = ? THEN 1 ELSE 0 END AS IsFavorite " +
                             "FROM Tour " +
-                            "INNER JOIN ImgTour ON Tour.TourId = ImgTour.TourId " +
-                            "INNER JOIN BookedTour ON Tour.TourId = BookedTour.TourId " +
-                            "INNER JOIN Feedback ON Feedback.BookedTourId = BookedTour.BookedTourId " +
-                            "LEFT JOIN FavTour ON Tour.TourId = FavTour.TourId AND FavTour.UserId = ? " +
+                            "INNER JOIN ImgTour ON Tour.IdTour = ImgTour.IdTour " +
+                            "INNER JOIN BookedTour ON Tour.IdTour = BookedTour.IdTour " +
+                            "INNER JOIN Feedback ON Feedback.IdBookedTour = BookedTour.IdBookedTour " +
+                            "LEFT JOIN FavTour ON Tour.IdTour = FavTour.IdTour AND FavTour.IdUser = ? " +
                             "WHERE ImgTour.ImgPosition = 1 AND Tour.NotMissed = 1 " +
                             "GROUP BY " +
-                            " Tour.TourId, " +
+                            " Tour.IdTour, " +
                             " Tour.NameTour, " +
                             " ImgTour.ImgResource, " +
                             " Tour.PriceTour, " +
-                            " FavTour.UserId;";
+                            " FavTour.IdUser;";
                 }
                 try (
                         Connection connection = sqlServerDataSource.getConnection();
@@ -202,7 +202,7 @@ public class HomeRepository {
     private List<HomeModel> setListDiscover(ResultSet resultSet) throws SQLException{
         List<HomeModel> discovers = new ArrayList<>();
         while (resultSet.next()){
-            String discoverId = resultSet.getString("TourId");
+            String discoverId = resultSet.getString("IdTour");
             String nameTour = resultSet.getString("NameTour");
             String imgResource = resultSet.getString("ImgResource");
             int price = resultSet.getInt("PriceTour");
@@ -219,25 +219,25 @@ public class HomeRepository {
         void checkMyVoucher(boolean checkMyVoucher);
     }
 
-    public void getMyVoucher(int userId, int voucherId, CheckMyVoucherCallBack checkMyVoucherCallBack){
+    public void getMyVoucher(int userId, int IdVoucher, CheckMyVoucherCallBack checkMyVoucherCallBack){
         executorService.execute(new Runnable() {
             @Override
             public void run() {
-                String query = "SELECT Voucher.VoucherId " +
+                String query = "SELECT Voucher.IdVoucher " +
                 "FROM Voucher " +
-                "INNER JOIN ImgVoucher ON Voucher.VoucherId = ImgVoucher.VoucherId " +
-                "INNER JOIN MyVoucher ON Voucher.VoucherId = MyVoucher.VoucherId " +
-                        "WHERE Voucher.VoucherId = ? AND MyVoucher.UserId = ? ";
+                "INNER JOIN ImgVoucher ON Voucher.IdVoucher = ImgVoucher.IdVoucher " +
+                "INNER JOIN MyVoucher ON Voucher.IdVoucher = MyVoucher.IdVoucher " +
+                        "WHERE Voucher.IdVoucher = ? AND MyVoucher.IdUser = ? ";
                 try (
                         Connection connection = sqlServerDataSource.getConnection();
                         PreparedStatement statement = connection.prepareStatement(query);
                         ){
-                    statement.setInt(1, voucherId);
+                    statement.setInt(1, IdVoucher);
                     statement.setInt(2, userId);
                     ResultSet resultSet = statement.executeQuery();
                     // co dong dau tien thi tra ve true
                     checkMyVoucherCallBack.checkMyVoucher(resultSet.next()); // da luu
-                    Log.d("vOUCHER", "vOUCHERiD" + voucherId);
+                    Log.d("vOUCHER", "IdVoucher" + IdVoucher);
                 }catch (Exception e){
                     e.printStackTrace();
                 }
@@ -245,18 +245,18 @@ public class HomeRepository {
         });
     }
 
-    public void saveVoucher(int userId, int voucherId){
+    public void saveVoucher(int userId, int IdVoucher){
         executorService.execute(new Runnable() {
             @Override
             public void run() {
-                String query = "INSERT INTO MyVoucher(UserId, VoucherId) VALUES (?, ?) ";
+                String query = "INSERT INTO MyVoucher(IdUser, IdVoucher) VALUES (?, ?) ";
 
                 try(
                         Connection connection = sqlServerDataSource.getConnection();
                         PreparedStatement statement = connection.prepareStatement(query);
                         ){
                         statement.setInt(1, userId);
-                        statement.setInt(2, voucherId);
+                        statement.setInt(2, IdVoucher);
                         int rowsInserted = statement.executeUpdate();
 //                        if (rowsInserted > 0) {
 //                            System.out.println("Voucher đã được lưu thành công!");

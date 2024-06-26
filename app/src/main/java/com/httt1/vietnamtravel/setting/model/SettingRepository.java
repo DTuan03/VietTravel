@@ -25,7 +25,7 @@ public class SettingRepository {
         executorService.execute(new Runnable() {
             @Override
             public void run() {
-                String query = "SELECT UserName FROM Users WHERE UserId = ? ";
+                String query = "SELECT UserName FROM Users WHERE IdUser = ? ";
                 try(
                         Connection connection = sqlServerDataSource.getConnection();
                         PreparedStatement statement = connection.prepareStatement(query);

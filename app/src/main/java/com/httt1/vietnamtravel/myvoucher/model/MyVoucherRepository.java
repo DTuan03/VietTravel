@@ -34,9 +34,9 @@ public class MyVoucherRepository {
             public void run() {
                 String query = "SELECT ImgVoucher.ImgResource, Voucher.TitleVoucher, Voucher.DescriptionVoucher " +
                         "FROM Voucher INNER JOIN ImgVoucher " +
-                        "ON Voucher.VoucherId = ImgVoucher.VoucherId " +
-                        "INNER JOIN MyVoucher ON Voucher.VoucherId = MyVoucher.VoucherId " +
-                        "WHERE MyVoucher.UserId = ?";
+                        "ON Voucher.IdVoucher = ImgVoucher.IdVoucher " +
+                        "INNER JOIN MyVoucher ON Voucher.IdVoucher = MyVoucher.IdVoucher " +
+                        "WHERE MyVoucher.IdUser = ?";
                 try(
                         Connection connection = sqlServerDataSource.getConnection();
                         PreparedStatement statement = connection.prepareStatement(query);
@@ -44,6 +44,7 @@ public class MyVoucherRepository {
                     statement.setInt(1, userId);
                     ResultSet resultSet = statement.executeQuery();
                     List<MyVoucherModel> list = setDataMyVoucher(resultSet);
+                    Log.d("Danh sach Voucher", "La : " + list.size());
                     myVoucherCallBack.getListMyVoucher(list);
                 }catch (SQLException e){
                     e.printStackTrace();

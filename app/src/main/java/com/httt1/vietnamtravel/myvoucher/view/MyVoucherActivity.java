@@ -64,6 +64,7 @@ public class MyVoucherActivity extends AppCompatActivity implements MyVoucherCon
             public void run() {
                 // Cập nhật dữ liệu vào adapter và RecyclerView
                 myVoucherAdapter.setDataMyVoucher(list);
+                myVoucherAdapter.notifyDataSetChanged();
             }
         });
     }

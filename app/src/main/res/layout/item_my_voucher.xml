@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="15dp"
     android:orientation="horizontal">
+
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,9 +35,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
+            android:layout_marginTop="-5dp"
             android:text="Du lịch không giới hạn, nhận ngay giảm giá"
             android:textColor="@color/black"
-            android:textSize="11dp" />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/item_myvoucher_tv_descrip"
@@ -43,7 +47,6 @@
             android:layout_marginStart="5dp"
             android:text="Giảm 5% đơn từ 5,000,000 đồng tối đa 222,000 đồng"
             android:textColor="@color/black"
-            android:textSize="10dp"
             android:textStyle="italic" />
     </LinearLayout>
 

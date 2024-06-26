@@ -51,7 +51,7 @@ public class LoginRepository {
         executorService.execute(new Runnable() {
             @Override
             public void run() {
-                String query = "SELECT UserId FROM Users WHERE UserPhone = ? ";
+                String query = "SELECT IdUser FROM Users WHERE UserPhone = ? ";
                 try(
                         Connection connection = sqlServerDataSource.getConnection();
                         PreparedStatement statement = connection.prepareStatement(query);
@@ -59,7 +59,7 @@ public class LoginRepository {
                     statement.setString(1, user.getPhone());
                     ResultSet resultSet = statement.executeQuery();
                     if (resultSet.next()) {
-                        int userId = resultSet.getInt("UserId");
+                        int userId = resultSet.getInt("IdUser");
                         callBack.getUserId(userId);
                     } else {
                         Log.d("Khong", "Khong tim thay nguoi dung");
