@@ -21,49 +21,6 @@ public class HomeRepository {
         this.sqlServerDataSource = new SQLServerDataSource();
         this.executorService = Executors.newSingleThreadExecutor();
     }
-    //Hiển thị tour combo khi khách vãng lai hoac co tai khoan, neu vang lai thu userId may tra ra la 0 con co thi userId la khac 0 và câu lệnh
-    // dưới có thể hiển thị cả 2
-//    public interface ComboCallBack{
-//        void listCombo(List<HomeModel> listCombo);
-//    }
-//    public void getTour(String typeTour,ComboCallBack comboCallBack){
-//        executorService.execute(new Runnable() {
-//            @Override
-//            public void run() {
-//                String query = "SELECT Tour.IdTour, Tour.NameTour, Tour.PriceTour, ImgTour.ImgResource " +
-//                        "FROM Tour " +
-//                        "INNER JOIN ImgTour ON Tour.IdTour = ImgTour.IdTour " +
-//                        "WHERE Tour.TypeTour = ? " + "AND ImgTour.ImgPosition = 1";
-//                try(
-//                        Connection connection = sqlServerDataSource.getConnection();
-//                        PreparedStatement statement = connection.prepareStatement(query);
-//                ) {
-//                    statement.setString(1, typeTour);
-//                    ResultSet resultSet = statement.executeQuery();
-//                    // Ham tạo danh sách để chứa kết quả ben duoi
-//                    List<HomeModel> tours = setListTour(resultSet);
-//                    comboCallBack.listCombo(tours);
-//                    Log.d("fbhfdiubhviujdvbhjudvhndfju", "juhfuidshfuijdshfuijrde  " + tours.size());
-//                }catch (SQLException e){
-//                    e.printStackTrace();
-//                    comboCallBack.listCombo(new ArrayList<>()); // Trả về danh sách rỗng trong trường hợp lỗi
-//                }
-//            }
-//        });
-//    }
-//    private List<HomeModel> setListTour(ResultSet resultSet) throws SQLException {
-//        List<HomeModel> tours = new ArrayList<>();
-//        while (resultSet.next()) {
-//            String IdTour = resultSet.getString("IdTour");
-//            String nameTour = resultSet.getString("NameTour");
-//            int priceTour = resultSet.getInt("PriceTour");
-//            String imgUrl = resultSet.getString("ImgResource");
-//            HomeModel tour = new HomeModel(IdTour, imgUrl, nameTour, priceTour);
-//            tours.add(tour);
-//        }
-//        return tours;
-//    }
-
     public interface ComboCallBack{
         void listCombo(List<HomeModel> listComboTour);
     }
@@ -270,5 +227,32 @@ public class HomeRepository {
         });
     }
 
-    
+    public void addFavorite(int userId, int tourId) {
+        executorService.execute(() -> {
+            String query = "INSERT INTO FavTour (IdUser, IdTour) VALUES (?, ?)";
+            try (Connection connection = sqlServerDataSource.getConnection();
+                 PreparedStatement statement = connection.prepareStatement(query)) {
+                statement.setInt(1, userId);
+                statement.setInt(2, tourId);
+                statement.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    public void removeFavorite(int userId, int tourId) {
+        executorService.execute(() -> {
+            String query = "DELETE FROM FavTour WHERE IdUser = ? AND IdTour = ?";
+            try (Connection connection = sqlServerDataSource.getConnection();
+                 PreparedStatement statement = connection.prepareStatement(query)) {
+                statement.setInt(1, userId);
+                statement.setInt(2, tourId);
+                statement.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
 }

@@ -1,6 +1,6 @@
 package com.httt1.vietnamtravel.home.view;
 
-import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -19,23 +19,23 @@ import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
+import com.httt1.vietnamtravel.DetailTour.view.DetailTourActivity;
 import com.httt1.vietnamtravel.R;
 import com.httt1.vietnamtravel.common.utils.SharedPrefsHelper;
 import com.httt1.vietnamtravel.home.adapter.ComboAdapter;
-import com.httt1.vietnamtravel.home.adapter.DiscoverAdapter;
 import com.httt1.vietnamtravel.home.adapter.ViewPager2Adapter;
 import com.httt1.vietnamtravel.home.adapter.VoucherAdapter;
 import com.httt1.vietnamtravel.home.model.HomeModel;
+import com.httt1.vietnamtravel.home.model.HomeRepository;
 import com.httt1.vietnamtravel.home.presenter.HomeContract;
 import com.httt1.vietnamtravel.home.presenter.HomePresenter;
-import com.httt1.vietnamtravel.main.view.MainActivity;
 
 import java.util.List;
-import java.util.Objects;
 
 public class HomeFragment extends Fragment implements HomeContract.View {
     private RecyclerView rcvCombo, rcvVoucher;
@@ -48,6 +48,8 @@ public class HomeFragment extends Fragment implements HomeContract.View {
     private ConstraintLayout constraintLayoutSearch;
     private ImageView imgCart;
     private EditText etSearch;
+    private TextView tvSeeMore;
+    private int userId;
     public HomePresenter homePresenter;
     private boolean isScrolled = false; //Dùng để kiểm tra xem có cuộn lại trở về đầu khi chuyển sang fragment khác không, vì mình set cho kiểu khi chuyển sang
     //fragment khác thì khi quay lại nó vẫn màu trắng, nhưng khi người dùng cuộn về đầu mới chuyển sang fragment khác thì khi quay lại nó lại là màu trắng
@@ -83,8 +85,8 @@ public class HomeFragment extends Fragment implements HomeContract.View {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         SharedPrefsHelper sharedPrefsHelper = new SharedPrefsHelper(requireContext()); //requireContext tuong tu getContext() nhung neu null no se tra ra loi...
-        int userId = sharedPrefsHelper.getInt("UserId");
-        Log.d("Thong tin UserId 18:03", "Thong tin: " + userId);
+        userId = sharedPrefsHelper.getInt("UserId");
+
         init(view);
         homePresenter = new HomePresenter(this, getContext());
 
@@ -95,6 +97,14 @@ public class HomeFragment extends Fragment implements HomeContract.View {
         setViewPager2Adapter();
 
         setStatusBar(view);
+
+        tvSeeMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), AllTourActivity.class);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
@@ -112,8 +122,15 @@ public class HomeFragment extends Fragment implements HomeContract.View {
             etSearch.setBackgroundResource(R.drawable.fragment_home_bacground_search_after);
             fragmentHome.setBackgroundResource(R.color.white);
         }
+        // Cập nhật lại dữ liệu khi Fragment được hiển thị lại
+        refreshData();
     }
 
+    private void refreshData() {
+        // Cập nhật dữ liệu combo
+        int userId = 1;
+        homePresenter.getDataCombo("CB", userId);
+    }
     private void init(View view){
         rcvCombo = view.findViewById(R.id.fragment_home_rcv_combo);
         rcvVoucher = view.findViewById(R.id.fragment_home_rcv_voucher);
@@ -124,12 +141,20 @@ public class HomeFragment extends Fragment implements HomeContract.View {
         imgCart = view.findViewById(R.id.fragmet_home_img_cart);
         etSearch = view.findViewById(R.id.fragment_home_et_search);
         fragmentHome =  view.findViewById(R.id.fragment_home);
+        tvSeeMore = view.findViewById(R.id.fragmet_home_tv_see_more);
     }
     private void setComboAdapter(int userId ){
-        comboAdapter = new ComboAdapter();
+        comboAdapter = new ComboAdapter(getContext(), userId, new HomeRepository());
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false);
         rcvCombo.setLayoutManager(linearLayoutManager);
         rcvCombo.setAdapter(comboAdapter);
+
+        comboAdapter.setOnItemClickListener((idTour, idUser) -> {
+            Intent intent = new Intent(getActivity(), DetailTourActivity.class);
+            intent.putExtra("idTour", idTour);
+            intent.putExtra("idUser", idUser);
+            startActivity(intent);
+        });
 
         homePresenter.getDataCombo("CB", userId);
     }

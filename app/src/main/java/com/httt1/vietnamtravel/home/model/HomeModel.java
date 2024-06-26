@@ -8,15 +8,6 @@ public class HomeModel {
     private int isFavorite;
     private int price;
     private int voucherId;
-
-    public int getIsFavorite() {
-        return isFavorite;
-    }
-
-    public void setIsFavorite(int isFavorite) {
-        this.isFavorite = isFavorite;
-    }
-
     private float avgrStar;
 
     //recomend
@@ -97,4 +88,13 @@ public class HomeModel {
     public void setVoucherId(int voucherId) {
         this.voucherId = voucherId;
     }
+
+    public int getIsFavorite() {
+        return isFavorite;
+    }
+
+    public void setIsFavorite(int isFavorite) {
+        this.isFavorite = isFavorite;
+    }
+
 }
