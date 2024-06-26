@@ -10,5 +10,13 @@ public interface AccountContract {
     }
     interface Presenter{
         void getInfo(int userId);
+        void updateProperties(String properties, String values, int userId);
+    }
+    interface ViewDialog{
+        void setProperties(int userId);
+    }
+
+    public interface OnDataChangedListener {
+        void onDataChanged();
     }
 }

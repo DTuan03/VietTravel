@@ -11,6 +11,10 @@ public class AccountPresenter implements AccountContract.Presenter{
         this.view = view;
         this.accountRepository = new AccountRepository();
     }
+
+    public AccountPresenter(){
+        this.accountRepository = new AccountRepository();
+    }
     @Override
     public void getInfo(int userId) {
         accountRepository.getInfoUser(userId, new AccountRepository.InfoUserCallBack() {
@@ -32,5 +36,10 @@ public class AccountPresenter implements AccountContract.Presenter{
                 view.setAddress(userAddress != null ? userAddress : "Chưa có");
             }
         });
+    }
+
+    @Override
+    public void updateProperties(String properties, String values, int userId) {
+        accountRepository.updateAccount(properties, values, userId);
     }
 }

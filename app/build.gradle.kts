@@ -47,6 +47,4 @@ dependencies {
     implementation("com.google.firebase:firebase-database") // thư viện firebase real time
     implementation ("com.google.firebase:firebase-storage") // thư viện firebase storage
     implementation("com.squareup.picasso:picasso:2.71828") //thu vien ho tro load hinh anh tu url
-    implementation ("com.github.bumptech.glide:glide:4.12.0")
-    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
 }

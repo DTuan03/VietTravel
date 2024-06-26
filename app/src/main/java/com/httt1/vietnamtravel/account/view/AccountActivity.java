@@ -1,6 +1,8 @@
 package com.httt1.vietnamtravel.account.view;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -14,7 +16,7 @@ import com.httt1.vietnamtravel.account.presenter.AccountContract;
 import com.httt1.vietnamtravel.account.presenter.AccountPresenter;
 import com.httt1.vietnamtravel.common.utils.SharedPrefsHelper;
 
-public class AccountActivity extends AppCompatActivity implements AccountContract.View {
+public class AccountActivity extends AppCompatActivity implements AccountContract.View, AccountContract.OnDataChangedListener {
     private TextView tvName, tvDate, tvPhone, tvEmail, tvAddress;
     private TextView tvSetName, tvSetDate, tvSetPhone, tvSetEmail, tvSetAddress;
     private AccountPresenter accountPresenter;
@@ -30,9 +32,12 @@ public class AccountActivity extends AppCompatActivity implements AccountContrac
         });
         SharedPrefsHelper sharedPrefsHelper = new SharedPrefsHelper(this);
         int userId = sharedPrefsHelper.getInt("UserId");
+        init();
+
         accountPresenter = new AccountPresenter(this);
         accountPresenter.getInfo(userId);
-        init();
+
+        showDialog();
     }
 
     private void init(){
@@ -96,5 +101,54 @@ public class AccountActivity extends AppCompatActivity implements AccountContrac
                 tvAddress.setText(userAddress);
             }
         });
+    }
+
+    private void showDialog(){
+        tvSetName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AccountFragmentDiaLogName accountFragmentDiaLogName = new AccountFragmentDiaLogName();
+//                Lưu ý bên Fragment tương ứng phải sửa thành kế thừa DialogFragment (tương tự Fragment) kh thi se bao loi
+                accountFragmentDiaLogName.show(getSupportFragmentManager(), "AccountNameDialogFragment");
+            }
+        });
+        tvSetDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AccountFragmentDiaLogDate accountFragmentDiaLogDate = new AccountFragmentDiaLogDate();
+                accountFragmentDiaLogDate.show(getSupportFragmentManager(), "AccountDateDialogFragment");
+            }
+        });
+
+        tvPhone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AccountFragmentDiaLogPhone accountDialogPhoneFragment = new AccountFragmentDiaLogPhone();
+                accountDialogPhoneFragment.show(getSupportFragmentManager(), "AccountDialogPhoneFragment");
+            }
+        });
+        tvSetEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AccountFragmentDiaLogEmail accountFragmentDiaLogEmail = new AccountFragmentDiaLogEmail();
+                accountFragmentDiaLogEmail.show(getSupportFragmentManager(), "AccountDialogEmailFragment");
+            }
+        });
+
+        tvSetAddress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AccountFragmentDiaLogAddress accountFragmentDiaLogAddress = new AccountFragmentDiaLogAddress();
+                accountFragmentDiaLogAddress.show(getSupportFragmentManager(), "AccountDialogEmailFragment");
+            }
+        });
+    }
+
+    @Override
+    public void onDataChanged() {
+        SharedPrefsHelper sharedPrefsHelper = new SharedPrefsHelper(this);
+        int userId = sharedPrefsHelper.getInt("UserId");
+        accountPresenter.getInfo(userId);
+        Log.d("sshshs", "jusdfvfdvmnfdijuvnfrdiuvnui8fgvxhushsecxsc");
     }
 }

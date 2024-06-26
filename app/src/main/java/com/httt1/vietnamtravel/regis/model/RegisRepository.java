@@ -18,9 +18,6 @@ public class RegisRepository {
         this.executorService = Executors.newSingleThreadExecutor();
     }
 
-    public interface CheckUserCallBack{
-        void onCheckUser(boolean success);
-    }
     public void User(RegisModel user) {
         executorService.execute(new Runnable() {
             @Override
@@ -39,6 +36,10 @@ public class RegisRepository {
                 }
             }
         });
+    }
+
+    public interface CheckUserCallBack{
+        void onCheckUser(boolean success);
     }
 
     public void CheckUser(String phone, CheckUserCallBack checkUser){

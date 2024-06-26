@@ -1,6 +1,7 @@
 package com.httt1.vietnamtravel.account.model;
 
 import com.httt1.vietnamtravel.common.database.SQLServerDataSource;
+import com.httt1.vietnamtravel.common.utils.SharedPrefsHelper;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -42,6 +43,25 @@ public class AccountRepository {
                         AccountModel accountModel = new AccountModel(userName, userPhone, userBirth, userEmail, userAddress);
                         infoUserCallBack.infoUser(accountModel);
                     }
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    public void updateAccount(String properties, String value, int userid){
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                String query = "UPDATE Users SET " + properties + " = ? WHERE UserId = ?";
+                try(
+                        Connection connection = sqlServerDataSource.getConnection();
+                        PreparedStatement statement = connection.prepareStatement(query);
+                        ){
+                    statement.setString(1,value);
+                    statement.setInt(2, userid);
+                    statement.executeUpdate();
                 }catch (Exception e){
                     e.printStackTrace();
                 }
