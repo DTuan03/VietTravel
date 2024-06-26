@@ -2,10 +2,13 @@ package com.httt1.vietnamtravel.favorite.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,6 +25,7 @@ import com.httt1.vietnamtravel.favorite.model.FavoriteModel;
 import com.httt1.vietnamtravel.favorite.presenter.FavoriteContract;
 import com.httt1.vietnamtravel.favorite.presenter.FavoritePresenter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FavoriteFragment extends Fragment implements FavoriteContract.View {
@@ -31,6 +35,10 @@ public class FavoriteFragment extends Fragment implements FavoriteContract.View 
     private FavoritePresenter favoritePresenter;
     private FavoriteTourAdapter favoriteTourAdapter;
     private TextView emptyView;
+    private TextView emptySearchView;
+    private EditText searchEditText;
+    private List<FavoriteModel> originalList;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentFavoriteBinding.inflate(inflater, container, false);
@@ -43,10 +51,54 @@ public class FavoriteFragment extends Fragment implements FavoriteContract.View 
 
         rcvFavTour = binding.fragmentFavoriteRcvFavtour;
         emptyView = binding.emptyViewFavTour;
+        emptySearchView = binding.emptySearchViewFavTour;
         favoritePresenter = new FavoritePresenter(this, requireContext());
         setFavTourAdapter(favoritePresenter, userId);
 
+        searchEditText = binding.fragmentFavoriteEtSearch;
+        setupSearchFunctionality();
+
         return root;
+    }
+
+    private void setupSearchFunctionality() {
+        searchEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                filter(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
+    }
+
+    private void filter(String text) {
+        if (originalList == null) {
+            return;
+        }
+
+        List<FavoriteModel> filteredList = new ArrayList<>();
+        for (FavoriteModel item : originalList) {
+            if (item.getNameTour().toLowerCase().contains(text.toLowerCase())) {
+                filteredList.add(item);
+            }
+        }
+        favoriteTourAdapter.setFavoriteTourData(filteredList);
+        favoriteTourAdapter.notifyDataSetChanged();
+
+        if (filteredList.isEmpty()) {
+            rcvFavTour.setVisibility(View.GONE);
+            emptyView.setVisibility(View.VISIBLE);
+            emptySearchView.setVisibility(View.VISIBLE);
+        } else {
+            rcvFavTour.setVisibility(View.VISIBLE);
+            emptyView.setVisibility(View.GONE);
+            emptySearchView.setVisibility(View.GONE);
+        }
     }
 
     private void setFavTourAdapter(FavoritePresenter favoritePresenter, int userId) {
@@ -70,6 +122,7 @@ public class FavoriteFragment extends Fragment implements FavoriteContract.View 
         // Check if the fragment is still attached to the activity
         if (isAdded()) {
             requireActivity().runOnUiThread(() -> {
+                originalList = new ArrayList<>(list); // Save original list for search filtering
                 favoriteTourAdapter.setFavoriteTourData(list);
                 favoriteTourAdapter.notifyDataSetChanged();
 
@@ -77,9 +130,11 @@ public class FavoriteFragment extends Fragment implements FavoriteContract.View 
                     if (list.isEmpty()) {
                         rcvFavTour.setVisibility(View.GONE);
                         emptyView.setVisibility(View.VISIBLE);
+                        emptySearchView.setVisibility(View.VISIBLE);
                     } else {
                         rcvFavTour.setVisibility(View.VISIBLE);
                         emptyView.setVisibility(View.GONE);
+                        emptySearchView.setVisibility(View.GONE);
                     }
                 } else {
                     // Log an error message or handle the null case appropriately
@@ -90,6 +145,7 @@ public class FavoriteFragment extends Fragment implements FavoriteContract.View 
             Log.e("FavoriteFragment", "Fragment is not attached to the activity");
         }
     }
+
 
 
     @Override
