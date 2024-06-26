@@ -51,7 +51,7 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.TourViewHolder
     @Override
     public void onBindViewHolder(@NonNull TourViewHolder holder, int position) {
         HomeModel tour = listAllTour.get(position);
-
+        int tourId = tour.getTourId();
         Picasso.get().load(tour.getUrlImg()).error(R.drawable.img_0).into(holder.image);
         holder.tvNameTour.setText(tour.getNameTour());
         holder.tvPriceTour.setText(String.valueOf(tour.getPrice()));
@@ -68,8 +68,14 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.TourViewHolder
             @Override
             public void onClick(View v) {
                 if (tour.isFavorite()) {
+                    // Xóa yêu thích
+                    allTourRepository.removeFavorite(userId, tourId); // Xóa khỏi cơ sở dữ liệu
+                    tour.setFavorite(false); // Cập nhật trạng thái yêu thích của tour trong danh sách hiện tại
                     holder.imgFav.setImageResource(R.drawable.baseline_favorite_border_24); // Cập nhật icon
                 } else {
+                    // Thêm yêu thích
+                    allTourRepository.addFavorite(userId, tourId); // Thêm vào cơ sở dữ liệu
+                    tour.setFavorite(true); // Cập nhật trạng thái yêu thích của tour trong danh sách hiện tại
                     holder.imgFav.setImageResource(R.drawable.baseline_favorite_24); // Cập nhật icon
                 }
             }

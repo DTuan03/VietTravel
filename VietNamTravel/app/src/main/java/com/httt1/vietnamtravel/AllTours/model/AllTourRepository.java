@@ -142,4 +142,32 @@ public class AllTourRepository {
         return alltours;
     }
 
+    public void addFavorite(int userId, int tourId) {
+        executorService.execute(() -> {
+            String query = "INSERT INTO FavTour (IdUser, IdTour) VALUES (?, ?)";
+            try (Connection connection = sqlServerDataSource.getConnection();
+                 PreparedStatement statement = connection.prepareStatement(query)) {
+                statement.setInt(1, userId);
+                statement.setInt(2, tourId);
+                statement.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    public void removeFavorite(int userId, int tourId) {
+        executorService.execute(() -> {
+            String query = "DELETE FROM FavTour WHERE IdUser = ? AND IdTour = ?";
+            try (Connection connection = sqlServerDataSource.getConnection();
+                 PreparedStatement statement = connection.prepareStatement(query)) {
+                statement.setInt(1, userId);
+                statement.setInt(2, tourId);
+                statement.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
 }

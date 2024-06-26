@@ -13,59 +13,48 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class HomeRepository {
+public  class HomeRepository {
     private final SQLServerDataSource sqlServerDataSource;
     private final ExecutorService executorService;
-    private final List<HomeModel> favoriteTours;
 
     public HomeRepository() {
         this.sqlServerDataSource = new SQLServerDataSource();
         this.executorService = Executors.newSingleThreadExecutor();
-        this.favoriteTours = new ArrayList<>();
     }
 
     public HomeRepository(SQLServerDataSource sqlServerDataSource) {
         this.sqlServerDataSource = sqlServerDataSource;
         this.executorService = Executors.newSingleThreadExecutor();
-        this.favoriteTours = new ArrayList<>();
     }
 
-//    public interface DatabaseCallback {
-//        void onSuccess();
-//        void onError(Exception e);
-//    }
-//
-//    public void addFavorite(int userId, int tourId, DatabaseCallback callback) {
-//        executorService.execute(() -> {
-//            String query = "INSERT INTO FavTour (IdUser, IdTour) VALUES (?, ?)";
-//            try (Connection connection = sqlServerDataSource.getConnection();
-//                 PreparedStatement statement = connection.prepareStatement(query)) {
-//                statement.setInt(1, userId);
-//                statement.setInt(2, tourId);
-//                statement.executeUpdate();
-//                callback.onSuccess();
-//            } catch (SQLException e) {
-//                callback.onError(e);
-//            }
-//        });
-//    }
-//
-//    public void removeFavorite(int userId, int tourId, DatabaseCallback callback) {
-//        executorService.execute(() -> {
-//            String query = "DELETE FROM FavTour WHERE IdUser = ? AND IdTour = ?";
-//            try (Connection connection = sqlServerDataSource.getConnection();
-//                 PreparedStatement statement = connection.prepareStatement(query)) {
-//                statement.setInt(1, userId);
-//                statement.setInt(2, tourId);
-//                statement.executeUpdate();
-//                callback.onSuccess();
-//            } catch (SQLException e) {
-//                callback.onError(e);
-//            }
-//        });
-//    }
-//}
 
+    public void addFavorite(int userId, int tourId) {
+        executorService.execute(() -> {
+            String query = "INSERT INTO FavTour (IdUser, IdTour) VALUES (?, ?)";
+            try (Connection connection = sqlServerDataSource.getConnection();
+                 PreparedStatement statement = connection.prepareStatement(query)) {
+                statement.setInt(1, userId);
+                statement.setInt(2, tourId);
+                statement.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    public void removeFavorite(int userId, int tourId) {
+        executorService.execute(() -> {
+            String query = "DELETE FROM FavTour WHERE IdUser = ? AND IdTour = ?";
+            try (Connection connection = sqlServerDataSource.getConnection();
+                 PreparedStatement statement = connection.prepareStatement(query)) {
+                statement.setInt(1, userId);
+                statement.setInt(2, tourId);
+                statement.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        });
+    }
 
     // Callback interfaces
     public interface ComboCallBack {

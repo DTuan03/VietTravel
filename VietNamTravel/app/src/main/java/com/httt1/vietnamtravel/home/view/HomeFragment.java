@@ -18,6 +18,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.httt1.vietnamtravel.DetailTour.view.DetailTourActivity;
+import com.httt1.vietnamtravel.R;
 import com.httt1.vietnamtravel.common.utils.SharedPrefsHelper;
 import com.httt1.vietnamtravel.databinding.FragmentHomeBinding;
 import com.httt1.vietnamtravel.AllTours.view.AllTourActivity;
@@ -45,11 +46,10 @@ public class HomeFragment extends Fragment implements HomeContract.View {
 
     public HomeFragment() {
     }
-
+    
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
@@ -78,6 +78,19 @@ public class HomeFragment extends Fragment implements HomeContract.View {
         setViewPager2Adapter();
 
         return root;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Cập nhật lại dữ liệu khi Fragment được hiển thị lại
+        refreshData();
+    }
+
+    private void refreshData() {
+        // Cập nhật dữ liệu combo
+        int userId = 1;
+        homePresenter.getDataCombo("CB", userId);
     }
 
     private void setComboAdapter(HomePresenter homePresenter, int userId) {

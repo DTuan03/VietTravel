@@ -42,6 +42,7 @@ public class ComboAdapter extends RecyclerView.Adapter<ComboAdapter.ComboViewHol
     public void setDataCombo(Context context, List<HomeModel> listCombo){
         this.context = context;
         this.listCombo = listCombo;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -63,29 +64,27 @@ public class ComboAdapter extends RecyclerView.Adapter<ComboAdapter.ComboViewHol
         holder.tvNameToure.setText(tvNameTour);
         holder.tvPriceToure.setText(String.valueOf(tvPriceTour));
 
+        // Xử lý sự kiện khi người dùng ấn vào nút yêu thích
+        holder.imgFav.setOnClickListener(v -> {
+            if (combo.isFavorite()) {
+                // Xóa yêu thích
+                homeRepository.removeFavorite(userId, tourId); // Xóa khỏi cơ sở dữ liệu
+                combo.setFavorite(false); // Cập nhật trạng thái yêu thích của tour trong danh sách hiện tại
+                holder.imgFav.setImageResource(R.drawable.baseline_favorite_border_24); // Cập nhật icon
+            } else {
+                // Thêm yêu thích
+                homeRepository.addFavorite(userId, tourId); // Thêm vào cơ sở dữ liệu
+                combo.setFavorite(true); // Cập nhật trạng thái yêu thích của tour trong danh sách hiện tại
+                holder.imgFav.setImageResource(R.drawable.baseline_favorite_24); // Cập nhật icon
+            }
+        });
+
         // Kiểm tra và cập nhật icon yêu thích
         if (combo.isFavorite()) {
             holder.imgFav.setImageResource(R.drawable.baseline_favorite_24); // Icon đã favorite
         } else {
             holder.imgFav.setImageResource(R.drawable.baseline_favorite_border_24); // Icon chưa favorite
         }
-
-        // Xử lý sự kiện khi người dùng ấn vào nút yêu thích
-        holder.imgFav.setOnClickListener(v -> {
-            if (combo.isFavorite()) {
-                // Xóa yêu thích
-//                homeRepository.removeFavorite(userId, combo.getTourId());
-//                allTourRepository.removeFavorite(userId, combo.getTourId());
-//                combo.setIsFavorite(false); // Cập nhật trạng thái yêu thích của tour
-                holder.imgFav.setImageResource(R.drawable.baseline_favorite_border_24); // Cập nhật icon
-            } else {
-                // Thêm yêu thích
-//                homeRepository.addFavorite(userId, combo);
-//                allTourRepository.addFavorite(userId, combo);
-//                combo.setIsFavorite(true); // Cập nhật trạng thái yêu thích của tour
-                holder.imgFav.setImageResource(R.drawable.baseline_favorite_24); // Cập nhật icon
-            }
-        });
 
         // Thêm sự kiện click vào item
         holder.itemView.setOnClickListener(new View.OnClickListener() {

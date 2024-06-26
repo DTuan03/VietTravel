@@ -39,6 +39,7 @@ public class DetailTourActivity extends AppCompatActivity implements DetailTourA
     private ImagePagerAdapter imagePagerAdapter;
     private List<String> imageUrls;
     private Button btnBookTour;
+    private ImageView imgFav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +61,7 @@ public class DetailTourActivity extends AppCompatActivity implements DetailTourA
         tvPrice = findViewById(R.id.activity_tv_price_detail_tour);
         tvVehicle = findViewById(R.id.activity_tv_vehicle_detail_tour);
         tvHotel = findViewById(R.id.activity_tv_hotel_detail_tour);
+        imgFav = findViewById(R.id.activity_img_favourite_detail_tour);
 
         ivBack = findViewById(R.id.activity_img_back_detail_tour);
         ivBack.setOnClickListener(new View.OnClickListener() {
@@ -89,6 +91,22 @@ public class DetailTourActivity extends AppCompatActivity implements DetailTourA
         // Load tour details and images
         presenter.getDetailData(idUser, idTour);
 //        presenter.getReviews(idTour);
+
+        // Setup onClickListener for favorite icon
+        imgFav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (imgFav.getTag() != null && imgFav.getTag().equals("fav")) {
+                    // Xóa yêu thích
+                    detailRepository.removeFavorite(idUser, idTour);
+                    imgFav.setImageResource(R.drawable.baseline_favorite_border_24);
+                } else {
+                    // Thêm yêu thích
+                    detailRepository.addFavorite(idUser, idTour);
+                    imgFav.setImageResource(R.drawable.baseline_favorite_24);
+                }
+            }
+        });
 
         btnBookTour = findViewById(R.id.activity_btn_booking_detail_tour);
         btnBookTour.setOnClickListener(new View.OnClickListener() {
@@ -121,6 +139,15 @@ public class DetailTourActivity extends AppCompatActivity implements DetailTourA
                 tvPrice.setText(String.valueOf(detailTour.getPrice()));
                 tvVehicle.setText(detailTour.getVehicle());
                 tvHotel.setText(detailTour.getHotel());
+
+                // Set favorite icon based on tour's favorite status
+                if (detailTour.isFavorite()) {
+                    imgFav.setImageResource(R.drawable.baseline_favorite_24);
+                    imgFav.setTag("fav");
+                } else {
+                    imgFav.setImageResource(R.drawable.baseline_favorite_border_24);
+                    imgFav.setTag(null);
+                }
 
                 imageUrls.clear();
                 imageUrls.addAll(detailTour.getImageUrls());
