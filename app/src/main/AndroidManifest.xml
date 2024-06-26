@@ -29,7 +29,7 @@
             android:name=".DetailTour.view.DetailTourActivity"
             android:exported="false" />
         <activity
-            android:name=".DetailTour.view.DetailActivity"
+            android:name=".AllTours.view.AllTourActivity"
             android:exported="false" />
         <activity
             android:name=".myvoucher.view.MyVoucherActivity"

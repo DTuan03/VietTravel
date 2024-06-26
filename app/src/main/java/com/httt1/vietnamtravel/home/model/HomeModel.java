@@ -10,14 +10,6 @@ public class HomeModel {
     private int voucherId;
     private float avgrStar;
 
-    //recomend
-    public HomeModel(String urlImg, String nameTour, float avgrStar, int price, int isFavorite) {
-        this.urlImg = urlImg;
-        this.nameTour = nameTour;
-        this.avgrStar = avgrStar;
-        this.price = price;
-        this.isFavorite = isFavorite;
-    }
 
     //combo
     public HomeModel(String TourId, String urlImg, String nameTour, int price, int isFavorite) {

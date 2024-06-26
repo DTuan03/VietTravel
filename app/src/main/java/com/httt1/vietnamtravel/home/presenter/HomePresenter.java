@@ -39,16 +39,6 @@ public class HomePresenter implements HomeContract.Presenter {
     }
 
     @Override
-    public void getDataDiscover(String typeDiscover, int userId) {
-        homeRepository.getDiscover(userId, typeDiscover, new HomeRepository.DiscoverCallBack() {
-            @Override
-            public void listDiscover(List<HomeModel> listDiscover) {
-                list = listDiscover;
-                view.showDataDiscover(list);
-            }
-        });
-    }
-    @Override
     public void onMyVoucher(int userId, int voucherId) {
         homeRepository.getMyVoucher(userId, voucherId, new HomeRepository.CheckMyVoucherCallBack(){
             @Override

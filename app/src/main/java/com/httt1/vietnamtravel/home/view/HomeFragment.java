@@ -29,7 +29,6 @@ import com.httt1.vietnamtravel.DetailTour.view.DetailTourActivity;
 import com.httt1.vietnamtravel.R;
 import com.httt1.vietnamtravel.common.utils.SharedPrefsHelper;
 import com.httt1.vietnamtravel.home.adapter.ComboAdapter;
-import com.httt1.vietnamtravel.home.adapter.ViewPager2Adapter;
 import com.httt1.vietnamtravel.home.adapter.VoucherAdapter;
 import com.httt1.vietnamtravel.home.model.HomeModel;
 import com.httt1.vietnamtravel.home.model.HomeRepository;
@@ -95,8 +94,6 @@ public class HomeFragment extends Fragment implements HomeContract.View {
 
         setVoucherAdapter(userId);
 
-        setViewPager2Adapter();
-
         setStatusBar(view);
 
         tvSeeMore.setOnClickListener(new View.OnClickListener() {
@@ -135,8 +132,6 @@ public class HomeFragment extends Fragment implements HomeContract.View {
     private void init(View view){
         rcvCombo = view.findViewById(R.id.fragment_home_rcv_combo);
         rcvVoucher = view.findViewById(R.id.fragment_home_rcv_voucher);
-        viewPager2 = view.findViewById(R.id.fragment_home_view_page2);
-        tabLayout = view.findViewById(R.id.fragment_home_tab_layout);
         scrollView = view.findViewById(R.id.fragment_home_sv);
         constraintLayoutSearch = view.findViewById(R.id.fragment_home_contrainLayout_search);
         imgCart = view.findViewById(R.id.fragmet_home_img_cart);
@@ -213,30 +208,6 @@ public class HomeFragment extends Fragment implements HomeContract.View {
         });
     }
 
-    @Override
-    public void showDataDiscover(List<HomeModel> list) {
-    }
-
-    private void setViewPager2Adapter(){
-        ViewPager2Adapter viewPager2Adapter = new ViewPager2Adapter(requireActivity());// Lấy hoạt động liên quan đến fragment
-        viewPager2.setAdapter(viewPager2Adapter);
-        new TabLayoutMediator(tabLayout, viewPager2, new TabLayoutMediator.TabConfigurationStrategy() {
-            @Override
-            public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
-                switch (position){
-                    case 0:
-                        tab.setText("Đề xuất");
-                        break;
-                    case 1:
-                        tab.setText("Không thể bỏ lỡ");
-                        break;
-                    case 2:
-                        tab.setText("Được yêu thích nhiều nhất");
-                        break;
-                }
-            }
-        }).attach();
-    }
 
     private void setStatusBar(View view){
         Window window = getActivity().getWindow();

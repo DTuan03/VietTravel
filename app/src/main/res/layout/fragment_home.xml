@@ -332,40 +332,7 @@
                         android:layout_marginTop="10dp" />
 
                 </LinearLayout>
-
-                <TextView
-                    android:id="@+id/textView24"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="Khám phá thêm"
-                    android:textColor="@color/black"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
-
-                <com.google.android.material.tabs.TabLayout
-                    android:id="@+id/fragment_home_tab_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginBottom="15dp"
-                    app:tabIndicatorColor="#FF5722"
-                    app:tabIndicatorFullWidth="false"
-                    app:tabGravity="start"
-                    app:tabMode="scrollable"
-                    app:tabRippleColor="#00FFFFFF"
-                    app:tabSelectedTextColor="#FF5722"
-                    app:tabTextAppearance="@style/TextAppearance.AppCompat.Body1">
-
-                </com.google.android.material.tabs.TabLayout>
-
-                <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/fragment_home_view_page2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
+                
             </LinearLayout>
         </ScrollView>
 

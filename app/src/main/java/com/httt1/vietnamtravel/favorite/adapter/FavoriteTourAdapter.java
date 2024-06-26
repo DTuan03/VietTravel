@@ -110,10 +110,10 @@ public class FavoriteTourAdapter extends RecyclerView.Adapter<FavoriteTourAdapte
 
         public FavoriteTourViewHolder(@NonNull View itemView) {
             super(itemView);
-            image = itemView.findViewById(R.id.item_discover_img);
-            tvNameTour = itemView.findViewById(R.id.item_discover_tv_name_tour);
-            tvPriceTour = itemView.findViewById(R.id.item_discover_tv_price);
-            imgFav = itemView.findViewById(R.id.item_discover_img_favorite);
+            image = itemView.findViewById(R.id.item_img_discover_tour);
+            tvNameTour = itemView.findViewById(R.id.item_tv_name_discover_tour);
+            tvPriceTour = itemView.findViewById(R.id.item_price_discover_tour);
+            imgFav = itemView.findViewById(R.id.item_img_discover_favorite);
             avgStar = itemView.findViewById(R.id.item_discover_tv_avg_star);
         }
     }
