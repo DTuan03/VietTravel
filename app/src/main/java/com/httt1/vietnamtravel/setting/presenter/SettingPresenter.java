@@ -29,6 +29,7 @@ public class SettingPresenter implements SettingContract.Presenter{
         if(userId != 0){
             view.onAccount();
             view.onReplacePass();
+            view.onMyVoucher();
         }else{
             view.notifi();
         }

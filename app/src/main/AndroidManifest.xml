@@ -22,6 +22,9 @@
         android:theme="@style/activity_home_theme"
         tools:targetApi="31">
         <activity
+            android:name=".myvoucher.view.MyVoucherActivity"
+            android:exported="false" />
+        <activity
             android:name=".replacePass.view.ReplacePassActivity"
             android:exported="false" />
         <activity

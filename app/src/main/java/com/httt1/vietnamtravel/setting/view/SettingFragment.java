@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.httt1.vietnamtravel.R;
 import com.httt1.vietnamtravel.account.view.AccountActivity;
 import com.httt1.vietnamtravel.common.utils.SharedPrefsHelper;
+import com.httt1.vietnamtravel.myvoucher.view.MyVoucherActivity;
 import com.httt1.vietnamtravel.regis.view.RegisActivity;
 import com.httt1.vietnamtravel.replacePass.view.ReplacePassActivity;
 import com.httt1.vietnamtravel.setting.presenter.SettingContract;
@@ -140,7 +141,13 @@ public class SettingFragment extends Fragment implements SettingContract.View{
 
     @Override
     public void onMyVoucher() {
-
+        llMyVoucher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), MyVoucherActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
