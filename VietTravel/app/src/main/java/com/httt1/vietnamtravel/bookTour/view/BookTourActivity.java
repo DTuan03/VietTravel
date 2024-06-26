@@ -6,6 +6,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,16 +16,22 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.httt1.vietnamtravel.R;
 import com.httt1.vietnamtravel.bookTour.presenter.BookTourContract;
+import com.httt1.vietnamtravel.bookTour.presenter.BookTourPresenter;
+import com.httt1.vietnamtravel.common.utils.SharedPrefsHelper;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
 public class BookTourActivity extends AppCompatActivity implements BookTourContract.View {
     private EditText etName, etPhone, etMail, etNumberBook, startDay, endDay;
     private Spinner paymentMethod, voucher;
+    private TextView tvPrice;
     private String selectedItem;
+    private BookTourPresenter bookTourPresenter;
+    private int userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +45,13 @@ public class BookTourActivity extends AppCompatActivity implements BookTourContr
         });
         init();
 
-        // Dữ liệu cho Spinner
-        String[] vouchers = {"Voucher 1", "Voucher 2", "Voucher 3", "Voucher 4"};
+        SharedPrefsHelper sharedPrefsHelper = new SharedPrefsHelper(this);
+        userId = sharedPrefsHelper.getInt("UserId");
+
+        bookTourPresenter = new BookTourPresenter(this);
 
         // Tạo ArrayAdapter
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, vouchers);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, bookTourPresenter.setDataVoucher(userId));
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         // Gán Adapter cho Spinner
@@ -69,6 +78,20 @@ public class BookTourActivity extends AppCompatActivity implements BookTourContr
                 selectedItem = null; // Hoặc giá trị mặc định khác nếu cần
             }
         });
+        int price = 0;
+        etNumberBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bookTourPresenter.total(getNumberBook(), price);
+            }
+        });
+        voucher.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                bookTourPresenter.totalAfterVoucher(Integer.parseInt(tvPrice.getText().toString()));
+            }
+        });
+
     }
 
     private void init(){
@@ -80,6 +103,7 @@ public class BookTourActivity extends AppCompatActivity implements BookTourContr
         endDay = findViewById(R.id.activity_book_tour_et_end_day);
         paymentMethod = findViewById(R.id.activity_book_tour_sp_payment_method);
         voucher = findViewById(R.id.activity_book_tour_sp_voucher);
+        tvPrice = findViewById(R.id.activity_book_tour_tv_price);
     }
 
     @Override
@@ -134,4 +158,18 @@ public class BookTourActivity extends AppCompatActivity implements BookTourContr
     public String getPayMendMethod() {
         return selectedItem;
     }
+
+    @Override
+    public int getTotal() {
+        return Integer.parseInt(tvPrice.getText().toString());
+    }
+    @Override
+    public void setDataVoucher(ArrayList<String> arrayList) {
+    }
+
+    @Override
+    public void setPrice(String price) {
+        tvPrice.setText(price);
+    }
+
 }

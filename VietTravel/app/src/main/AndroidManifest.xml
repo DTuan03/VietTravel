@@ -26,6 +26,9 @@
             android:name=".bookTour.view.BookTourActivity"
             android:exported="false" />
         <activity
+            android:name=".Feedback.View.FeedbackActivity"
+            android:exported="false" />
+        <activity
             android:name=".DetailTour.view.DetailTourActivity"
             android:exported="false" />
         <activity

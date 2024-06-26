@@ -1,10 +1,16 @@
 package com.httt1.vietnamtravel.AllTours.view;
 
+import static android.app.PendingIntent.getActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -17,8 +23,10 @@ import com.httt1.vietnamtravel.AllTours.presenter.AllTourPresenter;
 import com.httt1.vietnamtravel.DetailTour.view.DetailTourActivity;
 import com.httt1.vietnamtravel.common.utils.SharedPrefsHelper;
 import com.httt1.vietnamtravel.databinding.ActivityAllTourBinding;
+import com.httt1.vietnamtravel.favorite.model.FavoriteModel;
 import com.httt1.vietnamtravel.home.model.HomeModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AllTourActivity extends AppCompatActivity implements AllTourActivityContract.View, TourAdapter.OnItemClickListener {
@@ -28,6 +36,9 @@ public class AllTourActivity extends AppCompatActivity implements AllTourActivit
     private TourAdapter alltourAdapter;
     private ImageView tvbackhome;
     private int userId;
+    private TextView emptySearchView;
+    private EditText searchEditText;
+    private List<AllTourModel> originalList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +60,10 @@ public class AllTourActivity extends AppCompatActivity implements AllTourActivit
                 onBackPressed();
             }
         });
+
+        emptySearchView = binding.emptySearchViewAllTour;
+        searchEditText = binding.activityAlltourEtSearch;
+        setupSearchFunctionality();
     }
 
     // Phương thức được gọi khi ImageView "Back" được nhấn
@@ -73,15 +88,65 @@ public class AllTourActivity extends AppCompatActivity implements AllTourActivit
         alltourAdapter.setOnItemClickListener(this); // Đăng ký sự kiện item click
     }
 
+    private void setupSearchFunctionality() {
+        searchEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                filter(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
+    }
+
+    private void filter(String text) {
+        if (originalList == null) {
+            return;
+        }
+
+        List<AllTourModel> filteredList = new ArrayList<>();
+        for (AllTourModel item : originalList) {
+            if (item.getNameTour().toLowerCase().contains(text.toLowerCase())) {
+                filteredList.add(item);
+            }
+        }
+        alltourAdapter.setAllData(filteredList);
+        alltourAdapter.notifyDataSetChanged();
+
+        if (filteredList.isEmpty()) {
+            rcvAllTour.setVisibility(View.GONE);
+            emptySearchView.setVisibility(View.VISIBLE);
+        } else {
+            rcvAllTour.setVisibility(View.VISIBLE);
+            emptySearchView.setVisibility(View.GONE);
+        }
+    }
+
     @Override
     public void showAllData(List<AllTourModel> list) {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                originalList = new ArrayList<>(list); // Update original list for filtering
                 alltourAdapter.setAllData(list);
                 alltourAdapter.notifyDataSetChanged();
+
+                updateAllTourVisibility(list.isEmpty());
             }
         });
+    }
+
+    private void updateAllTourVisibility(boolean isEmpty) {
+        if (rcvAllTour == null || emptySearchView == null) {
+            return;
+        }
+
+        rcvAllTour.setVisibility(isEmpty ? View.GONE : View.VISIBLE);
+        emptySearchView.setVisibility(isEmpty ? View.VISIBLE : View.GONE);
     }
 
     // Xử lý sự kiện khi người dùng nhấn vào item tour

@@ -55,7 +55,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <EditText
-                    android:id="@+id/fragment_favorite_et_search"
+                    android:id="@+id/activity_alltour_et_search"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:layout_marginStart="14dp"
@@ -78,9 +78,9 @@
                     android:layout_width="30dp"
                     android:layout_height="60dp"
                     android:layout_marginStart="8dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/fragment_favorite_et_search"
-                    app:layout_constraintStart_toStartOf="@+id/fragment_favorite_et_search"
-                    app:layout_constraintTop_toTopOf="@+id/fragment_favorite_et_search"
+                    app:layout_constraintBottom_toBottomOf="@+id/activity_alltour_et_search"
+                    app:layout_constraintStart_toStartOf="@+id/activity_alltour_et_search"
+                    app:layout_constraintTop_toTopOf="@+id/activity_alltour_et_search"
                     app:srcCompat="@drawable/baseline_search_24" />
 
                 <ImageView
@@ -92,7 +92,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toEndOf="@+id/fragment_favorite_et_search"
+                    app:layout_constraintStart_toEndOf="@+id/activity_alltour_et_search"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0" />
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -127,5 +127,19 @@
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
+
+    <!--    android:visibility="gone" để ẩn -->
+    <TextView
+        android:id="@+id/empty_search_view_all_tour"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="Không có kết quả phù hợp!"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
 
 </RelativeLayout>

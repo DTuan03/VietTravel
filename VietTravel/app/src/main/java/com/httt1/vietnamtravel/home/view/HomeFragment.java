@@ -28,6 +28,7 @@ import com.httt1.vietnamtravel.AllTours.view.AllTourActivity;
 import com.httt1.vietnamtravel.DetailTour.view.DetailTourActivity;
 import com.httt1.vietnamtravel.R;
 import com.httt1.vietnamtravel.common.utils.SharedPrefsHelper;
+import com.httt1.vietnamtravel.favorite.model.FavoriteModel;
 import com.httt1.vietnamtravel.home.adapter.ComboAdapter;
 import com.httt1.vietnamtravel.home.adapter.VoucherAdapter;
 import com.httt1.vietnamtravel.home.model.HomeModel;
@@ -47,7 +48,10 @@ public class HomeFragment extends Fragment implements HomeContract.View {
     private ScrollView scrollView;
     private ConstraintLayout constraintLayoutSearch;
     private ImageView imgCart;
+
     private EditText etSearch;
+    private List<HomeModel> originalList;
+
     private TextView tvSeeMore;
     private int userId;
     public HomePresenter homePresenter;
@@ -104,6 +108,8 @@ public class HomeFragment extends Fragment implements HomeContract.View {
                 startActivity(intent);
             }
         });
+
+
 
         return view;
     }

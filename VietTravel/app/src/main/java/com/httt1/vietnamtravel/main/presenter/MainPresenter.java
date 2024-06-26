@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 //import com.httt1.vietnamtravel.History.ViewPager.View.HistoryFragment;
+import com.httt1.vietnamtravel.History.ViewPager.View.HistoryFragment;
 import com.httt1.vietnamtravel.R;
 import com.httt1.vietnamtravel.favorite.view.FavoriteFragment;
 import com.httt1.vietnamtravel.home.view.HomeFragment;
@@ -34,9 +35,9 @@ public class MainPresenter implements MainContract.Presenter{
             view.loadFragment(fragmentFavorite, setStatusBarColor);
             return true;
         } else if (item.getItemId() == R.id.navigation_history) {
-//            Fragment fragmentHistory = new HistoryFragment();
-//            int setStatusBarColor = ContextCompat.getColor(context, R.color.fragment_setting_status_bar);
-//            view.loadFragment(fragmentHistory, setStatusBarColor);
+            Fragment fragmentHistory = new HistoryFragment();
+            int setStatusBarColor = ContextCompat.getColor(context, R.color.fragment_setting_status_bar);
+            view.loadFragment(fragmentHistory, setStatusBarColor);
             return true;
         } else if (item.getItemId() == R.id.navigation_setting) {
             Fragment fragmentSetting = new SettingFragment();
