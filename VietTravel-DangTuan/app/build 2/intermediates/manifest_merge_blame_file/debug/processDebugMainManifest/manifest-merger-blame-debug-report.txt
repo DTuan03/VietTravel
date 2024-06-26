@@ -1,0 +1,274 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.httt1.vietnamtravel"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="34" />
+10
+11    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+11-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:5:5-76
+11-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:5:22-73
+12    <uses-permission
+12-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:6:5-8:38
+13        android:name="android.permission.READ_EXTERNAL_STORAGE"
+13-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:7:9-64
+14        android:maxSdkVersion="32" />
+14-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:8:9-35
+15    <uses-permission
+15-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:9:5-11:38
+16        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+16-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:10:9-65
+17        android:maxSdkVersion="32" />
+17-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:11:9-35
+18    <uses-permission android:name="android.permission.INTERNET" />
+18-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:12:5-67
+18-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:12:22-64
+19
+20    <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
+21    <!-- <uses-sdk android:minSdkVersion="21"/> -->
+22    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+22-->[com.google.firebase:firebase-storage:21.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/d9d4224ea5053fd4430e3d21532afb63/transformed/firebase-storage-21.0.0/AndroidManifest.xml:23:5-79
+22-->[com.google.firebase:firebase-storage:21.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/d9d4224ea5053fd4430e3d21532afb63/transformed/firebase-storage-21.0.0/AndroidManifest.xml:23:22-76
+23
+24    <permission
+24-->[androidx.core:core:1.13.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/3791630f35a787689f00f03667f6ce89/transformed/core-1.13.0/AndroidManifest.xml:22:5-24:47
+25        android:name="com.httt1.vietnamtravel.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+25-->[androidx.core:core:1.13.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/3791630f35a787689f00f03667f6ce89/transformed/core-1.13.0/AndroidManifest.xml:23:9-81
+26        android:protectionLevel="signature" />
+26-->[androidx.core:core:1.13.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/3791630f35a787689f00f03667f6ce89/transformed/core-1.13.0/AndroidManifest.xml:24:9-44
+27
+28    <uses-permission android:name="com.httt1.vietnamtravel.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+28-->[androidx.core:core:1.13.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/3791630f35a787689f00f03667f6ce89/transformed/core-1.13.0/AndroidManifest.xml:26:5-97
+28-->[androidx.core:core:1.13.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/3791630f35a787689f00f03667f6ce89/transformed/core-1.13.0/AndroidManifest.xml:26:22-94
+29
+30    <application
+30-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:14:5-45:19
+31        android:allowBackup="true"
+31-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:15:9-35
+32        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+32-->[androidx.core:core:1.13.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/3791630f35a787689f00f03667f6ce89/transformed/core-1.13.0/AndroidManifest.xml:28:18-86
+33        android:dataExtractionRules="@xml/data_extraction_rules"
+33-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:16:9-65
+34        android:debuggable="true"
+35        android:extractNativeLibs="false"
+36        android:fullBackupContent="@xml/backup_rules"
+36-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:17:9-54
+37        android:icon="@mipmap/icon_logo"
+37-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:18:9-41
+38        android:label="@string/app_name"
+38-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:19:9-41
+39        android:roundIcon="@mipmap/icon_logo"
+39-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:20:9-46
+40        android:supportsRtl="true"
+40-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:21:9-35
+41        android:testOnly="true"
+42        android:theme="@style/activity_home_theme" >
+42-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:22:9-51
+43        <activity
+43-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:24:9-26:40
+44            android:name="com.httt1.vietnamtravel.replacePass.view.ReplacePassActivity"
+44-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:25:13-65
+45            android:exported="false" />
+45-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:26:13-37
+46        <activity
+46-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:27:9-29:40
+47            android:name="com.httt1.vietnamtravel.account.view.AccountActivity"
+47-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:28:13-57
+48            android:exported="false" />
+48-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:29:13-37
+49        <activity
+49-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:30:9-32:40
+50            android:name="com.httt1.vietnamtravel.regis.view.RegisActivity"
+50-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:31:13-53
+51            android:exported="false" />
+51-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:32:13-37
+52        <activity
+52-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:33:9-35:40
+53            android:name="com.httt1.vietnamtravel.login.view.LoginActivity"
+53-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:34:13-53
+54            android:exported="false" />
+54-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:35:13-37
+55        <activity
+55-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:36:9-44:20
+56            android:name="com.httt1.vietnamtravel.main.view.MainActivity"
+56-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:37:13-51
+57            android:exported="true" >
+57-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:38:13-36
+58            <intent-filter>
+58-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:39:13-43:29
+59                <action android:name="android.intent.action.MAIN" />
+59-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:40:17-69
+59-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:40:25-66
+60
+61                <category android:name="android.intent.category.LAUNCHER" />
+61-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:42:17-77
+61-->/Users/mac/Documents/GitHub/VietTravel/app/src/main/AndroidManifest.xml:42:27-74
+62            </intent-filter>
+63        </activity>
+64
+65        <service
+65-->[com.google.firebase:firebase-storage:21.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/d9d4224ea5053fd4430e3d21532afb63/transformed/firebase-storage-21.0.0/AndroidManifest.xml:27:9-36:19
+66            android:name="com.google.firebase.components.ComponentDiscoveryService"
+66-->[com.google.firebase:firebase-storage:21.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/d9d4224ea5053fd4430e3d21532afb63/transformed/firebase-storage-21.0.0/AndroidManifest.xml:28:13-84
+67            android:directBootAware="true"
+67-->[com.google.firebase:firebase-common:21.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/7b0bb946feaa90d303bc427d9c206d0d/transformed/firebase-common-21.0.0/AndroidManifest.xml:32:13-43
+68            android:exported="false" >
+68-->[com.google.firebase:firebase-storage:21.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/d9d4224ea5053fd4430e3d21532afb63/transformed/firebase-storage-21.0.0/AndroidManifest.xml:29:13-37
+69            <meta-data
+69-->[com.google.firebase:firebase-storage:21.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/d9d4224ea5053fd4430e3d21532afb63/transformed/firebase-storage-21.0.0/AndroidManifest.xml:30:13-32:85
+70                android:name="com.google.firebase.components:com.google.firebase.storage.FirebaseStorageKtxRegistrar"
+70-->[com.google.firebase:firebase-storage:21.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/d9d4224ea5053fd4430e3d21532afb63/transformed/firebase-storage-21.0.0/AndroidManifest.xml:31:17-118
+71                android:value="com.google.firebase.components.ComponentRegistrar" />
+71-->[com.google.firebase:firebase-storage:21.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/d9d4224ea5053fd4430e3d21532afb63/transformed/firebase-storage-21.0.0/AndroidManifest.xml:32:17-82
+72            <meta-data
+72-->[com.google.firebase:firebase-storage:21.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/d9d4224ea5053fd4430e3d21532afb63/transformed/firebase-storage-21.0.0/AndroidManifest.xml:33:13-35:85
+73                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
+73-->[com.google.firebase:firebase-storage:21.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/d9d4224ea5053fd4430e3d21532afb63/transformed/firebase-storage-21.0.0/AndroidManifest.xml:34:17-107
+74                android:value="com.google.firebase.components.ComponentRegistrar" />
+74-->[com.google.firebase:firebase-storage:21.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/d9d4224ea5053fd4430e3d21532afb63/transformed/firebase-storage-21.0.0/AndroidManifest.xml:35:17-82
+75            <meta-data
+75-->[com.google.firebase:firebase-database:21.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/24e9f9125a04a07a66150ed47ad1bfe4/transformed/firebase-database-21.0.0/AndroidManifest.xml:29:13-31:85
+76                android:name="com.google.firebase.components:com.google.firebase.database.FirebaseDatabaseKtxRegistrar"
+76-->[com.google.firebase:firebase-database:21.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/24e9f9125a04a07a66150ed47ad1bfe4/transformed/firebase-database-21.0.0/AndroidManifest.xml:30:17-120
+77                android:value="com.google.firebase.components.ComponentRegistrar" />
+77-->[com.google.firebase:firebase-database:21.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/24e9f9125a04a07a66150ed47ad1bfe4/transformed/firebase-database-21.0.0/AndroidManifest.xml:31:17-82
+78            <meta-data
+78-->[com.google.firebase:firebase-database:21.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/24e9f9125a04a07a66150ed47ad1bfe4/transformed/firebase-database-21.0.0/AndroidManifest.xml:32:13-34:85
+79                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
+79-->[com.google.firebase:firebase-database:21.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/24e9f9125a04a07a66150ed47ad1bfe4/transformed/firebase-database-21.0.0/AndroidManifest.xml:33:17-109
+80                android:value="com.google.firebase.components.ComponentRegistrar" />
+80-->[com.google.firebase:firebase-database:21.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/24e9f9125a04a07a66150ed47ad1bfe4/transformed/firebase-database-21.0.0/AndroidManifest.xml:34:17-82
+81            <meta-data
+81-->[com.google.firebase:firebase-appcheck:18.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/a600ec57c1393e7590c52f8831971e42/transformed/firebase-appcheck-18.0.0/AndroidManifest.xml:25:13-27:85
+82                android:name="com.google.firebase.components:com.google.firebase.appcheck.FirebaseAppCheckKtxRegistrar"
+82-->[com.google.firebase:firebase-appcheck:18.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/a600ec57c1393e7590c52f8831971e42/transformed/firebase-appcheck-18.0.0/AndroidManifest.xml:26:17-120
+83                android:value="com.google.firebase.components.ComponentRegistrar" />
+83-->[com.google.firebase:firebase-appcheck:18.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/a600ec57c1393e7590c52f8831971e42/transformed/firebase-appcheck-18.0.0/AndroidManifest.xml:27:17-82
+84            <meta-data
+84-->[com.google.firebase:firebase-appcheck:18.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/a600ec57c1393e7590c52f8831971e42/transformed/firebase-appcheck-18.0.0/AndroidManifest.xml:28:13-30:85
+85                android:name="com.google.firebase.components:com.google.firebase.appcheck.FirebaseAppCheckRegistrar"
+85-->[com.google.firebase:firebase-appcheck:18.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/a600ec57c1393e7590c52f8831971e42/transformed/firebase-appcheck-18.0.0/AndroidManifest.xml:29:17-117
+86                android:value="com.google.firebase.components.ComponentRegistrar" />
+86-->[com.google.firebase:firebase-appcheck:18.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/a600ec57c1393e7590c52f8831971e42/transformed/firebase-appcheck-18.0.0/AndroidManifest.xml:30:17-82
+87            <meta-data
+87-->[com.google.firebase:firebase-common-ktx:21.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/55c835c2a98b8033fa966a1d985b259b/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:12:13-14:85
+88                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
+88-->[com.google.firebase:firebase-common-ktx:21.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/55c835c2a98b8033fa966a1d985b259b/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:13:17-116
+89                android:value="com.google.firebase.components.ComponentRegistrar" />
+89-->[com.google.firebase:firebase-common-ktx:21.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/55c835c2a98b8033fa966a1d985b259b/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:14:17-82
+90            <meta-data
+90-->[com.google.firebase:firebase-common:21.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/7b0bb946feaa90d303bc427d9c206d0d/transformed/firebase-common-21.0.0/AndroidManifest.xml:35:13-37:85
+91                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
+91-->[com.google.firebase:firebase-common:21.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/7b0bb946feaa90d303bc427d9c206d0d/transformed/firebase-common-21.0.0/AndroidManifest.xml:36:17-109
+92                android:value="com.google.firebase.components.ComponentRegistrar" />
+92-->[com.google.firebase:firebase-common:21.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/7b0bb946feaa90d303bc427d9c206d0d/transformed/firebase-common-21.0.0/AndroidManifest.xml:37:17-82
+93        </service>
+94
+95        <activity
+95-->[com.google.android.gms:play-services-base:18.1.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/beb2a9509427c384954134fb1fa1b642/transformed/play-services-base-18.1.0/AndroidManifest.xml:20:9-22:45
+96            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+96-->[com.google.android.gms:play-services-base:18.1.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/beb2a9509427c384954134fb1fa1b642/transformed/play-services-base-18.1.0/AndroidManifest.xml:20:19-85
+97            android:exported="false"
+97-->[com.google.android.gms:play-services-base:18.1.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/beb2a9509427c384954134fb1fa1b642/transformed/play-services-base-18.1.0/AndroidManifest.xml:22:19-43
+98            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+98-->[com.google.android.gms:play-services-base:18.1.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/beb2a9509427c384954134fb1fa1b642/transformed/play-services-base-18.1.0/AndroidManifest.xml:21:19-78
+99
+100        <provider
+100-->[com.google.firebase:firebase-common:21.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/7b0bb946feaa90d303bc427d9c206d0d/transformed/firebase-common-21.0.0/AndroidManifest.xml:23:9-28:39
+101            android:name="com.google.firebase.provider.FirebaseInitProvider"
+101-->[com.google.firebase:firebase-common:21.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/7b0bb946feaa90d303bc427d9c206d0d/transformed/firebase-common-21.0.0/AndroidManifest.xml:24:13-77
+102            android:authorities="com.httt1.vietnamtravel.firebaseinitprovider"
+102-->[com.google.firebase:firebase-common:21.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/7b0bb946feaa90d303bc427d9c206d0d/transformed/firebase-common-21.0.0/AndroidManifest.xml:25:13-72
+103            android:directBootAware="true"
+103-->[com.google.firebase:firebase-common:21.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/7b0bb946feaa90d303bc427d9c206d0d/transformed/firebase-common-21.0.0/AndroidManifest.xml:26:13-43
+104            android:exported="false"
+104-->[com.google.firebase:firebase-common:21.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/7b0bb946feaa90d303bc427d9c206d0d/transformed/firebase-common-21.0.0/AndroidManifest.xml:27:13-37
+105            android:initOrder="100" />
+105-->[com.google.firebase:firebase-common:21.0.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/7b0bb946feaa90d303bc427d9c206d0d/transformed/firebase-common-21.0.0/AndroidManifest.xml:28:13-36
+106        <provider
+106-->[androidx.emoji2:emoji2:1.3.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/17559aba0ed209a65fea377b35a00983/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+107            android:name="androidx.startup.InitializationProvider"
+107-->[androidx.emoji2:emoji2:1.3.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/17559aba0ed209a65fea377b35a00983/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
+108            android:authorities="com.httt1.vietnamtravel.androidx-startup"
+108-->[androidx.emoji2:emoji2:1.3.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/17559aba0ed209a65fea377b35a00983/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
+109            android:exported="false" >
+109-->[androidx.emoji2:emoji2:1.3.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/17559aba0ed209a65fea377b35a00983/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
+110            <meta-data
+110-->[androidx.emoji2:emoji2:1.3.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/17559aba0ed209a65fea377b35a00983/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+111                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+111-->[androidx.emoji2:emoji2:1.3.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/17559aba0ed209a65fea377b35a00983/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
+112                android:value="androidx.startup" />
+112-->[androidx.emoji2:emoji2:1.3.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/17559aba0ed209a65fea377b35a00983/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
+113            <meta-data
+113-->[androidx.lifecycle:lifecycle-process:2.6.2] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/4da5ce2af2a5749133e569944dfd4a0e/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:29:13-31:52
+114                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+114-->[androidx.lifecycle:lifecycle-process:2.6.2] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/4da5ce2af2a5749133e569944dfd4a0e/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:30:17-78
+115                android:value="androidx.startup" />
+115-->[androidx.lifecycle:lifecycle-process:2.6.2] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/4da5ce2af2a5749133e569944dfd4a0e/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:31:17-49
+116            <meta-data
+116-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/a3837080314eca1ea833b7f04b4d7602/transformed/profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+117                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+117-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/a3837080314eca1ea833b7f04b4d7602/transformed/profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+118                android:value="androidx.startup" />
+118-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/a3837080314eca1ea833b7f04b4d7602/transformed/profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+119        </provider>
+120
+121        <meta-data
+121-->[com.google.android.gms:play-services-basement:18.3.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/4b60d1f9837e56e8a743297e72134bef/transformed/play-services-basement-18.3.0/AndroidManifest.xml:21:9-23:69
+122            android:name="com.google.android.gms.version"
+122-->[com.google.android.gms:play-services-basement:18.3.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/4b60d1f9837e56e8a743297e72134bef/transformed/play-services-basement-18.3.0/AndroidManifest.xml:22:13-58
+123            android:value="@integer/google_play_services_version" />
+123-->[com.google.android.gms:play-services-basement:18.3.0] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/4b60d1f9837e56e8a743297e72134bef/transformed/play-services-basement-18.3.0/AndroidManifest.xml:23:13-66
+124
+125        <provider
+125-->[com.squareup.picasso:picasso:2.71828] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/d424de5bdafb211ded17743f8d61d639/transformed/picasso-2.71828/AndroidManifest.xml:8:9-11:40
+126            android:name="com.squareup.picasso.PicassoProvider"
+126-->[com.squareup.picasso:picasso:2.71828] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/d424de5bdafb211ded17743f8d61d639/transformed/picasso-2.71828/AndroidManifest.xml:9:13-64
+127            android:authorities="com.httt1.vietnamtravel.com.squareup.picasso"
+127-->[com.squareup.picasso:picasso:2.71828] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/d424de5bdafb211ded17743f8d61d639/transformed/picasso-2.71828/AndroidManifest.xml:10:13-72
+128            android:exported="false" />
+128-->[com.squareup.picasso:picasso:2.71828] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/d424de5bdafb211ded17743f8d61d639/transformed/picasso-2.71828/AndroidManifest.xml:11:13-37
+129
+130        <receiver
+130-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/a3837080314eca1ea833b7f04b4d7602/transformed/profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+131            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+131-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/a3837080314eca1ea833b7f04b4d7602/transformed/profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+132            android:directBootAware="false"
+132-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/a3837080314eca1ea833b7f04b4d7602/transformed/profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+133            android:enabled="true"
+133-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/a3837080314eca1ea833b7f04b4d7602/transformed/profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+134            android:exported="true"
+134-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/a3837080314eca1ea833b7f04b4d7602/transformed/profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+135            android:permission="android.permission.DUMP" >
+135-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/a3837080314eca1ea833b7f04b4d7602/transformed/profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+136            <intent-filter>
+136-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/a3837080314eca1ea833b7f04b4d7602/transformed/profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+137                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+137-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/a3837080314eca1ea833b7f04b4d7602/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+137-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/a3837080314eca1ea833b7f04b4d7602/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+138            </intent-filter>
+139            <intent-filter>
+139-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/a3837080314eca1ea833b7f04b4d7602/transformed/profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+140                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+140-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/a3837080314eca1ea833b7f04b4d7602/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+140-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/a3837080314eca1ea833b7f04b4d7602/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+141            </intent-filter>
+142            <intent-filter>
+142-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/a3837080314eca1ea833b7f04b4d7602/transformed/profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+143                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+143-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/a3837080314eca1ea833b7f04b4d7602/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+143-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/a3837080314eca1ea833b7f04b4d7602/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+144            </intent-filter>
+145            <intent-filter>
+145-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/a3837080314eca1ea833b7f04b4d7602/transformed/profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+146                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+146-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/a3837080314eca1ea833b7f04b4d7602/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+146-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/mac/Downloads/gradle-8.2/caches/transforms-3/a3837080314eca1ea833b7f04b4d7602/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+147            </intent-filter>
+148        </receiver>
+149    </application>
+150
+151</manifest>
