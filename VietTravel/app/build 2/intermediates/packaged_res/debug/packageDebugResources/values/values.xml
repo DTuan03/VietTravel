@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="fragment_home_rcv_combo">#99F3EFEF</color>
+    <color name="fragment_home_status_bar">#ff7300</color>
+    <color name="fragment_huy">#E6EDF3F3</color>
+    <color name="fragment_setting_status_bar">#67ced9</color>
+    <color name="ic_launcher_logo_background">#FFFFFF</color>
+    <color name="ic_launcher_vn_background">#FFFFFF</color>
+    <color name="regis_after">#2D96E0</color>
+    <color name="regis_before">#D9D9D9</color>
+    <color name="regis_error">#FF0000</color>
+    <color name="replace_activity_btn">#FF5722</color>
+    <color name="setting_tv">#999696</color>
+    <color name="tvXam">#666666</color>
+    <color name="white">#FFFFFFFF</color>
+    <dimen name="activity_setting_icon">-15dp</dimen>
+    <dimen name="activity_setting_icon_left">10dp</dimen>
+    <dimen name="activity_setting_icon_next_right">10dp</dimen>
+    <dimen name="activity_setting_icon_next_top">-2dp</dimen>
+    <dimen name="activity_setting_text_top">18dp</dimen>
+    <dimen name="item_combo">5dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <string name="activity_login_facebook">Đăng nhập bằng Facebook</string>
+    <string name="activity_login_forgot_pass">Quên mật khẩu</string>
+    <string name="activity_login_gooogle">Đăng nhập bằng Google</string>
+    <string name="activity_login_login">Đăng nhập</string>
+    <string name="activity_login_or">Hoặc là</string>
+    <string name="activity_login_pass">Mật khẩu</string>
+    <string name="activity_login_phone">Số điện thoại</string>
+    <string name="activity_main_dang_ky">Đăng ký</string>
+    <string name="activity_regis_confirm_pass">Nhập lại mật khẩu</string>
+    <string name="activity_regis_full_name">Tên đầy đủ</string>
+    <string name="activity_regis_or">Hoặc là</string>
+    <string name="activity_regis_pass">Mật khẩu</string>
+    <string name="activity_regis_phone">Số điện thoại</string>
+    <string name="activity_regis_regis">Đăng ký</string>
+    <string name="activity_regis_rules">Bằng việc nhấn nút Đăng ký, Quý khách đã đồng ý với các điều kiện và điều khoản của VietNam Travel</string>
+    <string name="activity_replace_cf_new">Nhập lại mật khẩu mới</string>
+    <string name="activity_replace_new">Mật khẩu mới</string>
+    <string name="activity_replace_now">Mật khẩu hiện tại</string>
+    <string name="activity_replace_password">Thay đổi mật khẩu</string>
+    <string name="activity_replace_xac_nhan">Xác nhận</string>
+    <string name="app_name">VietTravel</string>
+    <string name="fragment_logout_content">Khi đăng xuất, bạn sẽ không thấy thông tin cá nhân của bạn, bao gồm các chuyến đi. Xem thông tin vui lòng đăng nhập lại.</string>
+    <string name="fragment_logout_huy">Hủy</string>
+    <string name="fragment_logout_title">Bạn có chắc muốn đăng xuất?</string>
+    <string name="fragment_logout_xac_nhan">Xác nhận</string>
+    <string name="fragment_setting_cai_dat">Cài đặt</string>
+    <string name="fragment_setting_dang_xuat">Đăng xuất</string>
+    <string name="fragment_setting_danh_gia">Đánh giá</string>
+    <string name="fragment_setting_ma_giam_gia">Mã giảm giá của tôi</string>
+    <string name="fragment_setting_ma_uu_dai">Mã ưu đãi</string>
+    <string name="fragment_setting_mat_khau">Mật khẩu và bảo mật</string>
+    <string name="fragment_setting_qua_tang">Quà tặng</string>
+    <string name="fragment_setting_ten_nguoi_dung">Tên người dùng</string>
+    <string name="fragment_setting_the">Thẻ</string>
+    <string name="fragment_setting_the_cua_toi">Thẻ của tôi</string>
+    <string name="fragment_setting_thong_tin_tai_khoan">Thông tin tài khoản</string>
+    <string name="fragment_setting_trung_tam_ho_tro">Trung tâm hỗ trợ</string>
+    <string name="gcm_defaultSenderId" translatable="false">988687440430</string>
+    <string name="google_api_key" translatable="false">AIzaSyAuY-7TH6csfJQxz6GBGFwGSh12E42Wcs8</string>
+    <string name="google_app_id" translatable="false">1:988687440430:android:bcb627ddefb91e69111dbf</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAuY-7TH6csfJQxz6GBGFwGSh12E42Wcs8</string>
+    <string name="google_storage_bucket" translatable="false">studious-tape-415209.appspot.com</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="project_id" translatable="false">studious-tape-415209</string>
+    <string name="quay_lai">Quay lại</string>
+    <style name="Base.Theme.VietTravel" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        
+    </style>
+    <style name="BoldTabText" parent="TextAppearance.Design.Tab">
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="BottomNavigationViewItemStyle">
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingBottom">2dp</item>
+    </style>
+    <style name="Theme.VietTravel" parent="Base.Theme.VietTravel">
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+    <style name="activity_home_theme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:statusBarColor">#FF5722</item>
+    </style>
+</resources>
