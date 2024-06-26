@@ -3,7 +3,6 @@ package com.httt1.vietnamtravel.DetailTour.model;
 import android.util.Log;
 
 import com.httt1.vietnamtravel.common.database.SQLServerDataSource;
-import com.httt1.vietnamtravel.home.model.HomeModel;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -24,7 +23,7 @@ public class DetailRepository {
     }
 
     public interface DetailCallBack {
-        void onDetailTourLoaded(HomeModel detailTour);
+        void onDetailTourLoaded(DetailModel detailTour);
     }
 
     public void getDetailTour(int userId, int tourId, DetailCallBack detailCallBack) {
@@ -43,7 +42,7 @@ public class DetailRepository {
                 statement.setInt(2, tourId);
                 ResultSet resultSet = statement.executeQuery();
 
-                HomeModel detailTour = null;
+                DetailModel detailTour = null;
                 List<String> imageUrls = new ArrayList<>();
                 while (resultSet.next()) {
                     if (detailTour == null) {
@@ -56,7 +55,7 @@ public class DetailRepository {
                         String vehicle = resultSet.getString("Vehicle");
                         boolean isFavorite = resultSet.getInt("IsFavorite") == 1;
 
-                        detailTour = new HomeModel(id, name, isFavorite, price, description, numberDay, hotel, vehicle, imageUrls);
+                        detailTour = new DetailModel(id, name, isFavorite, price, description, numberDay, hotel, vehicle, imageUrls);
                     }
                     imageUrls.add(resultSet.getString("ImgResource"));
                 }

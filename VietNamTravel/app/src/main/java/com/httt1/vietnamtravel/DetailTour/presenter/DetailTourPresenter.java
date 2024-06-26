@@ -1,9 +1,8 @@
 package com.httt1.vietnamtravel.DetailTour.presenter;
 
-import com.httt1.vietnamtravel.home.model.HomeModel;
+import com.httt1.vietnamtravel.DetailTour.model.DetailModel;
 import com.httt1.vietnamtravel.DetailTour.model.DetailRepository;
 import com.httt1.vietnamtravel.DetailTour.presenter.DetailTourActivityContract;
-import com.httt1.vietnamtravel.home.model.HomeModel;
 
 public class DetailTourPresenter {
     private final DetailTourActivityContract.View view;
@@ -17,7 +16,7 @@ public class DetailTourPresenter {
     public void getDetailData(int userId, int tourId) {
         detailRepository.getDetailTour(userId, tourId, new DetailRepository.DetailCallBack() {
             @Override
-            public void onDetailTourLoaded(HomeModel detailTour) {
+            public void onDetailTourLoaded(DetailModel detailTour) {
                 view.showDetailData(detailTour);
             }
         });

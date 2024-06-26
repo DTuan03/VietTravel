@@ -16,12 +16,12 @@ import com.google.android.material.tabs.TabLayoutMediator;
 import com.httt1.vietnamtravel.BookTour.view.BookTourActivity;
 import com.httt1.vietnamtravel.DetailTour.adapter.ImagePagerAdapter;
 //import com.httt1.vietnamtravel.DetailTour.adapter.ReviewAdapter;
+import com.httt1.vietnamtravel.DetailTour.model.DetailModel;
 import com.httt1.vietnamtravel.DetailTour.model.DetailRepository;
 //import com.httt1.vietnamtravel.DetailTour.model.ReviewModel;
 import com.httt1.vietnamtravel.DetailTour.presenter.DetailTourActivityContract;
 import com.httt1.vietnamtravel.DetailTour.presenter.DetailTourPresenter;
 import com.httt1.vietnamtravel.R;
-import com.httt1.vietnamtravel.home.model.HomeModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -128,7 +128,7 @@ public class DetailTourActivity extends AppCompatActivity implements DetailTourA
     }
 
     @Override
-    public void showDetailData(HomeModel detailTour) {
+    public void showDetailData(DetailModel detailTour) {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {

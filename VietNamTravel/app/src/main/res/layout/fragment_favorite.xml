@@ -86,4 +86,19 @@
         </ScrollView>
     </LinearLayout>
 
+    <!--    android:visibility="gone" để ẩn -->
+    <TextView
+        android:id="@+id/empty_view_fav_tour"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="Bạn chưa có tour yêu thích nào"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
 </RelativeLayout>

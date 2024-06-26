@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -29,7 +30,7 @@ public class FavoriteFragment extends Fragment implements FavoriteContract.View 
     private RecyclerView rcvFavTour;
     private FavoritePresenter favoritePresenter;
     private FavoriteTourAdapter favoriteTourAdapter;
-
+    private TextView emptyView;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentFavoriteBinding.inflate(inflater, container, false);
@@ -41,7 +42,7 @@ public class FavoriteFragment extends Fragment implements FavoriteContract.View 
         Log.d("UserId Info", "UserId: " + userId);
 
         rcvFavTour = binding.fragmentFavoriteRcvFavtour;
-
+        emptyView = binding.emptyViewFavTour;
         favoritePresenter = new FavoritePresenter(this, requireContext());
         setFavTourAdapter(favoritePresenter, userId);
 
@@ -66,11 +67,30 @@ public class FavoriteFragment extends Fragment implements FavoriteContract.View 
 
     @Override
     public void showDataFavoriteTour(List<FavoriteModel> list) {
-        requireActivity().runOnUiThread(() -> {
-            favoriteTourAdapter.setFavoriteTourData(list);
-            favoriteTourAdapter.notifyDataSetChanged();
-        });
+        // Check if the fragment is still attached to the activity
+        if (isAdded()) {
+            requireActivity().runOnUiThread(() -> {
+                favoriteTourAdapter.setFavoriteTourData(list);
+                favoriteTourAdapter.notifyDataSetChanged();
+
+                if (rcvFavTour != null && emptyView != null) {
+                    if (list.isEmpty()) {
+                        rcvFavTour.setVisibility(View.GONE);
+                        emptyView.setVisibility(View.VISIBLE);
+                    } else {
+                        rcvFavTour.setVisibility(View.VISIBLE);
+                        emptyView.setVisibility(View.GONE);
+                    }
+                } else {
+                    // Log an error message or handle the null case appropriately
+                    Log.e("FavoriteFragment", "RecyclerView or EmptyView is null");
+                }
+            });
+        } else {
+            Log.e("FavoriteFragment", "Fragment is not attached to the activity");
+        }
     }
+
 
     @Override
     public void onDestroyView() {

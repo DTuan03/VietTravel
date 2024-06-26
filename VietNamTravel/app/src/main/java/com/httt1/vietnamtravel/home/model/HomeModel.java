@@ -32,19 +32,7 @@ public class HomeModel {
 //        this.numberDay = numberDay;
     }
 
-    // detail
-    public HomeModel(int tourId, String nameTour, boolean isFavorite, int price,
-                     String description, int numberDay, String hotel, String vehicle, List<String> imageUrls) {
-        this.tourId = tourId;
-        this.nameTour = nameTour;
-        this.isFavorite = isFavorite;
-        this.price = price;
-        this.description = description;
-        this.numberDay = numberDay;
-        this.hotel = hotel;
-        this.vehicle = vehicle;
-        this.imageUrls = imageUrls;
-    }
+
 
     //discover
     public HomeModel(int tourId, String urlImg, String nameTour, boolean isFavorite, int price, float avgrStar) {
