@@ -1,0 +1,295 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.httt1.vietnamtravel"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="34" />
+10
+11    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+11-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:5:5-76
+11-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:5:22-73
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:6:5-79
+12-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:6:22-76
+13    <uses-permission
+13-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:7:5-9:38
+14        android:name="android.permission.READ_EXTERNAL_STORAGE"
+14-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:8:9-64
+15        android:maxSdkVersion="32" />
+15-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:9:9-35
+16    <uses-permission
+16-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:10:5-12:38
+17        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+17-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:11:9-65
+18        android:maxSdkVersion="32" />
+18-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:12:9-35
+19    <uses-permission android:name="android.permission.INTERNET" />
+19-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:13:5-67
+19-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:13:22-64
+20
+21    <permission
+21-->[androidx.core:core:1.13.0] C:\Users\muc01\.gradle\caches\transforms-3\3791630f35a787689f00f03667f6ce89\transformed\core-1.13.0\AndroidManifest.xml:22:5-24:47
+22        android:name="com.httt1.vietnamtravel.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+22-->[androidx.core:core:1.13.0] C:\Users\muc01\.gradle\caches\transforms-3\3791630f35a787689f00f03667f6ce89\transformed\core-1.13.0\AndroidManifest.xml:23:9-81
+23        android:protectionLevel="signature" />
+23-->[androidx.core:core:1.13.0] C:\Users\muc01\.gradle\caches\transforms-3\3791630f35a787689f00f03667f6ce89\transformed\core-1.13.0\AndroidManifest.xml:24:9-44
+24
+25    <uses-permission android:name="com.httt1.vietnamtravel.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+25-->[androidx.core:core:1.13.0] C:\Users\muc01\.gradle\caches\transforms-3\3791630f35a787689f00f03667f6ce89\transformed\core-1.13.0\AndroidManifest.xml:26:5-97
+25-->[androidx.core:core:1.13.0] C:\Users\muc01\.gradle\caches\transforms-3\3791630f35a787689f00f03667f6ce89\transformed\core-1.13.0\AndroidManifest.xml:26:22-94
+26
+27    <application
+27-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:15:5-58:19
+28        android:allowBackup="true"
+28-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:16:9-35
+29        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+29-->[androidx.core:core:1.13.0] C:\Users\muc01\.gradle\caches\transforms-3\3791630f35a787689f00f03667f6ce89\transformed\core-1.13.0\AndroidManifest.xml:28:18-86
+30        android:dataExtractionRules="@xml/data_extraction_rules"
+30-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:17:9-65
+31        android:debuggable="true"
+32        android:extractNativeLibs="false"
+33        android:fullBackupContent="@xml/backup_rules"
+33-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:18:9-54
+34        android:icon="@mipmap/icon_logo"
+34-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:19:9-41
+35        android:label="@string/app_name"
+35-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:20:9-41
+36        android:roundIcon="@mipmap/icon_logo"
+36-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:21:9-46
+37        android:supportsRtl="true"
+37-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:22:9-35
+38        android:testOnly="true"
+39        android:theme="@style/activity_home_theme" >
+39-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:23:9-51
+40        <activity
+40-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:25:9-27:40
+41            android:name="com.httt1.vietnamtravel.bookTour.view.BookTourActivity"
+41-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:26:13-59
+42            android:exported="false" />
+42-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:27:13-37
+43        <activity
+43-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:28:9-30:40
+44            android:name="com.httt1.vietnamtravel.DetailTour.view.DetailTourActivity"
+44-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:29:13-63
+45            android:exported="false" />
+45-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:30:13-37
+46        <activity
+46-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:31:9-33:40
+47            android:name="com.httt1.vietnamtravel.DetailTour.view.DetailActivity"
+47-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:32:13-59
+48            android:exported="false" />
+48-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:33:13-37
+49        <activity
+49-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:34:9-36:40
+50            android:name="com.httt1.vietnamtravel.myvoucher.view.MyVoucherActivity"
+50-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:35:13-61
+51            android:exported="false" />
+51-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:36:13-37
+52        <activity
+52-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:37:9-39:40
+53            android:name="com.httt1.vietnamtravel.replacePass.view.ReplacePassActivity"
+53-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:38:13-65
+54            android:exported="false" />
+54-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:39:13-37
+55        <activity
+55-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:40:9-42:40
+56            android:name="com.httt1.vietnamtravel.account.view.AccountActivity"
+56-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:41:13-57
+57            android:exported="false" />
+57-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:42:13-37
+58        <activity
+58-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:43:9-45:40
+59            android:name="com.httt1.vietnamtravel.regis.view.RegisActivity"
+59-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:44:13-53
+60            android:exported="false" />
+60-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:45:13-37
+61        <activity
+61-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:46:9-48:40
+62            android:name="com.httt1.vietnamtravel.login.view.LoginActivity"
+62-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:47:13-53
+63            android:exported="false" />
+63-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:48:13-37
+64        <activity
+64-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:49:9-57:20
+65            android:name="com.httt1.vietnamtravel.main.view.MainActivity"
+65-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:50:13-51
+66            android:exported="true" >
+66-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:51:13-36
+67            <intent-filter>
+67-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:52:13-56:29
+68                <action android:name="android.intent.action.MAIN" />
+68-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:53:17-69
+68-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:53:25-66
+69
+70                <category android:name="android.intent.category.LAUNCHER" />
+70-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:55:17-77
+70-->D:\Documents\63HT1\PTUD\Tuan\VietTravel\app\src\main\AndroidManifest.xml:55:27-74
+71            </intent-filter>
+72        </activity>
+73
+74        <service
+74-->[com.google.firebase:firebase-storage:21.0.0] C:\Users\muc01\.gradle\caches\transforms-3\d9d4224ea5053fd4430e3d21532afb63\transformed\firebase-storage-21.0.0\AndroidManifest.xml:27:9-36:19
+75            android:name="com.google.firebase.components.ComponentDiscoveryService"
+75-->[com.google.firebase:firebase-storage:21.0.0] C:\Users\muc01\.gradle\caches\transforms-3\d9d4224ea5053fd4430e3d21532afb63\transformed\firebase-storage-21.0.0\AndroidManifest.xml:28:13-84
+76            android:directBootAware="true"
+76-->[com.google.firebase:firebase-common:21.0.0] C:\Users\muc01\.gradle\caches\transforms-3\7b0bb946feaa90d303bc427d9c206d0d\transformed\firebase-common-21.0.0\AndroidManifest.xml:32:13-43
+77            android:exported="false" >
+77-->[com.google.firebase:firebase-storage:21.0.0] C:\Users\muc01\.gradle\caches\transforms-3\d9d4224ea5053fd4430e3d21532afb63\transformed\firebase-storage-21.0.0\AndroidManifest.xml:29:13-37
+78            <meta-data
+78-->[com.google.firebase:firebase-storage:21.0.0] C:\Users\muc01\.gradle\caches\transforms-3\d9d4224ea5053fd4430e3d21532afb63\transformed\firebase-storage-21.0.0\AndroidManifest.xml:30:13-32:85
+79                android:name="com.google.firebase.components:com.google.firebase.storage.FirebaseStorageKtxRegistrar"
+79-->[com.google.firebase:firebase-storage:21.0.0] C:\Users\muc01\.gradle\caches\transforms-3\d9d4224ea5053fd4430e3d21532afb63\transformed\firebase-storage-21.0.0\AndroidManifest.xml:31:17-118
+80                android:value="com.google.firebase.components.ComponentRegistrar" />
+80-->[com.google.firebase:firebase-storage:21.0.0] C:\Users\muc01\.gradle\caches\transforms-3\d9d4224ea5053fd4430e3d21532afb63\transformed\firebase-storage-21.0.0\AndroidManifest.xml:32:17-82
+81            <meta-data
+81-->[com.google.firebase:firebase-storage:21.0.0] C:\Users\muc01\.gradle\caches\transforms-3\d9d4224ea5053fd4430e3d21532afb63\transformed\firebase-storage-21.0.0\AndroidManifest.xml:33:13-35:85
+82                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
+82-->[com.google.firebase:firebase-storage:21.0.0] C:\Users\muc01\.gradle\caches\transforms-3\d9d4224ea5053fd4430e3d21532afb63\transformed\firebase-storage-21.0.0\AndroidManifest.xml:34:17-107
+83                android:value="com.google.firebase.components.ComponentRegistrar" />
+83-->[com.google.firebase:firebase-storage:21.0.0] C:\Users\muc01\.gradle\caches\transforms-3\d9d4224ea5053fd4430e3d21532afb63\transformed\firebase-storage-21.0.0\AndroidManifest.xml:35:17-82
+84            <meta-data
+84-->[com.google.firebase:firebase-database:21.0.0] C:\Users\muc01\.gradle\caches\transforms-3\24e9f9125a04a07a66150ed47ad1bfe4\transformed\firebase-database-21.0.0\AndroidManifest.xml:29:13-31:85
+85                android:name="com.google.firebase.components:com.google.firebase.database.FirebaseDatabaseKtxRegistrar"
+85-->[com.google.firebase:firebase-database:21.0.0] C:\Users\muc01\.gradle\caches\transforms-3\24e9f9125a04a07a66150ed47ad1bfe4\transformed\firebase-database-21.0.0\AndroidManifest.xml:30:17-120
+86                android:value="com.google.firebase.components.ComponentRegistrar" />
+86-->[com.google.firebase:firebase-database:21.0.0] C:\Users\muc01\.gradle\caches\transforms-3\24e9f9125a04a07a66150ed47ad1bfe4\transformed\firebase-database-21.0.0\AndroidManifest.xml:31:17-82
+87            <meta-data
+87-->[com.google.firebase:firebase-database:21.0.0] C:\Users\muc01\.gradle\caches\transforms-3\24e9f9125a04a07a66150ed47ad1bfe4\transformed\firebase-database-21.0.0\AndroidManifest.xml:32:13-34:85
+88                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
+88-->[com.google.firebase:firebase-database:21.0.0] C:\Users\muc01\.gradle\caches\transforms-3\24e9f9125a04a07a66150ed47ad1bfe4\transformed\firebase-database-21.0.0\AndroidManifest.xml:33:17-109
+89                android:value="com.google.firebase.components.ComponentRegistrar" />
+89-->[com.google.firebase:firebase-database:21.0.0] C:\Users\muc01\.gradle\caches\transforms-3\24e9f9125a04a07a66150ed47ad1bfe4\transformed\firebase-database-21.0.0\AndroidManifest.xml:34:17-82
+90            <meta-data
+90-->[com.google.firebase:firebase-appcheck:18.0.0] C:\Users\muc01\.gradle\caches\transforms-3\a600ec57c1393e7590c52f8831971e42\transformed\firebase-appcheck-18.0.0\AndroidManifest.xml:25:13-27:85
+91                android:name="com.google.firebase.components:com.google.firebase.appcheck.FirebaseAppCheckKtxRegistrar"
+91-->[com.google.firebase:firebase-appcheck:18.0.0] C:\Users\muc01\.gradle\caches\transforms-3\a600ec57c1393e7590c52f8831971e42\transformed\firebase-appcheck-18.0.0\AndroidManifest.xml:26:17-120
+92                android:value="com.google.firebase.components.ComponentRegistrar" />
+92-->[com.google.firebase:firebase-appcheck:18.0.0] C:\Users\muc01\.gradle\caches\transforms-3\a600ec57c1393e7590c52f8831971e42\transformed\firebase-appcheck-18.0.0\AndroidManifest.xml:27:17-82
+93            <meta-data
+93-->[com.google.firebase:firebase-appcheck:18.0.0] C:\Users\muc01\.gradle\caches\transforms-3\a600ec57c1393e7590c52f8831971e42\transformed\firebase-appcheck-18.0.0\AndroidManifest.xml:28:13-30:85
+94                android:name="com.google.firebase.components:com.google.firebase.appcheck.FirebaseAppCheckRegistrar"
+94-->[com.google.firebase:firebase-appcheck:18.0.0] C:\Users\muc01\.gradle\caches\transforms-3\a600ec57c1393e7590c52f8831971e42\transformed\firebase-appcheck-18.0.0\AndroidManifest.xml:29:17-117
+95                android:value="com.google.firebase.components.ComponentRegistrar" />
+95-->[com.google.firebase:firebase-appcheck:18.0.0] C:\Users\muc01\.gradle\caches\transforms-3\a600ec57c1393e7590c52f8831971e42\transformed\firebase-appcheck-18.0.0\AndroidManifest.xml:30:17-82
+96            <meta-data
+96-->[com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\muc01\.gradle\caches\transforms-3\55c835c2a98b8033fa966a1d985b259b\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:12:13-14:85
+97                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
+97-->[com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\muc01\.gradle\caches\transforms-3\55c835c2a98b8033fa966a1d985b259b\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:13:17-116
+98                android:value="com.google.firebase.components.ComponentRegistrar" />
+98-->[com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\muc01\.gradle\caches\transforms-3\55c835c2a98b8033fa966a1d985b259b\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:14:17-82
+99            <meta-data
+99-->[com.google.firebase:firebase-common:21.0.0] C:\Users\muc01\.gradle\caches\transforms-3\7b0bb946feaa90d303bc427d9c206d0d\transformed\firebase-common-21.0.0\AndroidManifest.xml:35:13-37:85
+100                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
+100-->[com.google.firebase:firebase-common:21.0.0] C:\Users\muc01\.gradle\caches\transforms-3\7b0bb946feaa90d303bc427d9c206d0d\transformed\firebase-common-21.0.0\AndroidManifest.xml:36:17-109
+101                android:value="com.google.firebase.components.ComponentRegistrar" />
+101-->[com.google.firebase:firebase-common:21.0.0] C:\Users\muc01\.gradle\caches\transforms-3\7b0bb946feaa90d303bc427d9c206d0d\transformed\firebase-common-21.0.0\AndroidManifest.xml:37:17-82
+102        </service>
+103
+104        <activity
+104-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\muc01\.gradle\caches\transforms-3\beb2a9509427c384954134fb1fa1b642\transformed\play-services-base-18.1.0\AndroidManifest.xml:20:9-22:45
+105            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+105-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\muc01\.gradle\caches\transforms-3\beb2a9509427c384954134fb1fa1b642\transformed\play-services-base-18.1.0\AndroidManifest.xml:20:19-85
+106            android:exported="false"
+106-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\muc01\.gradle\caches\transforms-3\beb2a9509427c384954134fb1fa1b642\transformed\play-services-base-18.1.0\AndroidManifest.xml:22:19-43
+107            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+107-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\muc01\.gradle\caches\transforms-3\beb2a9509427c384954134fb1fa1b642\transformed\play-services-base-18.1.0\AndroidManifest.xml:21:19-78
+108
+109        <provider
+109-->[com.google.firebase:firebase-common:21.0.0] C:\Users\muc01\.gradle\caches\transforms-3\7b0bb946feaa90d303bc427d9c206d0d\transformed\firebase-common-21.0.0\AndroidManifest.xml:23:9-28:39
+110            android:name="com.google.firebase.provider.FirebaseInitProvider"
+110-->[com.google.firebase:firebase-common:21.0.0] C:\Users\muc01\.gradle\caches\transforms-3\7b0bb946feaa90d303bc427d9c206d0d\transformed\firebase-common-21.0.0\AndroidManifest.xml:24:13-77
+111            android:authorities="com.httt1.vietnamtravel.firebaseinitprovider"
+111-->[com.google.firebase:firebase-common:21.0.0] C:\Users\muc01\.gradle\caches\transforms-3\7b0bb946feaa90d303bc427d9c206d0d\transformed\firebase-common-21.0.0\AndroidManifest.xml:25:13-72
+112            android:directBootAware="true"
+112-->[com.google.firebase:firebase-common:21.0.0] C:\Users\muc01\.gradle\caches\transforms-3\7b0bb946feaa90d303bc427d9c206d0d\transformed\firebase-common-21.0.0\AndroidManifest.xml:26:13-43
+113            android:exported="false"
+113-->[com.google.firebase:firebase-common:21.0.0] C:\Users\muc01\.gradle\caches\transforms-3\7b0bb946feaa90d303bc427d9c206d0d\transformed\firebase-common-21.0.0\AndroidManifest.xml:27:13-37
+114            android:initOrder="100" />
+114-->[com.google.firebase:firebase-common:21.0.0] C:\Users\muc01\.gradle\caches\transforms-3\7b0bb946feaa90d303bc427d9c206d0d\transformed\firebase-common-21.0.0\AndroidManifest.xml:28:13-36
+115        <provider
+115-->[androidx.emoji2:emoji2:1.3.0] C:\Users\muc01\.gradle\caches\transforms-3\17559aba0ed209a65fea377b35a00983\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+116            android:name="androidx.startup.InitializationProvider"
+116-->[androidx.emoji2:emoji2:1.3.0] C:\Users\muc01\.gradle\caches\transforms-3\17559aba0ed209a65fea377b35a00983\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+117            android:authorities="com.httt1.vietnamtravel.androidx-startup"
+117-->[androidx.emoji2:emoji2:1.3.0] C:\Users\muc01\.gradle\caches\transforms-3\17559aba0ed209a65fea377b35a00983\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+118            android:exported="false" >
+118-->[androidx.emoji2:emoji2:1.3.0] C:\Users\muc01\.gradle\caches\transforms-3\17559aba0ed209a65fea377b35a00983\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+119            <meta-data
+119-->[androidx.emoji2:emoji2:1.3.0] C:\Users\muc01\.gradle\caches\transforms-3\17559aba0ed209a65fea377b35a00983\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+120                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+120-->[androidx.emoji2:emoji2:1.3.0] C:\Users\muc01\.gradle\caches\transforms-3\17559aba0ed209a65fea377b35a00983\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+121                android:value="androidx.startup" />
+121-->[androidx.emoji2:emoji2:1.3.0] C:\Users\muc01\.gradle\caches\transforms-3\17559aba0ed209a65fea377b35a00983\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+122            <meta-data
+122-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\muc01\.gradle\caches\transforms-3\4da5ce2af2a5749133e569944dfd4a0e\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:29:13-31:52
+123                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+123-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\muc01\.gradle\caches\transforms-3\4da5ce2af2a5749133e569944dfd4a0e\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:30:17-78
+124                android:value="androidx.startup" />
+124-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\muc01\.gradle\caches\transforms-3\4da5ce2af2a5749133e569944dfd4a0e\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:31:17-49
+125            <meta-data
+125-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\muc01\.gradle\caches\transforms-3\a3837080314eca1ea833b7f04b4d7602\transformed\profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+126                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+126-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\muc01\.gradle\caches\transforms-3\a3837080314eca1ea833b7f04b4d7602\transformed\profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+127                android:value="androidx.startup" />
+127-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\muc01\.gradle\caches\transforms-3\a3837080314eca1ea833b7f04b4d7602\transformed\profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+128        </provider>
+129
+130        <meta-data
+130-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\muc01\.gradle\caches\transforms-3\4b60d1f9837e56e8a743297e72134bef\transformed\play-services-basement-18.3.0\AndroidManifest.xml:21:9-23:69
+131            android:name="com.google.android.gms.version"
+131-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\muc01\.gradle\caches\transforms-3\4b60d1f9837e56e8a743297e72134bef\transformed\play-services-basement-18.3.0\AndroidManifest.xml:22:13-58
+132            android:value="@integer/google_play_services_version" />
+132-->[com.google.android.gms:play-services-basement:18.3.0] C:\Users\muc01\.gradle\caches\transforms-3\4b60d1f9837e56e8a743297e72134bef\transformed\play-services-basement-18.3.0\AndroidManifest.xml:23:13-66
+133
+134        <provider
+134-->[com.squareup.picasso:picasso:2.71828] C:\Users\muc01\.gradle\caches\transforms-3\d424de5bdafb211ded17743f8d61d639\transformed\picasso-2.71828\AndroidManifest.xml:8:9-11:40
+135            android:name="com.squareup.picasso.PicassoProvider"
+135-->[com.squareup.picasso:picasso:2.71828] C:\Users\muc01\.gradle\caches\transforms-3\d424de5bdafb211ded17743f8d61d639\transformed\picasso-2.71828\AndroidManifest.xml:9:13-64
+136            android:authorities="com.httt1.vietnamtravel.com.squareup.picasso"
+136-->[com.squareup.picasso:picasso:2.71828] C:\Users\muc01\.gradle\caches\transforms-3\d424de5bdafb211ded17743f8d61d639\transformed\picasso-2.71828\AndroidManifest.xml:10:13-72
+137            android:exported="false" />
+137-->[com.squareup.picasso:picasso:2.71828] C:\Users\muc01\.gradle\caches\transforms-3\d424de5bdafb211ded17743f8d61d639\transformed\picasso-2.71828\AndroidManifest.xml:11:13-37
+138
+139        <receiver
+139-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\muc01\.gradle\caches\transforms-3\a3837080314eca1ea833b7f04b4d7602\transformed\profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+140            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+140-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\muc01\.gradle\caches\transforms-3\a3837080314eca1ea833b7f04b4d7602\transformed\profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+141            android:directBootAware="false"
+141-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\muc01\.gradle\caches\transforms-3\a3837080314eca1ea833b7f04b4d7602\transformed\profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+142            android:enabled="true"
+142-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\muc01\.gradle\caches\transforms-3\a3837080314eca1ea833b7f04b4d7602\transformed\profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+143            android:exported="true"
+143-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\muc01\.gradle\caches\transforms-3\a3837080314eca1ea833b7f04b4d7602\transformed\profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+144            android:permission="android.permission.DUMP" >
+144-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\muc01\.gradle\caches\transforms-3\a3837080314eca1ea833b7f04b4d7602\transformed\profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+145            <intent-filter>
+145-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\muc01\.gradle\caches\transforms-3\a3837080314eca1ea833b7f04b4d7602\transformed\profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+146                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+146-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\muc01\.gradle\caches\transforms-3\a3837080314eca1ea833b7f04b4d7602\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+146-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\muc01\.gradle\caches\transforms-3\a3837080314eca1ea833b7f04b4d7602\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+147            </intent-filter>
+148            <intent-filter>
+148-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\muc01\.gradle\caches\transforms-3\a3837080314eca1ea833b7f04b4d7602\transformed\profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+149                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+149-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\muc01\.gradle\caches\transforms-3\a3837080314eca1ea833b7f04b4d7602\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+149-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\muc01\.gradle\caches\transforms-3\a3837080314eca1ea833b7f04b4d7602\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+150            </intent-filter>
+151            <intent-filter>
+151-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\muc01\.gradle\caches\transforms-3\a3837080314eca1ea833b7f04b4d7602\transformed\profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+152                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+152-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\muc01\.gradle\caches\transforms-3\a3837080314eca1ea833b7f04b4d7602\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+152-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\muc01\.gradle\caches\transforms-3\a3837080314eca1ea833b7f04b4d7602\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+153            </intent-filter>
+154            <intent-filter>
+154-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\muc01\.gradle\caches\transforms-3\a3837080314eca1ea833b7f04b4d7602\transformed\profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+155                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+155-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\muc01\.gradle\caches\transforms-3\a3837080314eca1ea833b7f04b4d7602\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+155-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\muc01\.gradle\caches\transforms-3\a3837080314eca1ea833b7f04b4d7602\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+156            </intent-filter>
+157        </receiver>
+158    </application>
+159
+160</manifest>

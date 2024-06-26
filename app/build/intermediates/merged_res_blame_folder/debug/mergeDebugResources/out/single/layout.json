@@ -1,0 +1,138 @@
+[
+    {
+        "merged": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-mergeDebugResources-35:\\layout\\activity_regis.xml",
+        "source": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-main-38:\\layout\\activity_regis.xml"
+    },
+    {
+        "merged": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-mergeDebugResources-35:\\layout\\activity_book_tour.xml",
+        "source": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-main-38:\\layout\\activity_book_tour.xml"
+    },
+    {
+        "merged": "com.httt1.vietnamtravel.app-mergeDebugResources-35:/layout/fragment_unrated.xml",
+        "source": "com.httt1.vietnamtravel.app-main-38:/layout/fragment_unrated.xml"
+    },
+    {
+        "merged": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-mergeDebugResources-35:\\layout\\fragment_account_dia_log_date.xml",
+        "source": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-main-38:\\layout\\fragment_account_dia_log_date.xml"
+    },
+    {
+        "merged": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-mergeDebugResources-35:\\layout\\fragment_favorite.xml",
+        "source": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-main-38:\\layout\\fragment_favorite.xml"
+    },
+    {
+        "merged": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-mergeDebugResources-35:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-main-38:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "com.httt1.vietnamtravel.app-mergeDebugResources-35:/layout/activity_feedback.xml",
+        "source": "com.httt1.vietnamtravel.app-main-38:/layout/activity_feedback.xml"
+    },
+    {
+        "merged": "com.httt1.vietnamtravel.app-mergeDebugResources-35:/layout/item_rated.xml",
+        "source": "com.httt1.vietnamtravel.app-main-38:/layout/item_rated.xml"
+    },
+    {
+        "merged": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-mergeDebugResources-35:\\layout\\fragment_account_dia_log_email.xml",
+        "source": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-main-38:\\layout\\fragment_account_dia_log_email.xml"
+    },
+    {
+        "merged": "com.httt1.vietnamtravel.app-mergeDebugResources-35:/layout/item_feedback.xml",
+        "source": "com.httt1.vietnamtravel.app-main-38:/layout/item_feedback.xml"
+    },
+    {
+        "merged": "com.httt1.vietnamtravel.app-mergeDebugResources-35:/layout/item_unrated.xml",
+        "source": "com.httt1.vietnamtravel.app-main-38:/layout/item_unrated.xml"
+    },
+    {
+        "merged": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-mergeDebugResources-35:\\layout\\fragment_recommend.xml",
+        "source": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-main-38:\\layout\\fragment_recommend.xml"
+    },
+    {
+        "merged": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-mergeDebugResources-35:\\layout\\activity_account.xml",
+        "source": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-main-38:\\layout\\activity_account.xml"
+    },
+    {
+        "merged": "com.httt1.vietnamtravel.app-mergeDebugResources-35:/layout/item_image_feedback.xml",
+        "source": "com.httt1.vietnamtravel.app-main-38:/layout/item_image_feedback.xml"
+    },
+    {
+        "merged": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-mergeDebugResources-35:\\layout\\item_combo.xml",
+        "source": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-main-38:\\layout\\item_combo.xml"
+    },
+    {
+        "merged": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-mergeDebugResources-35:\\layout\\activity_replace_pass.xml",
+        "source": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-main-38:\\layout\\activity_replace_pass.xml"
+    },
+    {
+        "merged": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-mergeDebugResources-35:\\layout\\item_my_voucher.xml",
+        "source": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-main-38:\\layout\\item_my_voucher.xml"
+    },
+    {
+        "merged": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-mergeDebugResources-35:\\layout\\fragment_account_dia_log_name.xml",
+        "source": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-main-38:\\layout\\fragment_account_dia_log_name.xml"
+    },
+    {
+        "merged": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-mergeDebugResources-35:\\layout\\fragment_not_missed.xml",
+        "source": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-main-38:\\layout\\fragment_not_missed.xml"
+    },
+    {
+        "merged": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-mergeDebugResources-35:\\layout\\item_tour.xml",
+        "source": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-main-38:\\layout\\item_tour.xml"
+    },
+    {
+        "merged": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-mergeDebugResources-35:\\layout\\fragment_setting.xml",
+        "source": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-main-38:\\layout\\fragment_setting.xml"
+    },
+    {
+        "merged": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-mergeDebugResources-35:\\layout\\item_image.xml",
+        "source": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-main-38:\\layout\\item_image.xml"
+    },
+    {
+        "merged": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-mergeDebugResources-35:\\layout\\activity_all_tour.xml",
+        "source": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-main-38:\\layout\\activity_all_tour.xml"
+    },
+    {
+        "merged": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-mergeDebugResources-35:\\layout\\fragment_home.xml",
+        "source": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-main-38:\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-mergeDebugResources-35:\\layout\\activity_my_voucher.xml",
+        "source": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-main-38:\\layout\\activity_my_voucher.xml"
+    },
+    {
+        "merged": "com.httt1.vietnamtravel.app-mergeDebugResources-35:/layout/fragment_history.xml",
+        "source": "com.httt1.vietnamtravel.app-main-38:/layout/fragment_history.xml"
+    },
+    {
+        "merged": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-mergeDebugResources-35:\\layout\\item_discover.xml",
+        "source": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-main-38:\\layout\\item_discover.xml"
+    },
+    {
+        "merged": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-mergeDebugResources-35:\\layout\\fragment_tab_favorite.xml",
+        "source": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-main-38:\\layout\\fragment_tab_favorite.xml"
+    },
+    {
+        "merged": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-mergeDebugResources-35:\\layout\\activity_detail_tour.xml",
+        "source": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-main-38:\\layout\\activity_detail_tour.xml"
+    },
+    {
+        "merged": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-mergeDebugResources-35:\\layout\\fragment_account_dia_log_phone.xml",
+        "source": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-main-38:\\layout\\fragment_account_dia_log_phone.xml"
+    },
+    {
+        "merged": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-mergeDebugResources-35:\\layout\\activity_login.xml",
+        "source": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-main-38:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-mergeDebugResources-35:\\layout\\item_voucher.xml",
+        "source": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-main-38:\\layout\\item_voucher.xml"
+    },
+    {
+        "merged": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-mergeDebugResources-35:\\layout\\fragment_log_out.xml",
+        "source": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-main-38:\\layout\\fragment_log_out.xml"
+    },
+    {
+        "merged": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-mergeDebugResources-35:\\layout\\fragment_account_dia_log_address.xml",
+        "source": "C:\\Users\\muc01\\.gradle\\daemon\\8.4\\com.httt1.vietnamtravel.app-main-38:\\layout\\fragment_account_dia_log_address.xml"
+    }
+]
