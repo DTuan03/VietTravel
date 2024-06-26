@@ -24,7 +24,6 @@ import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
-import com.httt1.vietnamtravel.DetailTour.view.DetailTourActivity;
 import com.httt1.vietnamtravel.R;
 import com.httt1.vietnamtravel.common.utils.SharedPrefsHelper;
 import com.httt1.vietnamtravel.home.adapter.ComboAdapter;
@@ -98,13 +97,13 @@ public class HomeFragment extends Fragment implements HomeContract.View {
 
         setStatusBar(view);
 
-        tvSeeMore.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), AllTourActivity.class);
-                startActivity(intent);
-            }
-        });
+//        tvSeeMore.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getActivity(), AllTourActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
         return view;
     }
@@ -149,12 +148,12 @@ public class HomeFragment extends Fragment implements HomeContract.View {
         rcvCombo.setLayoutManager(linearLayoutManager);
         rcvCombo.setAdapter(comboAdapter);
 
-        comboAdapter.setOnItemClickListener((idTour, idUser) -> {
-            Intent intent = new Intent(getActivity(), DetailTourActivity.class);
-            intent.putExtra("idTour", idTour);
-            intent.putExtra("idUser", idUser);
-            startActivity(intent);
-        });
+//        comboAdapter.setOnItemClickListener((idTour, idUser) -> {
+//            Intent intent = new Intent(getActivity(), DetailTourActivity.class);
+//            intent.putExtra("idTour", idTour);
+//            intent.putExtra("idUser", idUser);
+//            startActivity(intent);
+//        });
 
         homePresenter.getDataCombo("CB", userId);
     }
