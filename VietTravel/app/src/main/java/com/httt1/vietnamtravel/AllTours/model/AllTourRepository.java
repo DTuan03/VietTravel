@@ -16,81 +16,11 @@ import java.util.concurrent.Executors;
 public class AllTourRepository {
     private final SQLServerDataSource sqlServerDataSource;
     private final ExecutorService executorService;
-//    private final List<TourModel> favoriteTours;
 
     public AllTourRepository() {
         this.sqlServerDataSource = new SQLServerDataSource();
         this.executorService = Executors.newSingleThreadExecutor();
-//        this.favoriteTours = new ArrayList<>();
     }
-
-    public AllTourRepository(SQLServerDataSource sqlServerDataSource) {
-        this.sqlServerDataSource = sqlServerDataSource;
-        this.executorService = Executors.newSingleThreadExecutor();
-//        this.favoriteTours = new ArrayList<>();
-    }
-
-
-//    public void removeFavorite(int userId, String tourId) {
-//        executorService.execute(() -> {
-//            synchronized (favoriteTours) {
-//                // Tìm tour có tourId trong danh sách favoriteTours
-//                Optional<TourModel> optionalTour = favoriteTours.stream()
-//                        .filter(tour -> tour.getTourId().equals(tourId))
-//                        .findFirst();
-//
-//                if (optionalTour.isPresent()) {
-//                    TourModel tour = optionalTour.get();
-//                    tour.setIsFavorite(false); // Đánh dấu tour là không yêu thích trước khi xóa
-//                    favoriteTours.removeIf(t -> t.getTourId().equals(tourId)); // Xóa tour khỏi danh sách favoriteTours
-//
-//                    // Thực hiện xóa tour từ cơ sở dữ liệu
-//                    String query = "DELETE FROM favtour WHERE UserId = ? AND TourId = ?";
-//                    try (Connection connection = sqlServerDataSource.getConnection();
-//                         PreparedStatement statement = connection.prepareStatement(query)) {
-//                        statement.setInt(1, userId);
-//                        statement.setString(2, tourId);
-//                        int rowsAffected = statement.executeUpdate();
-//                        if (rowsAffected <= 0) {
-//                            // Nếu không xóa được từ cơ sở dữ liệu, thêm lại tour vào danh sách favoriteTours
-//                            favoriteTours.add(tour);
-//                            tour.setIsFavorite(true); // Đánh dấu lại tour là yêu thích
-//                        }
-//                    } catch (SQLException e) {
-//                        e.printStackTrace();
-//                        // Nếu xảy ra lỗi, thêm lại tour vào danh sách favoriteTours và đánh dấu lại là yêu thích
-//                        favoriteTours.add(tour);
-//                        tour.setIsFavorite(true);
-//                    }
-//                }
-//            }
-//        });
-//    }
-
-
-//    public void addFavorite(int userId, TourModel tour) {
-//        executorService.execute(() -> {
-//            synchronized (favoriteTours) {
-//                // Thực hiện thêm tour vào cơ sở dữ liệu
-//                String query = "INSERT INTO favtour (UserId, TourId, NameTour, PriceTour, ImgResource) VALUES (?, ?, ?, ?, ?)";
-//                try (Connection connection = sqlServerDataSource.getConnection();
-//                     PreparedStatement statement = connection.prepareStatement(query)) {
-//                    statement.setInt(1, userId);
-//                    statement.setString(2, tour.getTourId());
-//                    statement.setString(3, tour.getNameTour());
-//                    statement.setInt(4, tour.getPrice());
-//                    statement.setString(5, tour.getUrlImg());
-//                    int rowsAffected = statement.executeUpdate();
-//                    if (rowsAffected > 0) {
-//                        tour.setIsFavorite(true); // Đánh dấu tour là yêu thích
-//                        favoriteTours.add(tour); // Thêm vào danh sách yêu thích
-//                    }
-//                } catch (SQLException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
-//    }
 
 
     // Callback interfaces

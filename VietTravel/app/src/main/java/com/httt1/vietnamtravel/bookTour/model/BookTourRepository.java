@@ -1,11 +1,13 @@
 package com.httt1.vietnamtravel.bookTour.model;
 
 import com.httt1.vietnamtravel.common.database.SQLServerDataSource;
+import com.httt1.vietnamtravel.home.model.HomeModel;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
